@@ -1,5 +1,5 @@
 CREATE TABLE tapahtuma
-(t_id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY
+(t_id INTEGER NOT NULL AUTO_INCREMENT
 , t_nimi VARCHAR(255) not null
 , t_kuvaus varchar(500) not null
 , t_pvm date not null
