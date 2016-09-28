@@ -12,10 +12,10 @@
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="../resources/styles/css/materialize.min.css"  media="screen,projection"/>
-	  <!--Import MEIDÄN OMA CSS-->
-	  <link type="text/css" rel="stylesheet" href="../resources/styles/css/general.css"  media="screen,projection"/>
-
+      <link type="text/css" rel="stylesheet" href="<c:url value="../resources/styles/css/materialize.min.css" />"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="<c:url value="../resources/styles/css/materialize.css" />"  media="screen,projection"/>
+	  <!--Import MEIDÄN OMA CSS -->
+	  <link type="text/css" rel="stylesheet" href="<c:url value="/resources/styles/css/general.css" />"  media="screen,projection"/>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	  
@@ -54,12 +54,14 @@
 	
 	<h2>Rokkaavia harrastuksia <i class="material-icons">keyboard_arrow_down</i></h2>
 	</div>
+	
 	 <ul class="collapsible" data-collapsible="accordion">
+	 <c:forEach items="${tapahtumat}" var="tapahtuma">
     <li class="collection-item avatar">
       <img src="images/yuna.jpg" alt="" class="circle">
 	  <div class="collapsible-header hoverable">
-      <span class="title">Nokkahuilu</span>
-      <p><span class="material-icons">query_builder</span>Aika: 12:00 <span class="material-icons">place</span>Paikka: Haaga-Helia</p>
+      <span class="title">${tapahtuma.tNimi}</span>
+      <p><span class="material-icons">query_builder</span>Aika: ${tapahtuma.tAika}<span class="material-icons">place</span>Paikka: ${tapahtuma.tPaikka}</p>
 	  </div>
 	  <div class="collapsible-body">
 	  
@@ -73,19 +75,17 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">Tietoa minusta<i class="material-icons right">close</i></span>
-      <p>Hei! Olen Ella ja opiskelen Teatterikorkeakoulussa esiintymistä. Minulla on 15 vuoden kokemus näyttelijänä ja ensimmäinen esitykseni oli 6-vuotiaana.</p>
+      <p>Hei! Olen Ella ja opiskelen Teatterikorkeakoulussa esiintymistä. 
+      Minulla on 15 vuoden kokemus näyttelijänä ja ensimmäinen esitykseni oli 6-vuotiaana.</p>
     </div>
   </div>
 	  
 	  <p class="title">Lisätietoa</p>
-
-
-
-	  
+  
       <div class="row">
 	  
 	  	<div class="col l3">
-	  <p>NOKKAHUILUTUNTI ON ROCK!!!!!!!111!!</p>
+	  <p>${tapahtuma.tKuvaus } </p>
 	</div>
 	
 
@@ -114,127 +114,12 @@
 	  </div>
 	  
 	  <div class="divider"></div>
-	  <div id="hasat">
-	  <a>#huilu #blowjob</a>
-	  </div>
 	  </div>
     </li>
-          <li class="collection-item avatar">
-      <img src="images/yuna.jpg" alt="" class="circle">
-	  <div class="collapsible-header hoverable">
-      <span class="title">Esiintymistaito</span>
-      <p><span class="material-icons">query_builder</span>Aika: 12:00 <span class="material-icons">place</span>Paikka: Haaga-Helia</p>
-	  </div>
-	  <div class="collapsible-body">
-	  
-	  		   <div class="card small right">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/profile.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Ella Esiintyjä<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">Profiiliin</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Tietoa minusta<i class="material-icons right">close</i></span>
-      <p>Hei! Olen Ella ja opiskelen Teatterikorkeakoulussa esiintymistä. Minulla on 15 vuoden kokemus näyttelijänä ja ensimmäinen esitykseni oli 6-vuotiaana.</p>
-    </div>
-  </div>
-	  
-	  <p class="title">Lisätietoa</p>
-
-
-
-	  
-      <div class="row">
-	  
-	  	<div class="col l3">
-	  <p>Tervetuloa parantamaan esiintymistaitoasi näyttelijägurun johdolla!</p>
-	</div>
-	
-
-	  
-	  <div class="col l12">
- 
-		<form action="https://goo.gl/forms/pSyntTNp9L8WVYEC3">
-		 <button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action">Osallistu
-		<i class="material-icons right">send</i>
-		</form>
-			  
-		</button>
-	  </div>
-	  </div>
-	  
-	  <div class="divider"></div>
-	  <div id="hasat">
-	  <a>#acting #salkkarit</a>
-	  </div>
-	  </div>
-    </li>
-	      <li class="collection-item avatar">
-      <img src="images/yuna.jpg" alt="" class="circle">
-	  <div class="collapsible-header hoverable">
-      <span class="title">Koripallo</span>
-      <p><span class="material-icons">query_builder</span>Aika: 12:00 <span class="material-icons">place</span>Paikka: Haaga-Helia</p>
-	  </div>
-	  <div class="collapsible-body">
-	  
-	  		   <div class="card small right">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/profile.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Ei-Ella Esiintyjä<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">Profiiliin</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Tietoa minusta<i class="material-icons right">close</i></span>
-      <p>Hei! Olen Ella ja opiskelen Teatterikorkeakoulussa esiintymistä. Minulla on 15 vuoden kokemus näyttelijänä ja ensimmäinen esitykseni oli 6-vuotiaana.</p>
-    </div>
-  </div>
-	  
-	  <p class="title">Lisätietoa</p>
-
-
-
-	  
-      <div class="row">
-	  
-	  	<div class="col l3">
-	  <p>KORIPALLO ON ROCK!!!!!!!111!!</p>
-	</div>
-	
-
-	  
-	  <div class="col l12">
-        <div class="input-field col md3">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Nimi</label>
-        </div>
-	   <div class="input-field col md3">
-	      <i class="material-icons prefix">email</i>
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-		<div class="input-field col md3">
-	      <i class="material-icons prefix">phone</i>
-          <input id="phone" type="tel" class="validate">
-          <label for="Puhelin">Puhelin</label>
-        </div>
-			
-			   <button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action">Osallistu
-		<i class="material-icons right">send</i>
-		</button>
-	  </div>
-	  </div>
-	  
-	  <div class="divider"></div>
-	  <div id="hasat">
-	  <a>#NBA #Bball</a>
-	  </div>
-	  </div>
-    </li>
+    
+    </c:forEach>
+    
+    
   </ul>
 	
 	
@@ -246,8 +131,8 @@
 	  </div>
       <!--Import jQuery before materialize.js AINA LOPPUUN!!!!!!!!!!!-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-	  	
+        <script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js" />"></script>
+	  	<script type="text/javascript" src="<c:url value="/resources/js/materialize.js" />"></script>
 		<script>
 		
   $('.button-collapse').sideNav({
