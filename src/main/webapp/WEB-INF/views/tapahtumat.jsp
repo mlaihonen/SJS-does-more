@@ -28,7 +28,7 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center"><img class="responsive-img" src="/resources/images/logo2_s.png" alt="logo" id="navlogo" /></a>
+      <a href="#!" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
         <li><a href="#">Etusivu</a></li>
@@ -61,13 +61,13 @@
       <img src="/resources/images/yuna.jpg" alt="" class="circle">
 	  <div class="collapsible-header hoverable">
       <span class="title">${tapahtuma.tNimi}</span>
-      <p><span class="material-icons">query_builder</span>Aika: ${tapahtuma.tAika}<span class="material-icons">place</span>Paikka: ${tapahtuma.tPaikka}</p>
+      <p><span class="material-icons">query_builder</span>Aika: ${tapahtuma.tAika}<span class="material-icons">today</span>Päivämäärä:[PVM TÄSSÄ]<span class="material-icons">place</span>Paikka: ${tapahtuma.tPaikka}</p>
 	  </div>
 	  <div class="collapsible-body">
 	  
 	  		   <div class="card small right">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="/resources/images/profile.jpg">
+      <img class="activator" src="<c:url value="/resources/images/profile.jpg" />" style="width:240px">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Ei-Ella Esiintyjä<i class="material-icons right">more_vert</i></span>
@@ -144,19 +144,6 @@
   //$('.collapsible').collapsible();
 	</script>
 	
-	<script>
-function postContactToGoogle() {
-var tapahtuma=$('#tapahtuma').val();
-var nimi=$('#nimi').val();
-var email=$('#email').val();
-var puhelin=$('#puhelin').val();
-
-$.ajax({
-url:"https://docs.google.com/forms/d/e/1FAIpQLSeAgHpQGSmmrLcBY5uJMVF0ybkeHfO2Yo7dD9Oyl-HrewztEw/formResponse",data:{"entry_1660283078":tapahtuma,"entry_1007105817":nimi,"entry_946893283":email,"entry_536095548":puhelin},type:"POST",dataType:"xml",statusCode: {0:function() {window.location.replace("kiitos.html");},200;function(){window.location.replace("kiitos.html");}}
-});
-}
-
-	</script>
 	
     </body>
   </html>
