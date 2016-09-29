@@ -12,8 +12,8 @@
       <!--Import Google Icon Font-->
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="<c:url value="../resources/styles/css/materialize.min.css" />"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="<c:url value="../resources/styles/css/materialize.css" />"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="<c:url value="/resources/styles/css/materialize.min.css" />"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="<c:url value="/resouces/styles/css/materialize.css" />"  media="screen,projection"/>
 	  <!--Import MEIDÄN OMA CSS -->
 	  <link type="text/css" rel="stylesheet" href="<c:url value="/resources/styles/css/general.css" />"  media="screen,projection"/>
       <!--Let browser know website is optimized for mobile-->
@@ -28,7 +28,7 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center"><img class="responsive-img" src="images/logo2_s.png" alt="logo" id="navlogo" /></a>
+      <a href="#!" class="brand-logo center"><img class="responsive-img" src="/resources/images/logo2_s.png" alt="logo" id="navlogo" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
         <li><a href="#">Etusivu</a></li>
@@ -58,7 +58,7 @@
 	 <ul class="collapsible" data-collapsible="accordion">
 	 <c:forEach items="${tapahtumat}" var="tapahtuma">
     <li class="collection-item avatar">
-      <img src="images/yuna.jpg" alt="" class="circle">
+      <img src="/resources/images/yuna.jpg" alt="" class="circle">
 	  <div class="collapsible-header hoverable">
       <span class="title">${tapahtuma.tNimi}</span>
       <p><span class="material-icons">query_builder</span>Aika: ${tapahtuma.tAika}<span class="material-icons">place</span>Paikka: ${tapahtuma.tPaikka}</p>
@@ -67,7 +67,7 @@
 	  
 	  		   <div class="card small right">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/profile.jpg">
+      <img class="activator" src="/resources/images/profile.jpg">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Ei-Ella Esiintyjä<i class="material-icons right">more_vert</i></span>
