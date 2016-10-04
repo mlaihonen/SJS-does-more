@@ -1,5 +1,7 @@
 package fi.sjs.domore.bean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Tapahtuma {
@@ -18,6 +20,7 @@ public class Tapahtuma {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public Tapahtuma(int id, String nimi, String kuvaus, Date pvm, Date aika,
 			String paikka) {
 		super();
@@ -28,42 +31,71 @@ public class Tapahtuma {
 		this.aika = aika;
 		this.paikka = paikka;
 	}
+	
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getNimi() {
 		return nimi;
 	}
+	
 	public void setNimi(String nimi) {
 		this.nimi = nimi;
 	}
+	
 	public String getKuvaus() {
 		return kuvaus;
 	}
+	
 	public void setKuvaus(String kuvaus) {
 		this.kuvaus = kuvaus;
 	}
+	
 	public Date getPvm() {
+		Date date = new Date();
+		SimpleDateFormat fpvm = new SimpleDateFormat("dd.MM.yyyy");
+		String strPvm = fpvm.format(date);
+		try {
+			pvm = fpvm.parse(strPvm);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return pvm;
 	}
+	
 	public void setPvm(Date pvm) {
 		this.pvm = pvm;
 	}
 	public Date getAika() {
+		Date time = new Date();
+		SimpleDateFormat faika = new SimpleDateFormat("HH:mm");
+		String strAika = faika.format(time);
+		try {
+			aika = faika.parse(strAika);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return aika;
 	}
 	public void setAika(Date aika) {
 		this.aika = aika;
 	}
+	
 	public String getPaikka() {
 		return paikka;
 	}
+	
 	public void setPaikka(String paikka) {
 		this.paikka = paikka;
 	}
+	
 	@Override
 	public String toString() {
 		return "Tapahtuma [id=" + id + ", nimi=" + nimi + ", kuvaus=" + kuvaus

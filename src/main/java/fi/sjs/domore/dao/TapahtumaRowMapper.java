@@ -14,8 +14,8 @@ public class TapahtumaRowMapper implements RowMapper<Tapahtuma>{
 		t.setId(rs.getInt("t_id"));
 		t.setNimi(rs.getString("t_nimi"));
 		t.setKuvaus(rs.getString("t_kuvaus"));
-		//t.setPvm(rs.getDate("t_pvm"));
-		//t.setAika(rs.getDate("t_aika"));
+		t.setPvm(rs.getDate("t_pvm"));
+		t.setAika(rs.getDate("t_aika"));
 		t.setPaikka(rs.getString("t_paikka"));
 		
 		return t;
