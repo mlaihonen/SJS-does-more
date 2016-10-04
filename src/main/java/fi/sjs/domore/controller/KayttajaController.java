@@ -11,13 +11,13 @@ import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.dao.KayttajaDAO;
 
 @Controller
-@RequestMapping (value="/form")
+@RequestMapping (value="/")
 public class KayttajaController {
 	@Inject
 	private KayttajaDAO dao;
 	
 		//FORMIN TIETOJEN VASTAANOTTO
-		@RequestMapping(value="uusi", method=RequestMethod.POST)
+		@RequestMapping(value="/", method=RequestMethod.POST)
 		public String create( @ModelAttribute(value="kayttaja") Kayttaja kayttaja) {
 			dao.lisaaUusi(kayttaja);
 			return "redirect:/onnistui/" + kayttaja.getId(); 

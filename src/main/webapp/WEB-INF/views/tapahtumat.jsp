@@ -88,27 +88,36 @@
 	</div>
 	
 
-	  
-	  <div class="col l12">
-        <div class="input-field col md3">
+	  <form:form modelAttribute="kayttaja" method="post">
+	  <fieldset>
+	  <div class="col l2">
+        <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Nimi</label>
+          <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/>
+          <form:label path="etunimi" for="icon_prefix">Etunimi</form:label>
+        </div>
+        <div class="input-field col sm2">
+          <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/>
+          <form:label path="etunimi" for="icon_prefix">Sukunimi</form:label>
         </div>
 	   <div class="input-field col md3">
 	      <i class="material-icons prefix">email</i>
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
+          <form:input path="sposti" id="email" type="email" class="validate"/>
+          <form:label path="sposti" for="email">Email</form:label>
         </div>
 		<div class="input-field col md3">
 	      <i class="material-icons prefix">phone</i>
-          <input id="phone" type="tel" class="validate">
-          <label for="Puhelin">Puhelin</label>
+          <form:input path="puh" id="phone" type="tel" class="validate"/>
+          <form:label path="puh" for="Puhelin">Puhelin</form:label>
         </div>
-
-			   <button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action">Osallistu
+		<div class="input-field col md3">
+		<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action">Osallistu
 		<i class="material-icons right">send</i>
 		</button>
+		</div>
+		</div>
+		</fieldset>
+		</form:form>
 	  </div>
 	  </div>
 	  
