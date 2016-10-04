@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import fi.sjs.domore.bean.Tapahtuma;
 
 @Repository
-public class TapahtumaDAOSpringJdbcImpl {
+public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 	
 	@Inject
 	private JdbcTemplate jdbcTemplate;
