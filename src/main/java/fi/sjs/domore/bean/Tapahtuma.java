@@ -50,6 +50,7 @@ public class Tapahtuma {
 		return tPvm;
 	}
 	public void settPvm(Date tPvm) {
+
 		this.tPvm = tPvm;
 	}
 	public Date gettAika() {
