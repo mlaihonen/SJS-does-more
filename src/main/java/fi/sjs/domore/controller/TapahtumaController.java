@@ -21,14 +21,6 @@ public class TapahtumaController {
 	@Inject
 	private TapahtumaDAO dao;
 	
-	public TapahtumaDAO getDao() {
-		return dao;
-	}
-
-	public void setDao(TapahtumaDAO dao) {
-		this.dao = dao;
-	}
-	
 	//Listaa kaikki tapahtumat
 		@RequestMapping(value="/", method=RequestMethod.GET)
 		public String getList(Model model) {
