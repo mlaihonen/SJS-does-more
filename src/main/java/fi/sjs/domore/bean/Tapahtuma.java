@@ -4,72 +4,71 @@ import java.util.Date;
 
 public class Tapahtuma {
 	
-	private int tId;
-	private String tNimi;
-	private String tKuvaus;
-	private Date tPvm;
-	private Date tAika;
-	private String tPaikka;
-	//private int tOsallistujalkm;
-	//private int tJarjestajaId;
-	//private String tKategoria;
+	private int id;
+	private String nimi;
+	private String kuvaus;
+	private Date pvm;
+	private Date aika;
+	private String paikka;
+	//private int osallistujalkm;
+	//private int jarjestajaId;
+	//private String kategoria;
 	
 	public Tapahtuma() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Tapahtuma(int tId, String tNimi, String tKuvaus, Date tPvm,
-			Date tAika, String tPaikka) {
+	public Tapahtuma(int id, String nimi, String kuvaus, Date pvm, Date aika,
+			String paikka) {
 		super();
-		this.tId = tId;
-		this.tNimi = tNimi;
-		this.tKuvaus = tKuvaus;
-		this.tPvm = tPvm;
-		this.tAika = tAika;
-		this.tPaikka = tPaikka;
+		this.id = id;
+		this.nimi = nimi;
+		this.kuvaus = kuvaus;
+		this.pvm = pvm;
+		this.aika = aika;
+		this.paikka = paikka;
 	}
-	public int gettId() {
-		return tId;
+	public int getId() {
+		return id;
 	}
-	public void settId(int tId) {
-		this.tId = tId;
+	public void setId(int id) {
+		this.id = id;
 	}
-	public String gettNimi() {
-		return tNimi;
+	public String getNimi() {
+		return nimi;
 	}
-	public void settNimi(String tNimi) {
-		this.tNimi = tNimi;
+	public void setNimi(String nimi) {
+		this.nimi = nimi;
 	}
-	public String gettKuvaus() {
-		return tKuvaus;
+	public String getKuvaus() {
+		return kuvaus;
 	}
-	public void settKuvaus(String tKuvaus) {
-		this.tKuvaus = tKuvaus;
+	public void setKuvaus(String kuvaus) {
+		this.kuvaus = kuvaus;
 	}
-	public Date gettPvm() {
-		return tPvm;
+	public Date getPvm() {
+		return pvm;
 	}
-	public void settPvm(Date tPvm) {
-
-		this.tPvm = tPvm;
+	public void setPvm(Date pvm) {
+		this.pvm = pvm;
 	}
-	public Date gettAika() {
-		return tAika;
+	public Date getAika() {
+		return aika;
 	}
-	public void settAika(Date tAika) {
-		this.tAika = tAika;
+	public void setAika(Date aika) {
+		this.aika = aika;
 	}
-	public String gettPaikka() {
-		return tPaikka;
+	public String getPaikka() {
+		return paikka;
 	}
-	public void settPaikka(String tPaikka) {
-		this.tPaikka = tPaikka;
+	public void setPaikka(String paikka) {
+		this.paikka = paikka;
 	}
 	@Override
 	public String toString() {
-		return "Tapahtuma [tId=" + tId + ", tNimi=" + tNimi + ", tKuvaus="
-				+ tKuvaus + ", tPvm=" + tPvm + ", tAika=" + tAika
-				+ ", tPaikka=" + tPaikka + "]";
+		return "Tapahtuma [id=" + id + ", nimi=" + nimi + ", kuvaus=" + kuvaus
+				+ ", pvm=" + pvm + ", aika=" + aika + ", paikka=" + paikka
+				+ "]";
 	}
-	
+		
 }
