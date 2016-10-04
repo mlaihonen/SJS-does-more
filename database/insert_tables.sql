@@ -13,3 +13,19 @@ INSERT INTO tapahtuma (t_nimi, t_kuvaus, t_pvm, t_aika, t_paikka) VALUES
 , '18:00'
 , 'Haaga-Helia'
 );
+
+INSERT INTO kayttaja (k_etunimi, k_sukunimi, k_ika, k_kuvaus, k_sposti, k_puh) VALUES
+( 'Timo'
+, 'Testaaja'
+, 69
+, 'Hei, Olen testaaja'
+, 'timo.testaaja@clubpenguin.com'
+, '040123123'
+);
+
+INSERT INTO tapahtumaosallistuja (k_id, t_id) VALUES
+( 1
+, 1
+);
+
+
