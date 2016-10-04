@@ -61,7 +61,7 @@
       <img src="/resources/images/yuna.jpg" alt="" class="circle">
 	  <div class="collapsible-header hoverable">
       <span class="title">${tapahtuma.nimi}</span>
-      <p><span class="material-icons">query_builder</span>Aika: ${tapahtuma.aika}<span class="material-icons">today</span>Päivämäärä:[PVM TÄSSÄ]<span class="material-icons">place</span>Paikka: ${tapahtuma.tPaikka}</p>
+      <p><span class="material-icons">query_builder</span>Aika: ${tapahtuma.aika}<span class="material-icons">today</span>Päivämäärä:[PVM TÄSSÄ]<span class="material-icons">place</span>Paikka: ${tapahtuma.paikka}</p>
 	  </div>
 	  <div class="collapsible-body">
 	  
