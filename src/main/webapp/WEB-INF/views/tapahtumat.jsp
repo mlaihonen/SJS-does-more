@@ -28,7 +28,7 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center"><img class="responsive-img" src="/resources/images/logo2_s.png" alt="logo" id="navlogo" /></a>
+      <a href="#!" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
         <li><a href="#">Etusivu</a></li>
@@ -58,16 +58,15 @@
 	 <ul class="collapsible" data-collapsible="accordion">
 	 <c:forEach items="${tapahtumat}" var="tapahtuma">
     <li class="collection-item avatar">
-      <img src="/resources/images/yuna.jpg" alt="" class="circle">
 	  <div class="collapsible-header hoverable">
-      <span class="title">${tapahtuma.tNimi}</span>
-      <p><span class="material-icons">query_builder</span>Aika: ${tapahtuma.tAika}<span class="material-icons">place</span>Paikka: ${tapahtuma.tPaikka}</p>
+      <span class="title">${tapahtuma.nimi}</span>
+      <p><span class="material-icons">query_builder</span>Aika: ${tapahtuma.aika}<span class="material-icons">today</span>Päivämäärä:[PVM TÄSSÄ]<span class="material-icons">place</span>Paikka: ${tapahtuma.paikka}</p>
 	  </div>
 	  <div class="collapsible-body">
 	  
 	  		   <div class="card small right">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="/resources/images/profile.jpg">
+      <img class="activator" src="<c:url value="/resources/images/profile.jpg" />" style="width:240px">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Ei-Ella Esiintyjä<i class="material-icons right">more_vert</i></span>
@@ -85,31 +84,40 @@
       <div class="row">
 	  
 	  	<div class="col l3">
-	  <p>${tapahtuma.tKuvaus } </p>
+	  <p>${tapahtuma.kuvaus } </p>
 	</div>
 	
 
-	  
-	  <div class="col l12">
-        <div class="input-field col md3">
+	  <form:form modelAttribute="kayttaja" method="post">
+	  <fieldset>
+	  <div class="col l2">
+        <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">Nimi</label>
+          <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/>
+          <form:label path="etunimi" for="icon_prefix">Etunimi</form:label>
+        </div>
+        <div class="input-field col sm2">
+          <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/>
+          <form:label path="etunimi" for="icon_prefix">Sukunimi</form:label>
         </div>
 	   <div class="input-field col md3">
 	      <i class="material-icons prefix">email</i>
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
+          <form:input path="sposti" id="email" type="email" class="validate"/>
+          <form:label path="sposti" for="email">Email</form:label>
         </div>
 		<div class="input-field col md3">
 	      <i class="material-icons prefix">phone</i>
-          <input id="phone" type="tel" class="validate">
-          <label for="Puhelin">Puhelin</label>
+          <form:input path="puh" id="phone" type="tel" class="validate"/>
+          <form:label path="puh" for="Puhelin">Puhelin</form:label>
         </div>
-
-			   <button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action">Osallistu
+		<div class="input-field col md3">
+		<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action">Osallistu
 		<i class="material-icons right">send</i>
 		</button>
+		</div>
+		</div>
+		</fieldset>
+		</form:form>
 	  </div>
 	  </div>
 	  
@@ -144,19 +152,6 @@
   //$('.collapsible').collapsible();
 	</script>
 	
-	<script>
-function postContactToGoogle() {
-var tapahtuma=$('#tapahtuma').val();
-var nimi=$('#nimi').val();
-var email=$('#email').val();
-var puhelin=$('#puhelin').val();
-
-$.ajax({
-url:"https://docs.google.com/forms/d/e/1FAIpQLSeAgHpQGSmmrLcBY5uJMVF0ybkeHfO2Yo7dD9Oyl-HrewztEw/formResponse",data:{"entry_1660283078":tapahtuma,"entry_1007105817":nimi,"entry_946893283":email,"entry_536095548":puhelin},type:"POST",dataType:"xml",statusCode: {0:function() {window.location.replace("kiitos.html");},200;function(){window.location.replace("kiitos.html");}}
-});
-}
-
-	</script>
 	
     </body>
   </html>
