@@ -86,7 +86,6 @@
 	  	<div class="col l3">
 	  <p>${tapahtuma.kuvaus } </p>
 	</div>
-	
 
 	  <form:form modelAttribute="kayttaja" method="post">
 	  <fieldset>
