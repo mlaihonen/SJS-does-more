@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.Tapahtuma;
 import fi.sjs.domore.dao.TapahtumaDAO;
 
@@ -26,6 +27,8 @@ public class TapahtumaController {
 		public String getList(Model model) {
 			List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(dao.haeKaikki());
 			model.addAttribute("tapahtumat", tapahtumat);
+			model.addAttribute("kayttaja", new Kayttaja());
+
 			return "tapahtumat";
 		}
 }

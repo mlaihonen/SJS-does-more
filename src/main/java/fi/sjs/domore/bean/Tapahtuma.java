@@ -73,13 +73,13 @@ public class Tapahtuma {
 		this.pvm = pvm;
 	}
 	public Date getAika() {
-		Date time = new Date();
-		SimpleDateFormat faika = new SimpleDateFormat("HH:mm");
-		String strAika = faika.format(time);
+		SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+		String strAika = df.format(aika);
 		try {
-			aika = faika.parse(strAika);
+			aika = df.parse(strAika);
+			System.out.println(aika);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			System.out.println("getAika virhe");
 			e.printStackTrace();
 		}
 		return aika;
