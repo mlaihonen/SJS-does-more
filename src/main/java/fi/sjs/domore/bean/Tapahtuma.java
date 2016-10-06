@@ -1,7 +1,5 @@
 package fi.sjs.domore.bean;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Tapahtuma {
@@ -57,15 +55,6 @@ public class Tapahtuma {
 	}
 	
 	public Date getPvm() {
-		SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
-		String strPvm = df.format(pvm);
-		try {
-			pvm = df.parse(strPvm);
-			System.out.println(pvm);
-		} catch (ParseException e) {
-			System.out.println("getPvm meni vikaan.");
-			e.printStackTrace();
-		}
 		return pvm;
 	}
 	
@@ -73,15 +62,6 @@ public class Tapahtuma {
 		this.pvm = pvm;
 	}
 	public Date getAika() {
-		SimpleDateFormat df = new SimpleDateFormat("HH:mm");
-		String strAika = df.format(aika);
-		try {
-			aika = df.parse(strAika);
-			System.out.println(aika);
-		} catch (ParseException e) {
-			System.out.println("getAika virhe");
-			e.printStackTrace();
-		}
 		return aika;
 	}
 	public void setAika(Date aika) {
