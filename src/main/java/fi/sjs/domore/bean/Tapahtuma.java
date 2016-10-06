@@ -57,13 +57,13 @@ public class Tapahtuma {
 	}
 	
 	public Date getPvm() {
-		Date date = new Date();
-		SimpleDateFormat fpvm = new SimpleDateFormat("dd.MM.yyyy");
-		String strPvm = fpvm.format(date);
+		SimpleDateFormat df = new SimpleDateFormat("dd.MM.yyyy");
+		String strPvm = df.format(pvm);
 		try {
-			pvm = fpvm.parse(strPvm);
+			pvm = df.parse(strPvm);
+			System.out.println(pvm);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
+			System.out.println("getPvm meni vikaan.");
 			e.printStackTrace();
 		}
 		return pvm;
