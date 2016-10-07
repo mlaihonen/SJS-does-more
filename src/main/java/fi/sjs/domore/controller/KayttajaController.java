@@ -17,18 +17,18 @@ public class KayttajaController {
 	@Inject
 	private KayttajaDAO dao;
 	
-		//FORMIN NÄYTTÄMINEN
-		@RequestMapping(value="/", method=RequestMethod.POST)
-		public String getCreateForm(Model model) {
-			Kayttaja kayttaja = new Kayttaja();
-			model.addAttribute("kayttaja", kayttaja);
-			return "tapahtumat"; 
-		}
-		
-//		//FORMIN TIETOJEN VASTAANOTTO
-//		@RequestMapping(value="/", method=RequestMethod.GET)
-//		public String create( @ModelAttribute(value="kayttaja") Kayttaja kayttaja) {
-//			dao.lisaaUusi(kayttaja);
-//			return "redirect:/onnistui/" + kayttaja.getId();
+//		//FORMIN NÄYTTÄMINEN
+//		@RequestMapping(value="/osallistu", method=RequestMethod.GET)
+//		public String getCreateForm(Model model) {
+//			Kayttaja kayttaja = new Kayttaja();
+//			model.addAttribute("kayttaja", kayttaja);
+//			return "tapahtumat"; 
 //		}
+		
+		//FORMIN TIETOJEN VASTAANOTTO
+		@RequestMapping(value="/osallistu", method=RequestMethod.POST)
+		public String create( @ModelAttribute(value="kayttaja") Kayttaja kayttaja) {
+			dao.lisaaUusi(kayttaja);
+			return "onnistui";
+		}
 }

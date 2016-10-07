@@ -27,7 +27,8 @@ public class TapahtumaController {
 		public String getList(Model model) {
 			List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(dao.haeKaikki());
 			model.addAttribute("tapahtumat", tapahtumat);
-
+			Kayttaja kayttaja = new Kayttaja();
+			model.addAttribute("kayttaja", kayttaja);
 			return "tapahtumat";
 		}
 		
