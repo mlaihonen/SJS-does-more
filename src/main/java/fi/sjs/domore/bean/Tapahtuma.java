@@ -2,12 +2,16 @@ package fi.sjs.domore.bean;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Tapahtuma {
 	
 	private int id;
 	private String nimi;
 	private String kuvaus;
+	@DateTimeFormat(pattern="dd.MM.yyyy")
 	private Date pvm;
+	@DateTimeFormat(pattern="HH:mm")
 	private Date aika;
 	private String paikka;
 	//private int osallistujalkm;
