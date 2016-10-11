@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.Tapahtuma;
+import fi.sjs.domore.dao.KayttajaDAO;
 import fi.sjs.domore.dao.TapahtumaDAO;
 
 
@@ -25,11 +26,14 @@ public class TapahtumaController {
 	@Inject
 	private TapahtumaDAO dao;
 	
+	@Inject
+	private KayttajaDAO kDao;
+	
 	//Listaa kaikki tapahtumat
 		@RequestMapping(value="/", method=RequestMethod.GET)
 		public String getList(Model model) {
 			List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(dao.haeKaikki());
-			
+			List<Kayttaja> osallistujat = new ArrayList<Kayttaja>(kDao.haeKaikki());
 			//Muokkaa pvmn ja ajan oikeaan muotoon
 			/*for(int i=0;i<tapahtumat.size();i++){
 				Date pvm = tapahtumat.get(i).getPvm();
@@ -61,8 +65,11 @@ public class TapahtumaController {
 			}*/
 			
 			model.addAttribute("tapahtumat", tapahtumat);
+			model.addAttribute("osallistujat", osallistujat);
+			//tyhjä käyttäjä osallistumisformia varten
 			Kayttaja kayttaja = new Kayttaja();
 			model.addAttribute("kayttaja", kayttaja);
+			
 			return "tapahtumat";
 		}
 		

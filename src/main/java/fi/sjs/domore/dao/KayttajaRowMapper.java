@@ -14,6 +14,7 @@ public class KayttajaRowMapper implements RowMapper<Kayttaja>{
 		k.setId(rs.getInt("k_id"));
 		k.setEtunimi(rs.getString("k_etunimi"));
 		k.setSukunimi(rs.getString("k_sukunimi"));
+		k.setKuvaus(rs.getString("k_kuvaus"));
 		k.setSposti(rs.getString("k_sposti"));
 		k.setPuh(rs.getString("k_puh"));
 		

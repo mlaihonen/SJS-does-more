@@ -3,16 +3,19 @@ package fi.sjs.domore.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import fi.sjs.domore.bean.Kayttaja;
+
 @Repository
 public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	
@@ -31,18 +34,16 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		
 		final String sql = "insert into kayttaja (k_etunimi, k_sukunimi, k_sposti, k_puh) VALUES (?,?,?,?)";
 
-		// anonyymi sisäluokka tarvitsee vakioina välitettävät arvot,
-		// jotta roskien keruu onnistuu tämän metodin suorituksen päättyessä.
+		// anonyymi sis�luokka tarvitsee vakioina v�litett�v�t arvot
 		final String etunimi = k.getEtunimi();
 		final String sukunimi = k.getSukunimi();
 		final String sposti = k.getSposti();
 		final String puh = k.getPuh();
 
-		// jdbc pistää generoidun id:n tänne talteen
+		// jdbc pist�� generoidun id:n talteen
 		KeyHolder idHolder = new GeneratedKeyHolder();
 
-		// suoritetaan päivitys itse määritellyllä PreparedStatementCreatorilla
-		// ja KeyHolderilla
+		//p�ivitys PreparedStatementCreatorilla ja KeyHolderilla
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			public PreparedStatement createPreparedStatement(
 					Connection connection) throws SQLException {
@@ -56,12 +57,19 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 			}
 		}, idHolder);
 
-		// tallennetaan id takaisin beaniin, koska
-		// kutsujalla pitäisi olla viittaus samaiseen olioon
+		// tallennetaan id takaisin beaniin
 		//mikko was here
 		k.setId(idHolder.getKey().intValue());
-
+	
+	}
+	
+public List<Kayttaja> haeKaikki() {
 		
+		String sql = "select k_id, k_etunimi, k_sukunimi, k_kuvaus, k_sposti, k_puh from kayttaja";
+		RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
+		List<Kayttaja> osallistujat = jdbcTemplate.query(sql,mapper);
+
+		return osallistujat;
 	}
 
 }
