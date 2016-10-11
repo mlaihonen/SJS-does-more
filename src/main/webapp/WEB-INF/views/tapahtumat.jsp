@@ -65,9 +65,13 @@
 	  </div>
 	  <div class="collapsible-body">
 	  
-	  		   <div class="card small right">
+	  	  <div class="col s6">
+	  <p class="title">Lisätietoa</p>
+	  </div>
+	  
+	  		   <div class="col s2 card small right">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="<c:url value="/resources/images/profile.jpg" />" style="width:240px">
+      <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">Ei-Ella Esiintyjä<i class="material-icons right">more_vert</i></span>
@@ -79,24 +83,25 @@
       Minulla on 15 vuoden kokemus näyttelijänä ja ensimmäinen esitykseni oli 6-vuotiaana.</p>
     </div>
   </div>
-	  
-	  <p class="title">Lisätietoa</p>
+
   
       <div class="row">
 	  
-	  	<div class="col l3">
+	  	<div class="col s10">
 	  <p>${tapahtuma.kuvaus } </p>
 	</div>
 
-	  <form:form modelAttribute="kayttaja" action="osallistu" method="post">
-	  <fieldset>
-	  <div class="col l2">
+	 
+	  <div class="col s12">
+	   <form:form modelAttribute="kayttaja" action="osallistu" method="post">
+	  	<fieldset>
         <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>
           <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/>
           <form:label path="etunimi" for="icon_prefix">Etunimi</form:label>
         </div>
         <div class="input-field col sm2">
+          <i class="material-icons prefix">account_circle</i>
           <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/>
           <form:label path="sukunimi" for="icon_prefix">Sukunimi</form:label>
         </div>
