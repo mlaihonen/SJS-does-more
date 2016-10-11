@@ -35,7 +35,7 @@ public class TapahtumaController {
 			List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(dao.haeKaikki());
 			List<Kayttaja> osallistujat = new ArrayList<Kayttaja>(kDao.haeKaikki());
 			//Muokkaa pvmn ja ajan oikeaan muotoon
-			/*for(int i=0;i<tapahtumat.size();i++){
+			for(int i=0;i<tapahtumat.size();i++){
 				Date pvm = tapahtumat.get(i).getPvm();
 				SimpleDateFormat dfPvm = new SimpleDateFormat("dd.MM.yyyy");
 				String strPvm = dfPvm.format(pvm);
@@ -62,7 +62,7 @@ public class TapahtumaController {
 				System.out.println(aika);
 				
 				tapahtumat.get(i).setAika(aika);
-			}*/
+			}
 			
 			model.addAttribute("tapahtumat", tapahtumat);
 			model.addAttribute("osallistujat", osallistujat);
