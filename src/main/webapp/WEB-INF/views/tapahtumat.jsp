@@ -60,7 +60,8 @@
     <li class="collection-item avatar">
 	  <div class="collapsible-header hoverable">
       <span class="title">${tapahtuma.nimi}</span>
-      <p><span class="material-icons">query_builder</span>Aika: <span class="material-icons">today</span>Päivämäärä: 
+      <p><span class="material-icons">query_builder</span>Aika:<fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
+      <span class="material-icons">today</span>Päivämäärä: <fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
       <span class="material-icons">place</span>Paikka: ${tapahtuma.paikka}</p>
 	  </div>
 	  <div class="collapsible-body">
