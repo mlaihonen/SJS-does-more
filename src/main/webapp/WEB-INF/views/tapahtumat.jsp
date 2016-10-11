@@ -74,8 +74,7 @@
       <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Ei-Ella Esiintyjä<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">Profiiliin</a></p>
+      <span class="card-title activator grey-text text-darken-3">Ei-Ella Esiintyjä</span>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">Tietoa minusta<i class="material-icons right">close</i></span>
