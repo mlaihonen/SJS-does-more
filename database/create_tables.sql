@@ -17,7 +17,6 @@ CREATE TABLE kayttaja
 (k_id INTEGER NOT NULL AUTO_INCREMENT
 , k_etunimi VARCHAR(50) not null
 , k_sukunimi varchar(50) not null
-, k_ika integer (3)
 , k_kuvaus varchar(500)
 , k_sposti varchar (30) not null
 , k_puh varchar (20)

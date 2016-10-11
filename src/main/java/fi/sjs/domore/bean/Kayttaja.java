@@ -27,10 +27,6 @@ public class Kayttaja {
 	@Size(min = 1, max = 50)
 	private String sukunimi;
 	
-	@Column(name="k_ika")
-	@Pattern(regexp = "\\d{1,3}")
-	private int ika;
-	
 	@Column(name="k_kuvaus")
 	@Size(min = 1, max = 500)
 	private String kuvaus;
@@ -50,13 +46,12 @@ public class Kayttaja {
 		
 	}
 
-	public Kayttaja(int id, String etunimi, String sukunimi, int ika,
+	public Kayttaja(int id, String etunimi, String sukunimi,
 			String kuvaus, String sposti, String puh) {
 		super();
 		this.id = id;
 		this.etunimi = etunimi;
 		this.sukunimi = sukunimi;
-		this.ika = ika;
 		this.kuvaus = kuvaus;
 		this.sposti = sposti;
 		this.puh = puh;
@@ -86,14 +81,6 @@ public class Kayttaja {
 		this.sukunimi = sukunimi;
 	}
 
-	public int getIka() {
-		return ika;
-	}
-
-	public void setIka(int ika) {
-		this.ika = ika;
-	}
-
 	public String getKuvaus() {
 		return kuvaus;
 	}
@@ -121,7 +108,7 @@ public class Kayttaja {
 	@Override
 	public String toString() {
 		return "Kayttaja [id=" + id + ", etunimi=" + etunimi + ", sukunimi="
-				+ sukunimi + ", ika=" + ika + ", kuvaus=" + kuvaus
+				+ sukunimi + ", kuvaus=" + kuvaus
 				+ ", sposti=" + sposti + ", puh=" + puh + "]";
 	}
 	
