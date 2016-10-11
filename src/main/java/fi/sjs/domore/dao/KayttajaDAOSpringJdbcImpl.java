@@ -72,4 +72,13 @@ public List<KayttajaImpl> haeKaikki() {
 		return osallistujat;
 	}
 
+public List<Kayttaja> haeOsallistujat() {
+	
+	String sql ="select k_etunimi, k_sukunimi from tapahtumaosallistuja join tapahtuma on tapahtumaosallistuja.t_id=tapahtuma.t_id";
+	RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
+	List<Kayttaja> tapahtumaosallistujat = jdbcTemplate.query(sql,mapper);
+	return tapahtumaosallistujat;
+	
+}
+
 }

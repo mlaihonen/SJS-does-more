@@ -66,11 +66,11 @@
 	  </div>
 	  <div class="collapsible-body">
 	  
-	  	  <div class="col s6">
+	  	  <div class="col s10">
 	  <p class="title">Lisätietoa</p>
 	  </div>
 	  
-	  		   <div class="col s2 card small right">
+	  		   <div class="col m2 card small right">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
     </div>
@@ -87,10 +87,28 @@
   
       <div class="row">
 	  
-	  	<div class="col s10">
-	  <p>${tapahtuma.kuvaus } </p>
-	</div>
+	  	<div class="col m5">
+	  	<p>${tapahtuma.kuvaus } </p>
+		</div>
+		<div class="col m5">
+		
+		<table class="highlight centered">
+		<thead>
+          <tr>
+              <th data-field="osallistujat">Osallistujat</th>
+          </tr>
+        </thead>
 
+        <tbody>
+        <c:forEach items="${tapahtumaosallistujat}" var="osallistujat">
+          <tr>
+            <td>${k.etunimi}</td>
+          </tr>
+          </c:forEach>
+        </tbody>
+		</table>
+		
+		</div>
 	 
 	  <div class="col s12">
 	   <form:form modelAttribute="kayttaja" action="osallistu" method="post">

@@ -28,6 +28,9 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 		RowMapper<Tapahtuma> mapper = new TapahtumaRowMapper();
 		List<Tapahtuma> tapahtumat = jdbcTemplate.query(sql, mapper);
 		return tapahtumat;
+		
 	}
-
+	
+	
+	
 }

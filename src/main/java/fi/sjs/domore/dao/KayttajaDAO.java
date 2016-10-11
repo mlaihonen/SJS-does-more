@@ -10,4 +10,5 @@ public interface KayttajaDAO {
 	
 	public abstract List<KayttajaImpl> haeKaikki();
 	
+	public abstract List<Kayttaja> haeOsallistujat();
 }
