@@ -8,6 +8,6 @@
 </head>
 <body>
 <h1>Onnistui!!!!!!!</h1>
-<h2>${kayttaja.id}</h2>
+
 </body>
 </html>

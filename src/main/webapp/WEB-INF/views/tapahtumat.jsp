@@ -60,7 +60,8 @@
     <li class="collection-item avatar">
 	  <div class="collapsible-header hoverable">
       <span class="title">${tapahtuma.nimi}</span>
-      <p><span class="material-icons">query_builder</span>Aika: ${tapahtuma.aika}<span class="material-icons">today</span>Päivämäärä:[PVM TÄSSÄ]<span class="material-icons">place</span>Paikka: ${tapahtuma.paikka}</p>
+      <p><span class="material-icons">query_builder</span>Aika: [AIKA TÄHÄN]<span class="material-icons">today</span>Päivämäärä:[PVM TÄSSÄ]
+      <span class="material-icons">place</span>Paikka: ${tapahtuma.paikka}</p>
 	  </div>
 	  <div class="collapsible-body">
 	  
@@ -87,7 +88,7 @@
 	  <p>${tapahtuma.kuvaus } </p>
 	</div>
 
-	  <form:form modelAttribute="kayttaja" method="post">
+	  <form:form modelAttribute="kayttaja" action="osallistu" method="post">
 	  <fieldset>
 	  <div class="col l2">
         <div class="input-field col sm2">
@@ -97,7 +98,7 @@
         </div>
         <div class="input-field col sm2">
           <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/>
-          <form:label path="etunimi" for="icon_prefix">Sukunimi</form:label>
+          <form:label path="sukunimi" for="icon_prefix">Sukunimi</form:label>
         </div>
 	   <div class="input-field col md3">
 	      <i class="material-icons prefix">email</i>
