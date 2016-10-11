@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-import fi.sjs.domore.bean.Kayttaja;
+import fi.sjs.domore.bean.KayttajaImpl;
 import fi.sjs.domore.dao.KayttajaDAO;
 
 @Controller
@@ -21,9 +21,14 @@ public class KayttajaController {
 	
 		//Osallistu-formin tietojen vastaanotto
 		@RequestMapping(value="/osallistu", method=RequestMethod.POST)
-		public String create( @ModelAttribute(value="kayttaja") @Valid Kayttaja kayttaja, BindingResult result) {
-			dao.lisaaUusi(kayttaja);
-			return "onnistui";
+		public String create( @ModelAttribute(value="kayttaja") @Valid KayttajaImpl kayttaja, BindingResult result) {
+			if (result.hasErrors()) {
+				return "redirect:/";
+			} else {
+				dao.lisaaUusi(kayttaja);
+				return "onnistui";
+			}
+
 		}
 		
 }

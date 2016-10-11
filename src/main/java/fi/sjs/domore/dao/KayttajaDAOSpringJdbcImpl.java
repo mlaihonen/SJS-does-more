@@ -14,7 +14,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import fi.sjs.domore.bean.Kayttaja;
+import fi.sjs.domore.bean.KayttajaImpl;
 
 @Repository
 public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
@@ -30,7 +30,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-	public void lisaaUusi(Kayttaja k) {
+	public void lisaaUusi(KayttajaImpl k) {
 		
 		final String sql = "insert into kayttaja (k_etunimi, k_sukunimi, k_sposti, k_puh) VALUES (?,?,?,?)";
 
@@ -63,11 +63,11 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	
 	}
 	
-public List<Kayttaja> haeKaikki() {
+public List<KayttajaImpl> haeKaikki() {
 		
 		String sql = "select k_id, k_etunimi, k_sukunimi, k_kuvaus, k_sposti, k_puh from kayttaja";
-		RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
-		List<Kayttaja> osallistujat = jdbcTemplate.query(sql,mapper);
+		RowMapper<KayttajaImpl> mapper = new KayttajaRowMapper();
+		List<KayttajaImpl> osallistujat = jdbcTemplate.query(sql,mapper);
 
 		return osallistujat;
 	}

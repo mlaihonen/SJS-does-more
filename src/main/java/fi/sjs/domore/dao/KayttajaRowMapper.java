@@ -5,12 +5,12 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import fi.sjs.domore.bean.Kayttaja;
+import fi.sjs.domore.bean.KayttajaImpl;
 
-public class KayttajaRowMapper implements RowMapper<Kayttaja>{
+public class KayttajaRowMapper implements RowMapper<KayttajaImpl>{
 
-	public Kayttaja mapRow(ResultSet rs, int rownum) throws SQLException {
-		Kayttaja k = new Kayttaja();
+	public KayttajaImpl mapRow(ResultSet rs, int rownum) throws SQLException {
+		KayttajaImpl k = new KayttajaImpl();
 		k.setId(rs.getInt("k_id"));
 		k.setEtunimi(rs.getString("k_etunimi"));
 		k.setSukunimi(rs.getString("k_sukunimi"));
