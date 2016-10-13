@@ -51,7 +51,7 @@
 	
 	
 	
-	<h2>Rokkaavia harrastuksia <i class="material-icons">keyboard_arrow_down</i></h2>
+	<h2><spring:message code="result.heading"/><i class="material-icons">keyboard_arrow_down</i></h2>
 	</div>
 	
 	 <ul class="collapsible" data-collapsible="accordion">
