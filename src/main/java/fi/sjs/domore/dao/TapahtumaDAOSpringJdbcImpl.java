@@ -29,5 +29,4 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 		List<Tapahtuma> tapahtumat = jdbcTemplate.query(sql, mapper);
 		return tapahtumat;
 	}
-
 }

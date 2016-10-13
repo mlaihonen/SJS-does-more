@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
-
 import javax.inject.Inject;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,8 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-
-import fi.sjs.domore.bean.KayttajaImpl;
+import fi.sjs.domore.bean.Kayttaja;
 
 @Repository
 public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
@@ -30,7 +28,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-	public void lisaaUusi(KayttajaImpl k) {
+	public void lisaaUusi(Kayttaja k) {
 		
 		final String sql = "insert into kayttaja (k_etunimi, k_sukunimi, k_sposti, k_puh) VALUES (?,?,?,?)";
 
@@ -63,11 +61,10 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	
 	}
 	
-public List<KayttajaImpl> haeKaikki() {
-		
+public List<Kayttaja> haeKaikki() {		
 		String sql = "select k_id, k_etunimi, k_sukunimi, k_kuvaus, k_sposti, k_puh from kayttaja";
-		RowMapper<KayttajaImpl> mapper = new KayttajaRowMapper();
-		List<KayttajaImpl> osallistujat = jdbcTemplate.query(sql,mapper);
+		RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
+		List<Kayttaja> osallistujat = jdbcTemplate.query(sql,mapper);
 
 		return osallistujat;
 	}

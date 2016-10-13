@@ -7,5 +7,5 @@ import fi.sjs.domore.bean.Tapahtuma;
 public interface TapahtumaDAO {
 	
 	public abstract List<Tapahtuma> haeKaikki();
-
+	
 }

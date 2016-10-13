@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
-@Entity 
+@Entity
 @Table(name = "kayttaja")
 public class KayttajaImpl implements Kayttaja{
 

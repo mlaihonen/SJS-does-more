@@ -16,6 +16,7 @@ import fi.sjs.domore.dao.KayttajaDAO;
 @Controller
 @RequestMapping (value="/")
 public class KayttajaController {
+	
 	@Inject
 	private KayttajaDAO dao;
 	
@@ -28,7 +29,5 @@ public class KayttajaController {
 				dao.lisaaUusi(kayttaja);
 				return "onnistui";
 			}
-
-		}
-		
+		}		
 }

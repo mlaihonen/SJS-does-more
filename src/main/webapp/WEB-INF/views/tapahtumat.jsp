@@ -19,8 +19,7 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	  
-	
-	  
+		  
     </head>
 
     <body>
@@ -66,11 +65,11 @@
 	  </div>
 	  <div class="collapsible-body">
 	  
-	  	  <div class="col s6">
+	  	  <div class="col s10">
 	  <p class="title">Lisätietoa</p>
 	  </div>
 	  
-	  		   <div class="col s2 card small right">
+	  		   <div class="col m2 card small right">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
     </div>
@@ -87,10 +86,28 @@
   
       <div class="row">
 	  
-	  	<div class="col s10">
-	  <p>${tapahtuma.kuvaus } </p>
-	</div>
+	  	<div class="col m5">
+	  	<p>${tapahtuma.kuvaus } </p>
+		</div>
+		<div class="col m5">
+		
+		<table class="highlight centered responsive">
+		<thead>
+          <tr>
+              <th data-field="osallistujat">Osallistujat</th>
+          </tr>
+        </thead>
 
+        <tbody>
+        <c:forEach items="${osallistujat}" var="kayttaja">
+          <tr>
+            <td>${kayttaja.etunimi}</td>
+          </tr>
+          </c:forEach>
+        </tbody>
+		</table>
+		
+		</div>
 	 
 	  <div class="col s12">
 	   <form:form modelAttribute="kayttaja" action="osallistu" method="post">
