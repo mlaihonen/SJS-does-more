@@ -122,24 +122,25 @@
 	  <div class="col s12">
 	   <form:form modelAttribute="kayttaja" action="osallistu" method="post">
 	  	<fieldset>
+	
         <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>
-          <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/>
+          <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="etunimi"/>
           <form:label path="etunimi" for="icon_prefix">Etunimi</form:label>
         </div>
         <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>
-          <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/>
+          <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="sukunimi"/>
           <form:label path="sukunimi" for="icon_prefix">Sukunimi</form:label>
         </div>
 	   <div class="input-field col md3">
 	      <i class="material-icons prefix">email</i>
-          <form:input path="sposti" id="email" type="email" class="validate"/>
+          <form:input path="sposti" id="email" type="email" class="validate"/><form:errors path="sposti"/>
           <form:label path="sposti" for="email">Email</form:label>
         </div>
 		<div class="input-field col md3">
 	      <i class="material-icons prefix">phone</i>
-          <form:input path="puh" id="phone" type="tel" class="validate"/>
+          <form:input path="puh" id="phone" type="tel" class="validate"/><form:errors path="puh"/>
           <form:label path="puh" for="Puhelin">Puhelin</form:label>
         </div>
 		<div class="input-field col md3">
