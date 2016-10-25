@@ -111,7 +111,7 @@
         <tbody>
         <c:forEach items="${osallistujat}" var="kayttaja">
           <tr>
-            <td>${kayttaja.etunimi}</td>
+            <td></td>
           </tr>
           </c:forEach>
         </tbody>
@@ -122,7 +122,7 @@
 	  <div class="col s12">
 	   <form:form modelAttribute="kayttaja" action="osallistu/${tapahtuma.id}" method="post">
 	  	<fieldset>
-		  <form:input path="id" id="tapahtuman_id_jsp" type="hidden" name="iidee" value="<c:out value="'${tapahtuma.id}'"/>"/>
+		  <form:input path="id" id="tapahtuman_id_jsp" type="hidden" name="iidee"/>
         <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>
           <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="etunimi"/>
