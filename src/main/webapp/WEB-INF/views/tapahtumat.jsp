@@ -25,6 +25,10 @@
 
     <body>
 
+      <ul id="dropdown1" class="dropdown-content">
+      <li><a href="#">FI</li>
+      <li><a href="#">EN</li>
+      </ul>
 
   <nav>
     <div class="nav-wrapper">
@@ -36,6 +40,11 @@
         <li><a href="#">Etsi tapahtuma</a></li>
         <li><a href="#">Yhteystiedot</a></li>
       </ul>
+       <!-- Dropdown Trigger -->
+      
+	  <ul class="right">
+	  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">language</i><i class="material-icons right">arrow_drop_down</i></a></li>
+	  </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="#"><span class="material-icons" id="navicon">home</span> Etusivu</a></li>
         <li><a href="#"><span class="material-icons" id="navicon">event_note</span> Luo tapahtuma</a></li>
