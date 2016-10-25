@@ -120,7 +120,7 @@
 		</div>
 	 
 	  <div class="col s12">
-	   <form:form modelAttribute="kayttaja" action="osallistu" method="post">
+	   <form:form modelAttribute="kayttaja" action="osallistu/${tapahtuma.id}" method="post">
 	  	<fieldset>
 		  <form:input path="id" id="tapahtuman_id_jsp" type="hidden" name="iidee" value="<c:out value="'${tapahtuma.id}'"/>"/>
         <div class="input-field col sm2">
