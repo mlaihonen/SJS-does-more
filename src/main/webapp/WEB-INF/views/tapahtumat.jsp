@@ -122,7 +122,7 @@
 	  <div class="col s12">
 	   <form:form modelAttribute="kayttaja" action="osallistu" method="post">
 	  	<fieldset>
-	
+		  <form:input path="id" id="tapahtuman_id_jsp" type="hidden" name="iidee" value="<c:out value="'${tapahtuma.id}'"/>"/>
         <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>
           <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="etunimi"/>
@@ -147,7 +147,6 @@
 		<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action">Osallistu
 		<i class="material-icons right">send</i>
 		</button>
-		</div>
 		</div>
 		</fieldset>
 		</form:form>
