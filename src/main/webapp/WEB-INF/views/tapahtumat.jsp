@@ -35,10 +35,10 @@
       <a href="#!" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
-        <li><a href="#">Etusivu</a></li>
-        <li><a href="#">Luo tapahtuma</a></li>
-        <li><a href="#">Etsi tapahtuma</a></li>
-        <li><a href="#">Yhteystiedot</a></li>
+        <li><a href="#"><spring:message code=etusivu/></a></li>
+        <li><a href="#"><spring:message code=luotapahtuma/></a></li>
+        <li><a href="#"><spring:message code=etsitapahtuma/></a></li>
+        <li><a href="#"><spring:message code=yhteystiedot/></a></li>
       </ul>
        <!-- Dropdown Trigger -->
       
@@ -46,10 +46,10 @@
 	  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">language</i><i class="material-icons right">arrow_drop_down</i></a></li>
 	  </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="#"><span class="material-icons" id="navicon">home</span> Etusivu</a></li>
-        <li><a href="#"><span class="material-icons" id="navicon">event_note</span> Luo tapahtuma</a></li>
-        <li><a href="#"><span class="material-icons" id="navicon">search</span> Etsi tapahtuma</a></li>
-        <li><a href="#"><span class="material-icons" id="navicon">phone</span> Yhteystiedot</a></li>
+        <li><a href="#"><span class="material-icons" id="navicon">home</span><spring:message code=etusivu/></a></li>
+        <li><a href="#"><span class="material-icons" id="navicon">event_note</span><spring:message code=luotapahtuma/></a></li>
+        <li><a href="#"><span class="material-icons" id="navicon">search</span><spring:message code=etsitapahtuma/></a></li>
+        <li><a href="#"><span class="material-icons" id="navicon">phone</span><spring:message code=yhteystiedot/></a></li>
       </ul>
     </div>
   </nav>
@@ -61,7 +61,7 @@
 	
 	
 	
-	<h2><spring:message code="result.heading"/><i class="material-icons">keyboard_arrow_down</i></h2>
+	<h2><spring:message code=tapahtuma.otsikko/><i class="material-icons">keyboard_arrow_down</i></h2>
 	</div>
 	
 	 <ul class="collapsible" data-collapsible="accordion">
@@ -69,14 +69,14 @@
     <li class="collection-item avatar">
 	  <div class="collapsible-header hoverable">
       <span class="title">${tapahtuma.nimi}</span>
-      <p><span class="material-icons">query_builder</span>Aika:<fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
-      <span class="material-icons">today</span>Päivämäärä: <fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
-      <span class="material-icons">place</span>Paikka: ${tapahtuma.paikka}</p>
+      <p><span class="material-icons">query_builder</span><spring:message code=tapahtuma.aika/><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
+      <span class="material-icons">today</span><spring:message code=tapahtuma.pvm/><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
+      <span class="material-icons">place</span><spring:message code=tapahtuma.paikka/> ${tapahtuma.paikka}</p>
 	  </div>
 	  <div class="collapsible-body">
 	  
 	  	  <div class="col s10">
-	  <p class="title">Lisätietoa</p>
+	  <p class="title"><spring:message code=tapahtuma.lisatieto/></p>
 	  </div>
 	  
 	  		   <div class="col m2 card small right">
@@ -87,7 +87,7 @@
       <span class="card-title activator grey-text text-darken-3">Ei-Ella Esiintyjä</span>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Tietoa minusta<i class="material-icons right">close</i></span>
+      <span class="card-title grey-text text-darken-4"><spring:message code=tapahtuma.tietoaminusta/><i class="material-icons right">close</i></span>
       <p>Hei! Olen Ella ja opiskelen Teatterikorkeakoulussa esiintymistä. 
       Minulla on 15 vuoden kokemus näyttelijänä ja ensimmäinen esitykseni oli 6-vuotiaana.</p>
     </div>
@@ -104,7 +104,7 @@
 		<table class="highlight centered responsive">
 		<thead>
           <tr>
-              <th data-field="osallistujat">Osallistujat</th>
+              <th data-field="osallistujat"><spring:message code=tapahtuma.osallistujat/></th>
           </tr>
         </thead>
 
@@ -126,25 +126,25 @@
         <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>
           <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="etunimi"/>
-          <form:label path="etunimi" for="icon_prefix">Etunimi</form:label>
+          <form:label path="etunimi" for="icon_prefix"><spring:message code=kayttaja.etunimi/></form:label>
         </div>
         <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>
           <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="sukunimi"/>
-          <form:label path="sukunimi" for="icon_prefix">Sukunimi</form:label>
+          <form:label path="sukunimi" for="icon_prefix"><spring:message code=kayttaja.sukunimi/></form:label>
         </div>
 	   <div class="input-field col md3">
 	      <i class="material-icons prefix">email</i>
           <form:input path="sposti" id="email" type="email" class="validate"/><form:errors path="sposti"/>
-          <form:label path="sposti" for="email">Email</form:label>
+          <form:label path="sposti" for="email"><spring:message code=kayttaja.puh/></form:label>
         </div>
 		<div class="input-field col md3">
 	      <i class="material-icons prefix">phone</i>
           <form:input path="puh" id="phone" type="tel" class="validate"/><form:errors path="puh"/>
-          <form:label path="puh" for="Puhelin">Puhelin</form:label>
+          <form:label path="puh" for="Puhelin"><spring:message code=kayttaja.puhelin/></form:label>
         </div>
 		<div class="input-field col md3">
-		<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action">Osallistu
+		<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action"><spring:message code=osallistu/>
 		<i class="material-icons right">send</i>
 		</button>
 		</div>
