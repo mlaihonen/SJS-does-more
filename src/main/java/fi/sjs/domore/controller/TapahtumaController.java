@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.KayttajaImpl;
 import fi.sjs.domore.bean.Tapahtuma;
-import fi.sjs.domore.bean.TapahtumaOsallistuja;
 import fi.sjs.domore.dao.KayttajaDAO;
 import fi.sjs.domore.dao.TapahtumaDAO;
 
@@ -22,6 +21,8 @@ import fi.sjs.domore.dao.TapahtumaDAO;
 @Controller
 @RequestMapping (value="/")
 public class TapahtumaController {
+	
+	
 	
 	@Inject
 	private TapahtumaDAO dao;
@@ -33,13 +34,15 @@ public class TapahtumaController {
 		@RequestMapping(value="/", method=RequestMethod.GET)
 		public String getList(Model model) {
 			List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(dao.haeKaikki());
-			List<TapahtumaOsallistuja> osallistujat = new ArrayList<TapahtumaOsallistuja>(kDao.haeOsallistujat());
+			//List<Kayttaja> osallistujat = new ArrayList<Kayttaja>(kDao.haeOsallistujat(t_id));
 			model.addAttribute("tapahtumat", tapahtumat);
-			model.addAttribute("osallistujat", osallistujat);
-			//tyhj‰ k‰ytt‰j‰ osallistumisformia varten
+			//model.addAttribute("osallistujat", osallistujat);
+			//tyhj√§ k√§ytt√§j√§ osallistumisformia varten
 			Kayttaja kayttaja = new KayttajaImpl();
 			model.addAttribute("kayttaja", kayttaja);
 		
 			return "tapahtumat";
 		} 
+		
+		
 }

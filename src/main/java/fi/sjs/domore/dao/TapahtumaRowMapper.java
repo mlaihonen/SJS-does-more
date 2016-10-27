@@ -17,7 +17,6 @@ public class TapahtumaRowMapper implements RowMapper<Tapahtuma>{
 		t.setPvm(rs.getDate("t_pvm"));
 		t.setAika(rs.getTime("t_aika"));
 		t.setPaikka(rs.getString("t_paikka"));
-		
 		return t;
 	}
 
