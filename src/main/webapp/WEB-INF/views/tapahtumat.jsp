@@ -122,6 +122,12 @@
 	  <div class="col s12">
 	   <form:form modelAttribute="kayttaja" action="osallistu/${tapahtuma.id}" method="post">
 	  	<fieldset>
+	  	
+	  	<spring:hasBindErrors name="kayttaja">
+		<p class="Virheotsikko"><spring:message code="kayttaja.errors" />:</p>
+		<div class="Virheblokki"><form:errors path="*"/></div>
+		</spring:hasBindErrors>
+	
 		  <!-- <form:input path="id" id="tapahtuman_id_jsp" type="hidden" name="iidee"/> -->
         <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>

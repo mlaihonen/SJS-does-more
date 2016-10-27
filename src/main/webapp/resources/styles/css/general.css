@@ -69,3 +69,22 @@ FORM INPUT COLORS
 =================================================================================================================
 FORM INPUT COLORS END
 =================================================================================================================
+
+.Virheblokki {
+	background-color: #FFFAFA;
+	border-color: red;
+	border-width: 1px;
+	border-style: dashed;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	font-size: small;
+}
+.Virheotsikko {
+	color: red;
+	font-style: italic;
+	font-size: medium;
+}
