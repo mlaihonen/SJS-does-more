@@ -14,6 +14,9 @@ import org.hibernate.validator.constraints.Email;
 @Entity
 @Table(name = "kayttaja")
 public class KayttajaImpl implements Kayttaja{
+	
+	// kommentoin osan validoinneista, koska meiltä puuttuu jostain joku osa joka näyttäisi error viestit (jotka tulee javasta)
+	// meillä on puhelin vaihtoehtoisena mutta tuolla patternilla se on pakollinen
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,16 +31,16 @@ public class KayttajaImpl implements Kayttaja{
 	private String sukunimi;
 	
 	@Column(name="k_kuvaus")
-	@Size(min = 1, max = 500)
+	@Size(min = 0, max = 500)
 	private String kuvaus;
 	
 	@Column(name="k_sposti")
 	@Size(min = 1, max = 30)
-	@Email
+	//@Email
 	private String sposti;
 	
 	@Column(name="k_puh")
-	@Pattern(regexp = "\\d\\-\\+{7,13}")
+	//@Pattern(regexp = "\\d\\-\\+{7,13}")
 	private String puh;
 	
 

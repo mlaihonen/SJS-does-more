@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
+
 import fi.sjs.domore.bean.KayttajaImpl;
 import fi.sjs.domore.dao.KayttajaDAO;
 
@@ -23,14 +24,20 @@ public class KayttajaController {
 	private KayttajaDAO dao;
 	
 		//Osallistu-formin tietojen vastaanotto
-		@RequestMapping(value="/osallistu{id}", method=RequestMethod.POST)
+		@RequestMapping(value="/osallistu/{id}", method=RequestMethod.POST)
 		public String create( @PathVariable Integer id, @ModelAttribute(value="kayttaja") @Valid KayttajaImpl kayttaja, BindingResult result) {
 			if (result.hasErrors()) {
-				return "redirect:/";
+				return "redirect:.././"; //t‰m‰ nyt ohjaa vain lataamaan tapahtumat sivun uudelleen eik‰ n‰yt‰ erroreita, t‰m‰ pit‰isi toteuttaa ohjaamalla tapahtumat jsphen
 			} else {
 				dao.lisaaUusi(kayttaja, id);
-				return "onnistui";
+				return "redirect:.././onnistui"; //postista pit‰‰ ohjata gettiin redirectill‰. Ilman .././ se yritt‰isi ohjata osallistu/id/ alla sijaitsevaan onnistui
 			}
+		}	
+		
+		@RequestMapping(value="/onnistui", method=RequestMethod.GET)
+		public String viewOnnistui() { //ilman t‰t‰ ei voida n‰ytt‰‰ onnistui sivua
+			
+			return "onnistui";
 		}	
 }		
 
