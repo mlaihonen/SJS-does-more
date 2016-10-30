@@ -27,10 +27,10 @@ public class KayttajaController {
 		@RequestMapping(value="/osallistu/{id}", method=RequestMethod.POST)
 		public String create( @PathVariable Integer id, @ModelAttribute(value="kayttaja") @Valid KayttajaImpl kayttaja, BindingResult result) {
 			if (result.hasErrors()) {
-				return "redirect:.././"; //t‰m‰ nyt ohjaa vain lataamaan tapahtumat sivun uudelleen eik‰ n‰yt‰ erroreita, t‰m‰ pit‰isi toteuttaa ohjaamalla tapahtumat jsphen
-			} else {
-				dao.lisaaUusi(kayttaja, id);
-				return "redirect:.././onnistui"; //postista pit‰‰ ohjata gettiin redirectill‰. Ilman .././ se yritt‰isi ohjata osallistu/id/ alla sijaitsevaan onnistui
+				return "/tapahtumat"; //t‰m‰ nyt ohjaa vain lataamaan tapahtumat sivulle mutta url on edelleen sama, joten ei hae tapahtumia eik‰ n‰yt‰ erroreita
+			} else {						// jos laittaa return "redirect:.././"; niin se hakee tapahtumat sivun uudelleen mutta ei n‰yt‰ erroreita
+				dao.lisaaUusi(kayttaja, id);	// en keksi miten voidaan n‰ytt‰‰ java errorit ilman omaa jspt‰ osallistumiselle. Tai sitten tehd‰‰n jsp joka n‰ytet‰‰n vain jos tulee erroreita...
+				return "redirect:.././onnistui"; //postista pit‰‰ ohjata eteenp‰in redirectill‰. Ilman .././ se yritt‰isi ohjata osallistu/id/ alla sijaitsevaan onnistui
 			}
 		}	
 		
@@ -41,3 +41,4 @@ public class KayttajaController {
 		}	
 }		
 
+//
