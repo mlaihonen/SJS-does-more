@@ -26,8 +26,8 @@
     <body>
 
       <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#">FI</li>
-      <li><a href="#">EN</li>
+      <li><a href="?lang=fi">FI</li>
+      <li><a href="*lang=en">EN</li>
       </ul>
 
   <nav>
@@ -109,9 +109,9 @@
         </thead>
 
         <tbody>
-        <c:forEach items="${osallistujat}" var="kayttaja">
+        <c:forEach items="${tapahtuma.osallistujat}" var="kayttaja">
           <tr>
-            <td></td>
+            <td>${kayttaja.etunimi}</td>
           </tr>
           </c:forEach>
         </tbody>
