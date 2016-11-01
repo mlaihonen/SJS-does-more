@@ -24,7 +24,7 @@
     </head>
 
     <body>
-
+ 	<div id="taustakuva">
       <ul id="dropdown1" class="dropdown-content">
       <li><a href="#">FI</li>
       <li><a href="#">EN</li>
@@ -54,21 +54,24 @@
     </div>
   </nav>
           
-	<div class="taustakuva">
-	<div class="row" id="ruutu">
+	<div>
+	<div class="row card-panel" id="ruutu2">
 	
-	<div  class="container center-align">
-	
-	
-	
+	<div  class="container center-align" id="ruutu2body">
 	<h2>Nokkahuilutunti</h2>
 	</div>
+	<div class="grey lighten-3 center-align" >
+	<h3><span class="material-icons">query_builder</span><spring:message code="tapahtuma.aika"/><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
+      <span class="material-icons">today</span><spring:message code="tapahtuma.pvm"/><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
+      <span class="material-icons">place</span><spring:message code="tapahtuma.paikka"/> ${tapahtuma.paikka}</h3>
+	</div>
+	<div id="ruutu2body">
 	<p>
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam erat in ante malesuada, facilisis semper nulla semper. Phasellus sapien neque, faucibus in malesuada quis, lacinia et libero. Sed sed turpis tellus. Etiam ac aliquam tortor, eleifend rhoncus metus. Ut turpis massa, sollicitudin sit amet molestie a, posuere sit amet nisl. Mauris tincidunt cursus posuere. Nam commodo libero quis lacus sodales, nec feugiat ante posuere. Donec pulvinar auctor commodo. Donec egestas diam ut mi adipiscing, quis lacinia mauris condimentum. Quisque quis odio venenatis, venenatis nisi a, vehicula ipsum. Etiam at nisl eu felis vulputate porta.
 	</p>
-	
 	</div>
-	
+	</div>
+	</div>
 
 	</div>
 
