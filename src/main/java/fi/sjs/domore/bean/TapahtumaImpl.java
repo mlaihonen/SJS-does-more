@@ -3,18 +3,44 @@ package fi.sjs.domore.bean;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.*;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
+	@Entity
+	@Table(name = "tapahtuma")
 	public class TapahtumaImpl implements Tapahtuma{
 		
+		@Id
+		@GeneratedValue(strategy = GenerationType.AUTO)
+		@Column(name = "t_id")
 		private int id;
+		
+		@Column(name = "t_nimi")
 		private String nimi;
+		
+		@Column(name = "t_kuvaus")
 		private String kuvaus;
+		
+		@Column(name = "t_pvm")
+		@Temporal(TemporalType.DATE)
 		@DateTimeFormat(pattern="dd.MM.yyyy")
 		private Date pvm;
+		
+		@Column(name = "t_aika")
+		@Temporal(TemporalType.TIME)
 		@DateTimeFormat(pattern="HH:mm")
 		private Date aika;
+		
+		@Column(name = "t_paikka")
 		private String paikka;
+		
+		@ManyToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, 
+				fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+		@JoinTable(
+				name = "tapahtumaosallistuja",
+				joinColumns = @JoinColumn(name = "t_id"),
+				inverseJoinColumns = @JoinColumn(name = "k_id"))
 		private List<Kayttaja> osallistujat;
 		
 		public TapahtumaImpl() {
@@ -32,8 +58,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.paikka = paikka;
 			this.osallistujat = osallistujat;
 		}
-
-		
 
 		public int getId() {
 			return id;

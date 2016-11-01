@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Qualifier;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,27 +23,24 @@ import fi.sjs.domore.dao.TapahtumaDAO;
 @RequestMapping (value="/")
 public class TapahtumaController {
 	
-	
-	
 	@Inject
-	private TapahtumaDAO dao;
-	
-	@Inject
-	private KayttajaDAO kDao;
+	//@Qualifier("hibernateToteutus")
+	private TapahtumaDAO hibernateDAO;
+
+	/*@Inject
+	private TapahtumaDAO dao;*/	
 	
 	//Listaa kaikki tapahtumat
-		@RequestMapping(value="/", method=RequestMethod.GET)
-		public String getList(Model model) {
-			List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(dao.haeKaikki());
-			//List<Kayttaja> osallistujat = new ArrayList<Kayttaja>(kDao.haeOsallistujat(t_id));
-			model.addAttribute("tapahtumat", tapahtumat);
-			//model.addAttribute("osallistujat", osallistujat);
-			//tyhjä käyttäjä osallistumisformia varten
-			Kayttaja kayttaja = new KayttajaImpl();
-			model.addAttribute("kayttaja", kayttaja);
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String getList(Model model) {
+		List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(hibernateDAO.haeKaikki());
+		model.addAttribute("tapahtumat", tapahtumat);
+		//tyhjä käyttäjä osallistumisformia varten
+		Kayttaja kayttaja = new KayttajaImpl();
+		model.addAttribute("kayttaja", kayttaja);
 		
-			return "tapahtumat";
-		} 
+		return "tapahtumat";
+	} 
 		
 		
 }
