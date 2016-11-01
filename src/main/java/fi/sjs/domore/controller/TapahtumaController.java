@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -41,11 +42,11 @@ public class TapahtumaController {
 		return "tapahtumat";
 	} 
 	
-	@RequestMapping(value="tapahtumatiedot", method=RequestMethod.GET)
-	public String viewTapahtuma() { 
-		
+	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.GET)
+	public String viewTapahtuma(@PathVariable Integer id, Model model) { 
+		Tapahtuma tapahtuma = hibernateDAO.etsi(id);
+		model.addAttribute("tapahtuma", tapahtuma);
 		return "tapahtumatiedot";
 	}	
-		
 		
 }

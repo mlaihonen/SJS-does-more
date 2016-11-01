@@ -8,4 +8,6 @@ public interface TapahtumaDAO {
 	
 	public abstract List<Tapahtuma> haeKaikki();
 	
+	public abstract Tapahtuma etsi(int id);
+	
 }

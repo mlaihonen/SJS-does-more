@@ -27,7 +27,7 @@
 
       <ul id="dropdown1" class="dropdown-content">
       <li><a href="?lang=fi">FI</li>
-      <li><a href="*lang=en">EN</li>
+      <li><a href="?lang=en">EN</li>
       </ul>
 
   <nav>
@@ -98,7 +98,7 @@
 	  
 	  	<div class="col m5">
 	  	<p>${tapahtuma.kuvaus } </p>
-	  	<form:form action="tapahtumatiedot" method="get">
+	  	<form:form action="tapahtumatiedot/${tapahtuma.id}" method="get">
 	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action"><spring:message code="tapahtuma.lisatieto"/>
 	  	</form:form>
 		</div>
