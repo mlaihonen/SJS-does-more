@@ -40,6 +40,12 @@ public class TapahtumaController {
 		
 		return "tapahtumat";
 	} 
+	
+	@RequestMapping(value="tapahtuma", method=RequestMethod.GET)
+	public String viewTapahtuma() { 
+		
+		return "tapahtumatiedot";
+	}	
 		
 		
 }
