@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Qualifier;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.KayttajaImpl;
 import fi.sjs.domore.bean.Tapahtuma;
-import fi.sjs.domore.dao.KayttajaDAO;
 import fi.sjs.domore.dao.TapahtumaDAO;
 
 
@@ -24,7 +23,7 @@ import fi.sjs.domore.dao.TapahtumaDAO;
 public class TapahtumaController {
 	
 	@Inject
-	//@Qualifier("hibernateToteutus")
+	@Qualifier("hibernateToteutus")
 	private TapahtumaDAO hibernateDAO;
 
 	/*@Inject
