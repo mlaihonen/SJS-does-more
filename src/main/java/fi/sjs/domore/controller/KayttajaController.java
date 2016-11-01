@@ -17,7 +17,7 @@ import fi.sjs.domore.bean.KayttajaImpl;
 import fi.sjs.domore.dao.KayttajaDAO;
 
 @Controller
-@RequestMapping (value="/")
+@RequestMapping (value="/asd")
 public class KayttajaController {
 	
 	@Inject
@@ -27,15 +27,15 @@ public class KayttajaController {
 		@RequestMapping(value="/osallistu/{id}", method=RequestMethod.POST)
 		public String create( @PathVariable Integer id, @ModelAttribute(value="kayttaja") @Valid KayttajaImpl kayttaja, BindingResult result) {
 			if (result.hasErrors()) {
-				return "/tapahtumat"; //tämä nyt ohjaa vain lataamaan tapahtumat sivulle mutta url on edelleen sama, joten ei hae tapahtumia eikä näytä erroreita
-			} else {						// jos laittaa return "redirect:.././"; niin se hakee tapahtumat sivun uudelleen mutta ei näytä erroreita
-				dao.lisaaUusi(kayttaja, id);	// en keksi miten voidaan näyttää java errorit ilman omaa jsptä osallistumiselle. Tai sitten tehdään jsp joka näytetään vain jos tulee erroreita...
-				return "redirect:.././onnistui"; //postista pitää ohjata eteenpäin redirectillä. Ilman .././ se yrittäisi ohjata osallistu/id/ alla sijaitsevaan onnistui
+				return "/tapahtumat"; //tï¿½mï¿½ nyt ohjaa vain lataamaan tapahtumat sivulle mutta url on edelleen sama, joten ei hae tapahtumia eikï¿½ nï¿½ytï¿½ erroreita
+			} else {						// jos laittaa return "redirect:.././"; niin se hakee tapahtumat sivun uudelleen mutta ei nï¿½ytï¿½ erroreita
+				dao.lisaaUusi(kayttaja, id);	// en keksi miten voidaan nï¿½yttï¿½ï¿½ java errorit ilman omaa jsptï¿½ osallistumiselle. Tai sitten tehdï¿½ï¿½n jsp joka nï¿½ytetï¿½ï¿½n vain jos tulee erroreita...
+				return "redirect:.././onnistui"; //postista pitï¿½ï¿½ ohjata eteenpï¿½in redirectillï¿½. Ilman .././ se yrittï¿½isi ohjata osallistu/id/ alla sijaitsevaan onnistui
 			}
 		}	
 		
 		@RequestMapping(value="/onnistui", method=RequestMethod.GET)
-		public String viewOnnistui() { //ilman tätä ei voida näyttää onnistui sivua
+		public String viewOnnistui() { //ilman tï¿½tï¿½ ei voida nï¿½yttï¿½ï¿½ onnistui sivua
 			
 			return "onnistui";
 		}	

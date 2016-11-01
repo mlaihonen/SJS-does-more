@@ -23,7 +23,7 @@ import fi.sjs.domore.dao.TapahtumaDAO;
 public class TapahtumaController {
 	
 	@Inject
-	@Qualifier("hibernateToteutus")
+	@Qualifier("TapahtumaDAOHibernate")
 	private TapahtumaDAO hibernateDAO;
 
 	/*@Inject

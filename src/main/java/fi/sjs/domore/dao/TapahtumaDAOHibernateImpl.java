@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import fi.sjs.domore.bean.Tapahtuma;
 
 @Transactional
-@Repository("hibernateToteutus")
+@Repository("TapahtumaDAOHibernate")
 public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 
 	@PersistenceContext

@@ -12,7 +12,7 @@ import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.Tapahtuma;
 
 @Transactional
-@Repository("hibernateToteutus")
+@Repository("KayttajaDAOHibernate")
 public class KayttajaDAOHibernateImpl implements KayttajaDAO{
 	
 	@PersistenceContext

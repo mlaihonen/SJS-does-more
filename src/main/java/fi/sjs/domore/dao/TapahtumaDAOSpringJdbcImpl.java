@@ -7,11 +7,12 @@ import javax.inject.Inject;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.Tapahtuma;
 
-@Repository
+@Transactional
+@Repository("springToteutus")
 public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 	
 	@Inject
@@ -32,13 +33,5 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 		return tapahtumat;
 		
 	}
-		
-		public List<Kayttaja> haeOsallistujat(int t_id) {		
-			String sql = "SELECT * FROM  kayttaja WHERE  k_id = (SELECT k_id FROM tapahtumaosallistuja WHERE t_id = ?); ";
-			RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
-			List<Kayttaja> osallistujat = jdbcTemplate.query(sql,mapper);
-
-			return osallistujat;
-		}
-	}
+}
 
