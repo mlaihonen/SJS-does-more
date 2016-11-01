@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 
+
 import fi.sjs.domore.bean.KayttajaImpl;
 import fi.sjs.domore.dao.KayttajaDAO;
 
@@ -23,14 +24,21 @@ public class KayttajaController {
 	private KayttajaDAO dao;
 	
 		//Osallistu-formin tietojen vastaanotto
-		@RequestMapping(value="/osallistu{id}", method=RequestMethod.POST)
+		@RequestMapping(value="/osallistu/{id}", method=RequestMethod.POST)
 		public String create( @PathVariable Integer id, @ModelAttribute(value="kayttaja") @Valid KayttajaImpl kayttaja, BindingResult result) {
 			if (result.hasErrors()) {
-				return "redirect:/";
-			} else {
-				dao.lisaaUusi(kayttaja, id);
-				return "onnistui";
+				return "/tapahtumat"; //t‰m‰ nyt ohjaa vain lataamaan tapahtumat sivulle mutta url on edelleen sama, joten ei hae tapahtumia eik‰ n‰yt‰ erroreita
+			} else {						// jos laittaa return "redirect:.././"; niin se hakee tapahtumat sivun uudelleen mutta ei n‰yt‰ erroreita
+				dao.lisaaUusi(kayttaja, id);	// en keksi miten voidaan n‰ytt‰‰ java errorit ilman omaa jspt‰ osallistumiselle. Tai sitten tehd‰‰n jsp joka n‰ytet‰‰n vain jos tulee erroreita...
+				return "redirect:.././onnistui"; //postista pit‰‰ ohjata eteenp‰in redirectill‰. Ilman .././ se yritt‰isi ohjata osallistu/id/ alla sijaitsevaan onnistui
 			}
+		}	
+		
+		@RequestMapping(value="/onnistui", method=RequestMethod.GET)
+		public String viewOnnistui() { //ilman t‰t‰ ei voida n‰ytt‰‰ onnistui sivua
+			
+			return "onnistui";
 		}	
 }		
 
+//
