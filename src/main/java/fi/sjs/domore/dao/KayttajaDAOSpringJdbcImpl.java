@@ -3,6 +3,7 @@ package fi.sjs.domore.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -78,6 +79,11 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		});
 		
 	
+	}
+
+	public List<Kayttaja> haeKaikki() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
