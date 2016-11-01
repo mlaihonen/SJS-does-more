@@ -27,7 +27,7 @@
 
       <ul id="dropdown1" class="dropdown-content">
       <li><a href="?lang=fi">FI</li>
-      <li><a href="*lang=en">EN</li>
+      <li><a href="?lang=en">EN</li>
       </ul>
 
   <nav>
