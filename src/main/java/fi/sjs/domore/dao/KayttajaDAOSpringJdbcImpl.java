@@ -12,10 +12,13 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import fi.sjs.domore.bean.Kayttaja;
 
-@Repository
+
+@Transactional
+@Repository("KayttajaDAOSpring")
 public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	
 	@Inject

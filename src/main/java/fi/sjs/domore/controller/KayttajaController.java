@@ -19,7 +19,7 @@ import fi.sjs.domore.dao.KayttajaDAO;
 @Controller
 @RequestMapping (value="/asd")
 public class KayttajaController {
-	
+	/*
 	@Inject
 	private KayttajaDAO dao;
 	
@@ -38,7 +38,7 @@ public class KayttajaController {
 		public String viewOnnistui() { //ilman t�t� ei voida n�ytt�� onnistui sivua
 			
 			return "onnistui";
-		}	
+		}	*/
 }		
 
 //
