@@ -15,11 +15,12 @@ import org.hibernate.validator.constraints.Email;
 @Table(name = "kayttaja")
 public class KayttajaImpl implements Kayttaja{
 	
-	// kommentoin osan validoinneista, koska meiltä puuttuu jostain joku osa joka näyttäisi error viestit (jotka tulee javasta)
-	// meillä on puhelin vaihtoehtoisena mutta tuolla patternilla se on pakollinen
+	// kommentoin osan validoinneista, koska meiltï¿½ puuttuu jostain joku osa joka nï¿½yttï¿½isi error viestit (jotka tulee javasta)
+	// meillï¿½ on puhelin vaihtoehtoisena mutta tuolla patternilla se on pakollinen
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="k_id")
 	private int id;
 	
 	@Column(name="k_etunimi")
