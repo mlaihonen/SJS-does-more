@@ -92,13 +92,14 @@
 	  	<fieldset>
 	<blockquote class="error">
 	<p><i class="tiny material-icons">report_problem</i>Tämä on VIRHETEKSTI!!!!!!!!!!</p>
-	</blockquote><br>
-	  	
-	  	<spring:hasBindErrors name="kayttaja">
+		<spring:hasBindErrors name="kayttaja">
 	  	
 		<p class="Virheotsikko"><spring:message code="kayttaja.errors" />:</p>
 		<div class="Virheblokki"><form:errors path="*"/></div>
 		</spring:hasBindErrors>
+	</blockquote><br>
+	  	
+	  
 		
         <div class="input-field col sm2">
           <i class="material-icons prefix">account_circle</i>

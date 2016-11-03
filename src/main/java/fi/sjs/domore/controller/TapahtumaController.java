@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.KayttajaImpl;
 import fi.sjs.domore.bean.Tapahtuma;
+import fi.sjs.domore.bean.TapahtumaImpl;
 import fi.sjs.domore.dao.TapahtumaDAO;
 
 
@@ -45,6 +46,14 @@ public class TapahtumaController {
 		Kayttaja kayttaja = new KayttajaImpl();
 		model.addAttribute("kayttaja", kayttaja);
 		return "tapahtumatiedot";
+	}	
+	
+	@RequestMapping(value="luotapahtuma", method=RequestMethod.GET)
+	public String createTapahtuma(Model model) { 
+		Tapahtuma tapahtuma = new TapahtumaImpl();
+		model.addAttribute("tapahtuma", tapahtuma);
+		
+		return "luotapahtuma";
 	}	
 		
 }
