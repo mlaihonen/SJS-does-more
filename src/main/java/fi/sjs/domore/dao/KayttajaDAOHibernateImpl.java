@@ -10,19 +10,21 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fi.sjs.domore.bean.Kayttaja;
 
-@Transactional
-@Repository("KayttajaDAOHibernate")
-public class KayttajaDAOHibernateImpl implements KayttajaDAO{
+//@Transactional
+//@Repository("KayttajaDAOHibernate")
+//public class KayttajaDAOHibernateImpl implements KayttajaDAO{
 	
-	@PersistenceContext
-    private EntityManager em;
+//tätä ei ainakaan vielä tarvita!
+
+	//@PersistenceContext
+    //private EntityManager em;
      
-    public void lisaaUusi(Kayttaja kayttaja, int t_id) {
+    /*public void lisaaUusi(Kayttaja kayttaja, int t_id) {
         em.persist(kayttaja);
     }
 	
     public List<Kayttaja> haeKaikki() {
 		return em.createQuery("select kayttaja from KayttajaImpl kayttaja", Kayttaja.class).getResultList();
-	}
+	}*/
 
-}
+//}

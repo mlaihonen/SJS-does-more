@@ -87,7 +87,7 @@
 	<h4>Lisätietoja</h4>
 	<p class="flow-text">${tapahtuma.kuvaus }</p>
 	</div>
-	<form:form modelAttribute="kayttaja" action="osallistu/${tapahtuma.id}" method="post">
+	<form:form modelAttribute="kayttaja" action="../osallistu/${tapahtuma.id}" method="post">
 
 	  	<fieldset>
 	<blockquote class="error">
