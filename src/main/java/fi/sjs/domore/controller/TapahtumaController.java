@@ -35,10 +35,6 @@ public class TapahtumaController {
 	public String getList(Model model) {
 		List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(hibernateDAO.haeKaikki());
 		model.addAttribute("tapahtumat", tapahtumat);
-		//tyhjä käyttäjä osallistumisformia varten
-		Kayttaja kayttaja = new KayttajaImpl();
-		model.addAttribute("kayttaja", kayttaja);
-		
 		return "tapahtumat";
 	} 
 	
