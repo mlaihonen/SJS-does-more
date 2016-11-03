@@ -46,6 +46,8 @@ public class TapahtumaController {
 	public String viewTapahtuma(@PathVariable Integer id, Model model) { 
 		Tapahtuma tapahtuma = hibernateDAO.etsi(id);
 		model.addAttribute("tapahtuma", tapahtuma);
+		Kayttaja kayttaja = new KayttajaImpl();
+		model.addAttribute("kayttaja", kayttaja);
 		return "tapahtumatiedot";
 	}	
 		
