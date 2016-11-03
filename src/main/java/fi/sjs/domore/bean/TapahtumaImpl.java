@@ -50,8 +50,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 			super();
 		}
 
-		public TapahtumaImpl(int id, String nimi, String kuvaus, Date pvm, Date aika,
-				String paikka, List<Kayttaja> osallistujat) {
+		public TapahtumaImpl(int id, String nimi, String kuvaus, Date pvm,
+				Date aika, String paikka, int maxOsallistujaLkm,
+				List<Kayttaja> osallistujat) {
 			super();
 			this.id = id;
 			this.nimi = nimi;
@@ -59,8 +60,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.pvm = pvm;
 			this.aika = aika;
 			this.paikka = paikka;
+			this.maxOsallistujaLkm = maxOsallistujaLkm;
 			this.osallistujat = osallistujat;
 		}
+
 
 		public int getId() {
 			return id;
