@@ -1,10 +1,14 @@
 package fi.sjs.domore.bean;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -14,14 +18,6 @@ import org.hibernate.validator.constraints.Email;
 @Entity
 @Table(name = "kayttaja")
 public class KayttajaImpl implements Kayttaja{
-	
-	// kommentoin osan validoinneista, koska meilt� puuttuu jostain joku osa joka n�ytt�isi error viestit (jotka tulee javasta)
-	// meill� on puhelin vaihtoehtoisena mutta tuolla patternilla se on pakollinen
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="k_id")
-	private int id;
 	
 	@Column(name="k_etunimi")
 	@Size(min = 1, max = 50)
@@ -43,6 +39,18 @@ public class KayttajaImpl implements Kayttaja{
 	@Column(name="k_puh")
 	//@Pattern(regexp = "\\d\\-\\+{7,13}")
 	private String puh;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="k_id")
+	private int id;
+	
+	//@OneToMany(cascade = CascadeType.ALL)
+    /*@JoinTable(
+            name = "tapahtumaosallistuja",
+            joinColumns = @JoinColumn(name = "k_id"),
+            inverseJoinColumns = @JoinColumn(name = "t_id")
+    )	*/
 	
 
 	public KayttajaImpl() {
