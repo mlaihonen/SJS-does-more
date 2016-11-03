@@ -57,18 +57,81 @@
 	<div>
 	<div class="row card-panel" id="ruutu2">
 	
+	  <div class="col m2 card small right">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-3">Ei-Ella Esiintyjä</span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"><spring:message code="tapahtuma.tietoaminusta"/><i class="material-icons right">close</i></span>
+      <p>Hei! Olen Ella ja opiskelen Teatterikorkeakoulussa esiintymistä. 
+      Minulla on 15 vuoden kokemus näyttelijänä ja ensimmäinen esitykseni oli 6-vuotiaana.</p>
+    </div>
+  </div>
+	
 	<div  class="container center-align" id="ruutu2body">
-	<h2>Nokkahuilutunti</h2>
+	<h2>${tapahtuma.nimi}</h2>
+	
+
+	
 	</div>
-	<div class="grey lighten-3 center-align" >
-	<h3><span class="material-icons">query_builder</span><spring:message code="tapahtuma.aika"/><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
-      <span class="material-icons">today</span><spring:message code="tapahtuma.pvm"/><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
-      <span class="material-icons">place</span><spring:message code="tapahtuma.paikka"/> ${tapahtuma.paikka}</h3>
+	<div class="lapinakuvaharmaa center-align" >
+	<h3><span class="material-icons">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
+      <span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
+      <span class="material-icons">place</span>${tapahtuma.paikka}</h3>
 	</div>
 	<div id="ruutu2body">
-	<p>
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquam erat in ante malesuada, facilisis semper nulla semper. Phasellus sapien neque, faucibus in malesuada quis, lacinia et libero. Sed sed turpis tellus. Etiam ac aliquam tortor, eleifend rhoncus metus. Ut turpis massa, sollicitudin sit amet molestie a, posuere sit amet nisl. Mauris tincidunt cursus posuere. Nam commodo libero quis lacus sodales, nec feugiat ante posuere. Donec pulvinar auctor commodo. Donec egestas diam ut mi adipiscing, quis lacinia mauris condimentum. Quisque quis odio venenatis, venenatis nisi a, vehicula ipsum. Etiam at nisl eu felis vulputate porta.
-	</p>
+	<div class="container">
+	<h4>Lisätietoja</h4>
+	<p class="flow-text">${tapahtuma.kuvaus }</p>
+	</div>
+	<form:form modelAttribute="kayttaja" action="osallistu/${tapahtuma.id}" method="post">
+
+	  	<fieldset>
+	<blockquote class="error">
+	<p><i class="tiny material-icons">report_problem</i>Tämä on VIRHETEKSTI!!!!!!!!!!</p>
+	</blockquote><br>
+	  	
+	  	<spring:hasBindErrors name="kayttaja">
+	  	
+		<p class="Virheotsikko"><spring:message code="kayttaja.errors" />:</p>
+		<div class="Virheblokki"><form:errors path="*"/></div>
+		</spring:hasBindErrors>
+		
+        <div class="input-field col sm2">
+          <i class="material-icons prefix">account_circle</i>
+          <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="etunimi"/>
+          <form:label path="etunimi" for="icon_prefix"><spring:message code="kayttaja.etunimi"/></form:label>
+        </div>
+        
+        <div class="input-field col sm2">
+          <i class="material-icons prefix">account_circle</i>
+          <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="sukunimi"/>
+          <form:label path="sukunimi" for="icon_prefix"><spring:message code="kayttaja.sukunimi"/></form:label>
+        </div>
+        
+	   <div class="input-field col md3">
+	      <i class="material-icons prefix">email</i>
+          <form:input path="sposti" id="email" type="email" class="validate"/><form:errors path="sposti"/>
+          <form:label path="sposti" for="email"><spring:message code="kayttaja.email"/></form:label>
+        </div>
+        
+		<div class="input-field col md3">
+	      <i class="material-icons prefix">phone</i>
+          <form:input path="puh" id="phone" type="tel" class="validate"/><form:errors path="puh"/>
+          <form:label path="puh" for="Puhelin"><spring:message code="kayttaja.puh"/></form:label>
+        </div>
+        
+		<div class="input-field col md3">
+		<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action"><spring:message code="osallistu"/>
+		<i class="material-icons right">send</i>
+		</button>
+		</div>
+		
+		</fieldset>
+		</form:form>
 	</div>
 	</div>
 	</div>
