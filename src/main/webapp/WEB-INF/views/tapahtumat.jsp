@@ -102,7 +102,7 @@
 	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action"><spring:message code="tapahtuma.lisatieto"/>
 	  	</form:form>
 		</div>
-		<!--  <div class="col m5">
+		<div class="col m5">
 		
 		<table class="highlight centered responsive">
 		<thead>
@@ -120,7 +120,7 @@
         </tbody>
 		</table>
 		
-		</div>-->
+		</div>
 	 
 	  <div class="col s12">
 	   
