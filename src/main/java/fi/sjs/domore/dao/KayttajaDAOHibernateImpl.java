@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fi.sjs.domore.bean.Kayttaja;
-import fi.sjs.domore.bean.Tapahtuma;
 
 @Transactional
 @Repository("KayttajaDAOHibernate")
