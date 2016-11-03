@@ -8,6 +8,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.Tapahtuma;
 
 @Transactional
@@ -17,6 +18,9 @@ public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 	@PersistenceContext
 	private EntityManager em;
 	
+	public void lisaaUusi(Tapahtuma tapahtuma) {
+        em.persist(tapahtuma);
+    }
 	
 	public List<Tapahtuma> haeKaikki() {
 		return em.createQuery("select tapahtuma from TapahtumaImpl tapahtuma", Tapahtuma.class).getResultList();
