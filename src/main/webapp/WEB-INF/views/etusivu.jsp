@@ -56,8 +56,8 @@
 
 
 <div class="keskella">
-<a class="waves-effect waves-light btn"><i class="material-icons left">playlist_add</i>Luo tapahtumia</a>
-<a class="waves-effect waves-light btn"><i class="material-icons right">reorder</i>Näytä tapahtumia</a>
+<a class="waves-effect waves-light btn" href="luotapahtuma"><i class="material-icons left">playlist_add</i>Luo tapahtumia</a>
+<a class="waves-effect waves-light btn" href="tapahtumat"><i class="material-icons right">reorder</i>Näytä tapahtumia</a>
 </div>
 
 
