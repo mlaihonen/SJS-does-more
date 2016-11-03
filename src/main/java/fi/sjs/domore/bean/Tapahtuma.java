@@ -32,5 +32,9 @@ public interface Tapahtuma {
 	public abstract List<Kayttaja> getOsallistujat();
 	
 	public abstract void setOsallistujat(List<Kayttaja> osallistujat);
+	
+	public abstract int getMaxOsallistujaLkm();
+	
+	public abstract void setMaxOsallistujaLkm(int maxOsallistujaLkm);
 
 }

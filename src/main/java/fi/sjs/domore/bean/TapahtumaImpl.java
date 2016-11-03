@@ -35,6 +35,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 		@Column(name = "t_paikka")
 		private String paikka;
 		
+		@Column(name = "t_maxosallistujalkm")
+		private int maxOsallistujaLkm;
+		
 		@ManyToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, 
 				fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 		@JoinTable(
@@ -107,6 +110,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 		public void setPaikka(String paikka) {
 			this.paikka = paikka;	
 		}
+		
+		public int getMaxOsallistujaLkm() {
+			return maxOsallistujaLkm;
+		}
+		
+		public void setMaxOsallistujaLkm(int maxOsallistujaLkm) {
+			this.maxOsallistujaLkm = maxOsallistujaLkm;
+		}
 
 		public List<Kayttaja> getOsallistujat() {
 			return osallistujat;
@@ -116,12 +127,20 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.osallistujat = osallistujat;		
 		}
 		
+		@Transient
+		public int getOsallistujaLkm(int id) {
+			int osallistujaLkm = this.osallistujat.size();
+			return osallistujaLkm;
+		}
+
 		@Override
 		public String toString() {
-			return "Tapahtuma [id=" + id + ", nimi=" + nimi + ", kuvaus=" + kuvaus
-					+ ", pvm=" + pvm + ", aika=" + aika + ", paikka=" + paikka
+			return "TapahtumaImpl [id=" + id + ", nimi=" + nimi + ", kuvaus="
+					+ kuvaus + ", pvm=" + pvm + ", aika=" + aika + ", paikka="
+					+ paikka + ", maxOsallistujaLkm=" + maxOsallistujaLkm
 					+ ", osallistujat=" + osallistujat + "]";
 		}
+
 			
 	}
 		

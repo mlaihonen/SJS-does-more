@@ -5,7 +5,7 @@ CREATE TABLE tapahtuma
 , t_pvm date not null
 , t_aika time not null
 , t_paikka varchar(255) not null
-, t_osallistujalkm integer 
+, t_maxosallistujalkm integer
 , t_jarjestaja_id integer
 , t_kategoria varchar(255)
 , CONSTRAINT pk_tapaht PRIMARY KEY (t_id)
