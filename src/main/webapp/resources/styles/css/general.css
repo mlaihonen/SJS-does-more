@@ -1,8 +1,15 @@
-.keskella{
-
-}
 #navlogo{
-	max-height:56px;
+	max-height:56px; 
+}
+
+.keskella{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
 }
 
 @media screen and (min-width: 999px) {
@@ -28,9 +35,11 @@ i.material-icons {
 #etusivu_taustakuva {
 	min-height:100vh;
 	background-image: url('/DoMore/resources/images/mountain-lake.jpg');
-	background-size: 100%;
-    background-repeat: no-repeat;
-  
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position:center;
 }
 
 
@@ -41,7 +50,7 @@ Tapahtumatiedot start
 
 @media screen and (min-width: 999px) {
     #ruutu2 {
-        margin-left: 15%;
+    margin-left: 15%;
 	margin-right: 15%;
     }
 }
@@ -50,7 +59,7 @@ Tapahtumatiedot start
 #ruutu2body{ padding:20px;}
 .lapinakuvaharmaa{background-color: #B7B7B7 !important;}
 
-h2 span.material-icons{font-size: 100%;} /*ei toimi...pit‰‰ korjata*/
+h2 span.material-icons{font-size: 100%;} /*ei toimi...pit√§√§ korjata*/
 
 blockquote.error{
 background-color:#ee6e73b3;
