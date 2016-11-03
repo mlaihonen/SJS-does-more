@@ -35,6 +35,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 		@Column(name = "t_paikka")
 		private String paikka;
 		
+		@Column(name = "t_maxosallistujalkm")
+		private int maxOsallistujaLkm;
+		
 		@ManyToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, 
 				fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 		@JoinTable(
@@ -47,8 +50,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 			super();
 		}
 
-		public TapahtumaImpl(int id, String nimi, String kuvaus, Date pvm, Date aika,
-				String paikka, List<Kayttaja> osallistujat) {
+		public TapahtumaImpl(int id, String nimi, String kuvaus, Date pvm,
+				Date aika, String paikka, int maxOsallistujaLkm,
+				List<Kayttaja> osallistujat) {
 			super();
 			this.id = id;
 			this.nimi = nimi;
@@ -56,8 +60,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.pvm = pvm;
 			this.aika = aika;
 			this.paikka = paikka;
+			this.maxOsallistujaLkm = maxOsallistujaLkm;
 			this.osallistujat = osallistujat;
 		}
+
 
 		public int getId() {
 			return id;
@@ -107,6 +113,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 		public void setPaikka(String paikka) {
 			this.paikka = paikka;	
 		}
+		
+		public int getMaxOsallistujaLkm() {
+			return maxOsallistujaLkm;
+		}
+		
+		public void setMaxOsallistujaLkm(int maxOsallistujaLkm) {
+			this.maxOsallistujaLkm = maxOsallistujaLkm;
+		}
 
 		public List<Kayttaja> getOsallistujat() {
 			return osallistujat;
@@ -116,12 +130,20 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.osallistujat = osallistujat;		
 		}
 		
+		@Transient
+		public int getOsallistujaLkm(int id) {
+			int osallistujaLkm = this.osallistujat.size();
+			return osallistujaLkm;
+		}
+
 		@Override
 		public String toString() {
-			return "Tapahtuma [id=" + id + ", nimi=" + nimi + ", kuvaus=" + kuvaus
-					+ ", pvm=" + pvm + ", aika=" + aika + ", paikka=" + paikka
+			return "TapahtumaImpl [id=" + id + ", nimi=" + nimi + ", kuvaus="
+					+ kuvaus + ", pvm=" + pvm + ", aika=" + aika + ", paikka="
+					+ paikka + ", maxOsallistujaLkm=" + maxOsallistujaLkm
 					+ ", osallistujat=" + osallistujat + "]";
 		}
+
 			
 	}
 		
