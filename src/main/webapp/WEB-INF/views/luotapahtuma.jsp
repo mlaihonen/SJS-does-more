@@ -23,7 +23,7 @@
     
 <body>
 	 <body>
- 	<div id="taustakuva">
+ 	
       <ul id="dropdown1" class="dropdown-content">
       <li><a href="#">FI</li>
       <li><a href="#">EN</li>
@@ -35,7 +35,7 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
         <li><a href="#"><spring:message code="etusivu"/></a></li>
-        <li><a href="#"><spring:message code="luotapahtuma"/></a></li>
+        <li><a href="luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
         <li><a href="#"><spring:message code="etsitapahtuma"/></a></li>
         <li><a href="#"><spring:message code="yhteystiedot"/></a></li>
       </ul>
@@ -53,8 +53,8 @@
     </div>
   </nav>
   
-  
-  <div><h2>Luo tapahtuma</h2></div>
+  <div class="row card-panel" id="ruutu2">
+  <h2>Luo tapahtuma</h2>
 
 </div>
 
