@@ -1,3 +1,10 @@
+.keskella{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 #navlogo{
 	max-height:56px;
 }
@@ -21,6 +28,16 @@ i.material-icons {
       vertical-align: middle;
  }
 
+
+#etusivu_taustakuva {
+	min-height:100vh;
+	background-image: url('/DoMore/resources/images/mountain-lake.jpg');
+	background-size: 100%;
+    background-repeat: no-repeat;
+  
+}
+
+
 /*================================================================================================================
 Tapahtumatiedot start
 ================================================================================================================*/
@@ -42,6 +59,14 @@ h2 span.material-icons{font-size: 100%;} /*ei toimi...pit‰‰ korjata*/
 blockquote.error{
 background-color:#ee6e73b3;
 font-weight: bold;
+}
+
+#taustakuva {
+	min-height:100vh;
+	background-image: url('/DoMore/resources/images/mountain.jpg');
+	background-size: 100%;
+    background-repeat: no-repeat;
+  
 }
 /*================================================================================================================
 Tapahtumatiedot end
@@ -66,13 +91,7 @@ NAV ENDS
 
 
 
-#taustakuva {
-	min-height:100vh;
-	background-image: url('/DoMore/resources/images/mountain.jpg');
-	background-size: 100%;
-    background-repeat: no-repeat;
-  
-}
+
 
 
 

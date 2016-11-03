@@ -31,13 +31,20 @@ public class TapahtumaController {
 	/*@Inject
 	private TapahtumaDAO dao;*/	
 	
-	//Listaa kaikki tapahtumat
+	
 	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String create(Model model) {
+		
+		return "etusivu";
+	} 
+	
+	//Listaa kaikki tapahtumat
+	@RequestMapping(value="tapahtumat", method=RequestMethod.GET)
 	public String getList(Model model) {
 		List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(hibernateDAO.haeKaikki());
 		model.addAttribute("tapahtumat", tapahtumat);
 		return "tapahtumat";
-	} 
+	} 	
 	
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.GET)
 	public String viewTapahtuma(@PathVariable Integer id, Model model) { 
