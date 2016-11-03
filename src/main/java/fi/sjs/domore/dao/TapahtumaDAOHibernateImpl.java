@@ -17,6 +17,9 @@ public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 	@PersistenceContext
 	private EntityManager em;
 	
+	public void lisaaUusi(Tapahtuma tapahtuma) {
+        em.persist(tapahtuma);
+    }
 	
 	public List<Tapahtuma> haeKaikki() {
 		return em.createQuery("select tapahtuma from TapahtumaImpl tapahtuma", Tapahtuma.class).getResultList();
