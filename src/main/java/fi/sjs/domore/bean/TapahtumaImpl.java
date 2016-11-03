@@ -35,7 +35,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 		@Column(name = "t_paikka")
 		private String paikka;
 		
-		@Column(name = "t_maxosallistujalkm")
+		//@Column(name = "t_maxosallistujalkm")
 		private int maxOsallistujaLkm;
 		
 		
@@ -47,12 +47,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 		
 		
 		
-		/*@ManyToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, 
+		@ManyToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, 
 				fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 		@JoinTable(
 				name = "tapahtumaosallistuja",
 				joinColumns = @JoinColumn(name = "t_id"),
-				inverseJoinColumns = @JoinColumn(name = "k_id"))*/
+				inverseJoinColumns = @JoinColumn(name = "k_id"))
 		private List<Kayttaja> osallistujat;
 		
 		/*@OneToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, cascade = CascadeType.ALL)

@@ -102,7 +102,7 @@
 	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action"><spring:message code="tapahtuma.lisatieto"/>
 	  	</form:form>
 		</div>
-		<div class="col m5">
+		<!--  <div class="col m5">
 		
 		<table class="highlight centered responsive">
 		<thead>
@@ -120,45 +120,10 @@
         </tbody>
 		</table>
 		
-		</div>
+		</div>-->
 	 
 	  <div class="col s12">
-	   <form:form modelAttribute="kayttaja" action="osallistu/${tapahtuma.id}" method="post">
-	  	<fieldset>
-	  	
-	  	<spring:hasBindErrors name="kayttaja">
-		<p class="Virheotsikko"><spring:message code="kayttaja.errors" />:</p>
-		<div class="Virheblokki"><form:errors path="*"/></div>
-		</spring:hasBindErrors>
-	
-		  <!-- <form:input path="id" id="tapahtuman_id_jsp" type="hidden" name="iidee"/> -->
-        <div class="input-field col sm2">
-          <i class="material-icons prefix">account_circle</i>
-          <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="etunimi"/>
-          <form:label path="etunimi" for="icon_prefix"><spring:message code="kayttaja.etunimi"/></form:label>
-        </div>
-        <div class="input-field col sm2">
-          <i class="material-icons prefix">account_circle</i>
-          <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="sukunimi"/>
-          <form:label path="sukunimi" for="icon_prefix"><spring:message code="kayttaja.sukunimi"/></form:label>
-        </div>
-	   <div class="input-field col md3">
-	      <i class="material-icons prefix">email</i>
-          <form:input path="sposti" id="email" type="email" class="validate"/><form:errors path="sposti"/>
-          <form:label path="sposti" for="email"><spring:message code="kayttaja.email"/></form:label>
-        </div>
-		<div class="input-field col md3">
-	      <i class="material-icons prefix">phone</i>
-          <form:input path="puh" id="phone" type="tel" class="validate"/><form:errors path="puh"/>
-          <form:label path="puh" for="Puhelin"><spring:message code="kayttaja.puh"/></form:label>
-        </div>
-		<div class="input-field col md3">
-		<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action"><spring:message code="osallistu"/>
-		<i class="material-icons right">send</i>
-		</button>
-		</div>
-		</fieldset>
-		</form:form>
+	   
 	  </div>
 	  
 	  <div class="divider"></div>
