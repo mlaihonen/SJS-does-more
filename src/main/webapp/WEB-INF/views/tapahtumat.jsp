@@ -36,7 +36,7 @@
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
         <li><a href="#"><spring:message code="etusivu"/></a></li>
-        <li><a href="#"><spring:message code="luotapahtuma"/></a></li>
+        <li><a href="luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
         <li><a href="#"><spring:message code="etsitapahtuma"/></a></li>
         <li><a href="#"><spring:message code="yhteystiedot"/></a></li>
       </ul>
@@ -47,7 +47,7 @@
 	  </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="#"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
-        <li><a href="#"><span class="material-icons" id="navicon">event_note</span><spring:message code="luotapahtuma"/></a></li>
+        <li><a href="luotapahtuma"><span class="material-icons" id="navicon">event_note</span><spring:message code="luotapahtuma"/></a></li>
         <li><a href="#"><span class="material-icons" id="navicon">search</span><spring:message code="etsitapahtuma"/></a></li>
         <li><a href="#"><span class="material-icons" id="navicon">phone</span><spring:message code="yhteystiedot"/></a></li>
       </ul>
