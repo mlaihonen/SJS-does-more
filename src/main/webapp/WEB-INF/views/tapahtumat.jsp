@@ -71,7 +71,8 @@
       <span class="title">${tapahtuma.nimi}</span>
       <p><span class="material-icons">query_builder</span><spring:message code="tapahtuma.aika"/><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
       <span class="material-icons">today</span><spring:message code="tapahtuma.pvm"/><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
-      <span class="material-icons">place</span><spring:message code="tapahtuma.paikka"/> ${tapahtuma.paikka}</p>
+      <span class="material-icons">place</span><spring:message code="tapahtuma.paikka"/> ${tapahtuma.paikka}
+      <span class="material-icons">people</span> ${tapahtuma.osallistujaLkm} / ${tapahtuma.maxOsallistujaLkm}</p>
 	  </div>
 	  <div class="collapsible-body">
 	  

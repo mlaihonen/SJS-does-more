@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Formula;
 import org.springframework.format.annotation.DateTimeFormat;
 
 	@Entity
@@ -35,18 +36,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 		@Column(name = "t_paikka")
 		private String paikka;
 		
-		//@Column(name = "t_maxosallistujalkm")
+		@Column(name = "t_maxosallistujalkm")
 		private int maxOsallistujaLkm;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+			
 		@ManyToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, 
 				fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 		@JoinTable(
@@ -55,17 +47,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 				inverseJoinColumns = @JoinColumn(name = "k_id"))
 		private List<Kayttaja> osallistujat;
 		
-		/*@OneToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, cascade = CascadeType.ALL)
-		@JoinTable(
-		        name = "tapahtumaosallistuja",
-		        joinColumns = @JoinColumn(name = "k_id"),
-		        inverseJoinColumns = @JoinColumn(name = "t_id")
-		)*/
-		public List<Kayttaja> getOsallistujat() {
-		    return osallistujat;
-		}
-		
-		
+		/*@Formula("select count(*) from tapahtumaosallistuja where t_id = id")
+		private int osallistujaLkm;*/
 		
 		public TapahtumaImpl() {
 			super();
@@ -84,7 +67,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.maxOsallistujaLkm = maxOsallistujaLkm;
 			this.osallistujat = osallistujat;
 		}
-
 
 		public int getId() {
 			return id;
@@ -115,8 +97,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 		}
 
 		public void setPvm(Date pvm) {
-			this.pvm = pvm;
-			
+			this.pvm = pvm;			
 		}
 
 		public Date getAika() {
@@ -143,17 +124,22 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.maxOsallistujaLkm = maxOsallistujaLkm;
 		}
 
-		/*public List<Kayttaja> getOsallistujat() {
+		/*@OneToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, cascade = CascadeType.ALL)
+		@JoinTable(
+		        name = "tapahtumaosallistuja",
+		        joinColumns = @JoinColumn(name = "k_id"),
+		        inverseJoinColumns = @JoinColumn(name = "t_id")
+		)*/
+		public List<Kayttaja> getOsallistujat() {
 			return osallistujat;
-		}*/
+		}
 
 		public void setOsallistujat(List<Kayttaja> osallistujat) {
 			this.osallistujat = osallistujat;		
 		}
 		
-		@Transient
-		public int getOsallistujaLkm(int id) {
-			int osallistujaLkm = this.osallistujat.size();
+		public int getOsallistujaLkm() {
+			int osallistujaLkm = osallistujat.size();
 			return osallistujaLkm;
 		}
 
