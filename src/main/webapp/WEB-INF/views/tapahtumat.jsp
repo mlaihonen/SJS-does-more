@@ -28,8 +28,9 @@
     <body>
 
       <ul id="dropdown1" class="dropdown-content">
-      <li><a href="?lang=fi">FI</li>
-      <li><a href="?lang=en">EN</li>
+      <li><a href="?lang=fi">FI</a></li>
+      <li><a href="?lang=swe">SWE</a></li>
+      <li><a href="?lang=en">EN</a></li>
       </ul>
 
   <nav>
@@ -45,7 +46,7 @@
        <!-- Dropdown Trigger -->
       
 	  <ul class="right">
-	  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">language</i><i class="material-icons right">arrow_drop_down</i></a></li>
+	  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">language</i></a></li>
 	  </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><a href="#"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
