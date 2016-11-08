@@ -33,11 +33,11 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
+      <a href="../" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
-        <li><a href="#"><spring:message code="etusivu"/></a></li>
-        <li><a href="#"><spring:message code="luotapahtuma"/></a></li>
+        <li><a href="../"><spring:message code="etusivu"/></a></li>
+        <li><a href="../luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
         <li><a href="#"><spring:message code="etsitapahtuma"/></a></li>
         <li><a href="#"><spring:message code="yhteystiedot"/></a></li>
       </ul>
@@ -47,8 +47,8 @@
 	  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">language</i></a></li>
 	  </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="#"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
-        <li><a href="#"><span class="material-icons" id="navicon">event_note</span><spring:message code="luotapahtuma"/></a></li>
+        <li><a href="../"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
+        <li><a href="luotapahtuma"><span class="material-icons" id="navicon">event_note</span><spring:message code="luotapahtuma"/></a></li>
         <li><a href="#"><span class="material-icons" id="navicon">search</span><spring:message code="etsitapahtuma"/></a></li>
         <li><a href="#"><span class="material-icons" id="navicon">phone</span><spring:message code="yhteystiedot"/></a></li>
       </ul>
@@ -88,51 +88,49 @@
 	<h4>Lisätietoja</h4>
 	<p class="flow-text">${tapahtuma.kuvaus }</p>
 	</div>
-	<form:form modelAttribute="kayttaja" action="../osallistu/${tapahtuma.id}" method="post">
-
-	  	<fieldset>
-	<blockquote class="error">
-	<p><i class="tiny material-icons">report_problem</i>Tämä on VIRHETEKSTI!!!!!!!!!!</p>
-		<spring:hasBindErrors name="kayttaja">
-	  	
-		<p class="Virheotsikko"><spring:message code="kayttaja.errors" />:</p>
-		<div class="Virheblokki"><form:errors path="*"/></div>
-		</spring:hasBindErrors>
-	</blockquote><br>
-	  	
-	  
+	
+	<form:form modelAttribute="kayttaja" action="../tapahtumatiedot/${tapahtuma.id}" method="post">
+		<fieldset>
 		
-        <div class="input-field col sm2">
-          <i class="material-icons prefix">account_circle</i>
-          <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="etunimi"/>
-          <form:label path="etunimi" for="icon_prefix"><spring:message code="kayttaja.etunimi"/></form:label>
-        </div>
-        
-        <div class="input-field col sm2">
-          <i class="material-icons prefix">account_circle</i>
-          <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="sukunimi"/>
-          <form:label path="sukunimi" for="icon_prefix"><spring:message code="kayttaja.sukunimi"/></form:label>
-        </div>
-        
-	   <div class="input-field col md3">
-	      <i class="material-icons prefix">email</i>
-          <form:input path="sposti" id="email" type="email" class="validate"/><form:errors path="sposti"/>
-          <form:label path="sposti" for="email"><spring:message code="kayttaja.email"/></form:label>
-        </div>
-        
-		<div class="input-field col md3">
-	      <i class="material-icons prefix">phone</i>
-          <form:input path="puh" id="phone" type="tel" class="validate"/><form:errors path="puh"/>
-          <form:label path="puh" for="Puhelin"><spring:message code="kayttaja.puh"/></form:label>
-        </div>
-        
-		<div class="input-field col md3">
-		<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action"><spring:message code="osallistu"/>
-		<i class="material-icons right">send</i>
-		</button>
-		</div>
-		
-		</fieldset>
+			<blockquote class="error">
+				<p><i class="tiny material-icons">report_problem</i>Tämä on VIRHETEKSTI!!!!!!!!!!</p>
+				<spring:hasBindErrors name="kayttaja">  	
+					<p class="Virheotsikko"><spring:message code="kayttaja.errors" />:</p>
+					<div class="Virheblokki"><form:errors path="*"/></div>
+				</spring:hasBindErrors>
+			</blockquote><br>
+			  			
+		        <div class="input-field col sm2">
+		          <i class="material-icons prefix">account_circle</i>
+		          <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="etunimi"/>
+		          <form:label path="etunimi" for="icon_prefix"><spring:message code="kayttaja.etunimi"/></form:label>
+		        </div>
+		        
+		        <div class="input-field col sm2">
+		          <i class="material-icons prefix">account_circle</i>
+		          <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="sukunimi"/>
+		          <form:label path="sukunimi" for="icon_prefix"><spring:message code="kayttaja.sukunimi"/></form:label>
+		        </div>
+		        
+			   <div class="input-field col md3">
+			      <i class="material-icons prefix">email</i>
+		          <form:input path="sposti" id="email" type="email" class="validate"/><form:errors path="sposti"/>
+		          <form:label path="sposti" for="email"><spring:message code="kayttaja.email"/></form:label>
+		        </div>
+		        
+				<div class="input-field col md3">
+			      <i class="material-icons prefix">phone</i>
+		          <form:input path="puh" id="phone" type="tel" class="validate"/><form:errors path="puh"/>
+		          <form:label path="puh" for="Puhelin"><spring:message code="kayttaja.puh"/></form:label>
+		        </div>
+		        
+				<div class="input-field col md3">
+				<button class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/>
+				<i class="material-icons right">send</i>
+				</button>
+				</div>
+			
+			</fieldset>
 		</form:form>
 	</div>
 	</div>

@@ -35,10 +35,10 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
+      <a href="./" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
-        <li><a href="#"><spring:message code="etusivu"/></a></li>
+        <li><a href="./"><spring:message code="etusivu"/></a></li>
         <li><a href="luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
         <li><a href="#"><spring:message code="etsitapahtuma"/></a></li>
         <li><a href="#"><spring:message code="yhteystiedot"/></a></li>
@@ -103,7 +103,7 @@
 	  	<div class="col m5">
 	  	<p>${tapahtuma.kuvaus } </p>
 	  	<form:form action="tapahtumatiedot/${tapahtuma.id}" method="get">
-	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action"><spring:message code="tapahtuma.lisatieto"/>
+	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit""><spring:message code="tapahtuma.lisatieto"/>
 	  	</form:form>
 		</div>
 		<div class="col m5">
