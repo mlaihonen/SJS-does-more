@@ -1,14 +1,11 @@
 package fi.sjs.domore.bean;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -44,14 +41,6 @@ public class KayttajaImpl implements Kayttaja{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="k_id")
 	private int id;
-	
-	//@OneToMany(cascade = CascadeType.ALL)
-    /*@JoinTable(
-            name = "tapahtumaosallistuja",
-            joinColumns = @JoinColumn(name = "k_id"),
-            inverseJoinColumns = @JoinColumn(name = "t_id")
-    )	*/
-	
 
 	public KayttajaImpl() {
 		super();

@@ -54,19 +54,21 @@ public class TapahtumaController {
 		return "tapahtumat";
 	} 	
 	
+	//näytä yhden tapahtuman tiedot ja osallistumisformi
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.GET)
 	public String viewTapahtuma(@PathVariable Integer id, Model model) { 
 		Tapahtuma tapahtuma = hibernateDAO.etsi(id);
 		model.addAttribute("tapahtuma", tapahtuma);
-		Kayttaja kayttaja = new KayttajaImpl();
-		model.addAttribute("kayttaja", kayttaja);
+		Kayttaja tyhjaKayttaja = new KayttajaImpl();
+		model.addAttribute("kayttaja", tyhjaKayttaja);
 		return "tapahtumatiedot";
 	}	
 	
-	@RequestMapping(value="osallistu/{id}", method=RequestMethod.POST)
-	public String create( @PathVariable Integer id, @ModelAttribute(value="kayttaja") @Valid KayttajaImpl kayttaja, BindingResult result) {
+	//hae osallistumisformiin syötetyt tiedot
+	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.POST)
+	public String create(@ModelAttribute(value="kayttaja") @PathVariable Integer id, @Valid KayttajaImpl kayttaja, BindingResult result) {
 		if (result.hasErrors()) {
-			return "redirect:/tapahtumatiedot/"+id; //virhetekstit eivät vielä näy...
+			return "tapahtumatiedot"; //virhetekstit eivät vielä näy...
 		} else {						
 			dao.lisaaUusi(kayttaja, id);	
 			return "redirect:.././onnistui"; 
@@ -74,7 +76,7 @@ public class TapahtumaController {
 	}
 	
 	@RequestMapping(value="/onnistui", method=RequestMethod.GET)
-	public String viewOnnistui() { //ilman t�t� ei voida n�ytt�� onnistui sivua
+	public String viewOnnistui() { //ilman tätä ei voida näyttää onnistui sivua
 		
 		return "onnistui";
 	}
