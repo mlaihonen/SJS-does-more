@@ -12,6 +12,10 @@
     height: 100px;
 }
 
+.lihavoitu {
+	font-weight: bold;
+}
+
 @media screen and (min-width: 999px) {
     #ruutu {
         margin-left: 15%;
@@ -29,6 +33,7 @@
 
 i.material-icons {
       vertical-align: middle;
+      padding: 0px 10px 0px 10px;
  }
 
 

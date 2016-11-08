@@ -5,6 +5,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags"  prefix="spring"%>
+<!-- jstl funktiot. käytetään osallistujalistan pituuden saamiseen -->
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -69,9 +71,9 @@
     <li class="collection-item avatar">
 	  <div class="collapsible-header hoverable">
       <span class="title">${tapahtuma.nimi}</span>
-      <p><span class="material-icons">query_builder</span><spring:message code="tapahtuma.aika"/><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
-      <span class="material-icons">today</span><spring:message code="tapahtuma.pvm"/><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
-      <span class="material-icons">place</span><spring:message code="tapahtuma.paikka"/> ${tapahtuma.paikka}
+      <p><span class="material-icons">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
+      <span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
+      <span class="material-icons">place</span>${tapahtuma.paikka}
       <span class="material-icons">people</span> ${tapahtuma.osallistujaLkm} / ${tapahtuma.maxOsallistujaLkm}</p>
 	  </div>
 	  <div class="collapsible-body">
@@ -113,11 +115,21 @@
         </thead>
 
         <tbody>
-        <c:forEach items="${tapahtuma.osallistujat}" var="kayttaja">
-          <tr>
-            <td>${kayttaja.etunimi}</td>
-          </tr>
-          </c:forEach>
+       
+       
+      	<!-- jos osallistujalistan pituus on suurempi kuin 0, näytä lista. jos ei, näytä viesti -->
+       	 <c:choose>     		
+       		<c:when test="${fn:length(tapahtuma.osallistujat) gt 0}">
+		         <c:forEach items="${tapahtuma.osallistujat}" var="kayttaja">     	 
+			          <tr>
+			            <td><c:out value="${kayttaja.etunimi}"/> <c:out value="${kayttaja.sukunimi }"/></td>
+			          </tr>
+			     </c:forEach>
+        	 </c:when>
+	         <c:otherwise>
+	         	 <td><spring:message code="eiosallistujiaviesti"/></td>
+	         </c:otherwise>        
+          </c:choose>
         </tbody>
 		</table>
 		
