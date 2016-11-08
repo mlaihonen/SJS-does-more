@@ -63,12 +63,13 @@ public class TapahtumaController {
 		model.addAttribute("kayttaja", tyhjaKayttaja);
 		return "tapahtumatiedot";
 	}	
+
 	
 	//hae osallistumisformiin syötetyt tiedot
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.POST)
 	public String create(@ModelAttribute(value="kayttaja") @PathVariable Integer id, @Valid KayttajaImpl kayttaja, BindingResult result) {
 		if (result.hasErrors()) {
-			return "tapahtumatiedot"; //virhetekstit eivät vielä näy...
+			return "redirect:/tapahtumatiedot/"+id; //virhetekstit eivät vielä näy...
 		} else {						
 			dao.lisaaUusi(kayttaja, id);	
 			return "redirect:.././onnistui"; 
