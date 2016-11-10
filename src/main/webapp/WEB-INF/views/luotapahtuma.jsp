@@ -54,74 +54,78 @@
       </ul>
     </div>
   </nav>
+  <div class="center-align col l12">
   
-  <div class="row card-panel" id="ruutu2">
   <h2>Luo tapahtuma</h2>
-	
-	
-	
-	<form:form modelAttribute="kayttaja" action="../osallistu/${tapahtuma.id}" method="post">
+  </div>
+  <div class="row card-panel" id="ruutu2">
 
-	  	<fieldset>
-	<blockquote class="error">
-	<p><i class="tiny material-icons">report_problem</i>Tämä on VIRHETEKSTI!!!!!!!!!!</p>
-		<spring:hasBindErrors name="kayttaja">
-	  	
-		<p class="Virheotsikko"><spring:message code="kayttaja.errors" />:</p>
-		<div class="Virheblokki"><form:errors path="*"/></div>
-		</spring:hasBindErrors>
-	</blockquote><br>
-
-        <div class="input-field col sm2">
-          <i class="material-icons prefix">account_circle</i>
-          <form:input path="etunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="etunimi"/>
-          <form:label path="etunimi" for="icon_prefix"><spring:message code="kayttaja.etunimi"/></form:label>
+	
+	<!-- <form:form modelAttribute="kayttaja" action="../osallistu/${tapahtuma.id}" method="post"> -->
+	<div class="col l2"></div>
+	   <div class="row">
+      <form class="col l8">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="input_text" type="text" length="20">
+            <label for="input_text">Tapahtuman nimi</label>
+          </div>
         </div>
-        
-        <div class="input-field col sm2">
-          <i class="material-icons prefix">account_circle</i>
-          <form:input path="sukunimi" id="icon_prefix" type="text" class="validate"/><form:errors path="sukunimi"/>
-          <form:label path="sukunimi" for="icon_prefix"><spring:message code="kayttaja.sukunimi"/></form:label>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="tapahtumakuvaus" class="materialize-textarea" length="200"></textarea>
+            <label for="tapahtumakuvaus">Tapahtuman kuvaus</label>
+          </div>
         </div>
-        
-	   <div class="input-field col md3">
-	      <i class="material-icons prefix">email</i>
-          <form:input path="sposti" id="email" type="email" class="validate"/><form:errors path="sposti"/>
-          <form:label path="sposti" for="email"><spring:message code="kayttaja.email"/></form:label>
-        </div>
-        
-		<div class="input-field col md3">
-	      <i class="material-icons prefix">phone</i>
-          <form:input path="puh" id="phone" type="tel" class="validate"/><form:errors path="puh"/>
-          <form:label path="puh" for="Puhelin"><spring:message code="kayttaja.puh"/></form:label>
-        </div>
-        
-		<div class="input-field col md3">
-		<button class="btn waves-effect indigo darken-4 waves-light" type="submit" name="action"><spring:message code="osallistu"/>
-		<i class="material-icons right">send</i>
-		</button>
-		</div>
+                <div class="row">
+          <div class="input-field col s4">
+          <input type="date" class="datepicker" id="pvm">
+          <label class="active" for="pvm">Päivämäärä</label>
+          </div>
+          <div class="input-field col s4">
+      <input value="12:00" id="tapahtuma-aika" type="text" class="validate" length="5">
+      <label class="active" for="tapahtuma-aika">Aika</label>
+          </div>
+          <div class="input-field col s4">
+          <input type="range" id="maxosallistujat" min="1" max="100" />
+          <label class="active" for="maxosallistujat">Maksimiosallistujat</label>
+          </div>
+          
+          </div>
+          <div class="row">
+          <div class="input-field col s6">
+            <input id="tapahtumapaikka" type="text" length="20">
+            <label for="tapahtumapaikka">Paikka</label>
+            </div>
+          </div>
+      </form>
+    </div>
+    <div class="col l2"></div>
+	<!-- </form:form> -->
 		
-		</fieldset>
-		</form:form>
 		
+	</div>	
 		
-		
-		
-</div>
 
   <!--Import jQuery before materialize.js AINA LOPPUUN!!!!!!!!!!!-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js" />"></script>
 	  	<script type="text/javascript" src="<c:url value="/resources/js/materialize.js" />"></script>
-		<script>
-		
+
+	<script>
+
   $('.button-collapse').sideNav({
   // Initialize collapse button
       closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
     }
   );
   </script>
+ <script> 
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+    </script>
 
 
 </body>
