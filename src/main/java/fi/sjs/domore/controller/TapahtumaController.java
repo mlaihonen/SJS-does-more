@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.KayttajaImpl;
@@ -63,29 +64,19 @@ public class TapahtumaController {
 		if(!model.containsAttribute("kayttaja")){
 			model.addAttribute("kayttaja", new KayttajaImpl());
 		}
-		
-		//Kayttaja kayt = (Kayttaja) model.addAttribute("kayttaja", kayttaja);
-		/*if(kayt == null){
-			Kayttaja tyhjaKayttaja = new KayttajaImpl();
-			model.addAttribute("kayttaja", tyhjaKayttaja);
-		}*/
-				
-		//model.addAttribute("tapahtuma", tapahtuma);
-		//Kayttaja tyhjaKayttaja = new KayttajaImpl();
-		//model.addAttribute("kayttaja", tyhjaKayttaja);
-		
-		//model.addAttribute("kayttaja", kayttaja);
-			
+					
 		return "tapahtumatiedot";
 	}	
 
 	
 	//hae osallistumisformiin syötetyt tiedot
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.POST)
-	public String createKayttaja(@ModelAttribute(value="kayttaja") @PathVariable Integer id, @Valid KayttajaImpl kayttaja, BindingResult result, Model model) {
+	public String createKayttaja(@ModelAttribute(value="kayttaja") @PathVariable Integer id, @Valid KayttajaImpl kayttaja, BindingResult result, RedirectAttributes attr) {
 		if (result.hasErrors()) {
-			model.addAttribute(kayttaja);
-			return "tapahtumatiedot"; //virhetekstit eivät vielä näy...
+			attr.addFlashAttribute("org.springframework.validation.BindingResult.kayttaja", result);
+			attr.addFlashAttribute("kayttaja", kayttaja);
+			return "redirect:../tapahtumatiedot/"+id;
+	
 		} else {						
 			dao.lisaaUusi(kayttaja, id);	
 			return "redirect:.././onnistui"; 
