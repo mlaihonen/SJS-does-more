@@ -59,17 +59,33 @@ public class TapahtumaController {
 	public String viewTapahtuma(@PathVariable Integer id, Model model) { 
 		Tapahtuma tapahtuma = hibernateDAO.etsi(id);
 		model.addAttribute("tapahtuma", tapahtuma);
-		Kayttaja tyhjaKayttaja = new KayttajaImpl();
-		model.addAttribute("kayttaja", tyhjaKayttaja);
+		
+		if(!model.containsAttribute("kayttaja")){
+			model.addAttribute("kayttaja", new KayttajaImpl());
+		}
+		
+		//Kayttaja kayt = (Kayttaja) model.addAttribute("kayttaja", kayttaja);
+		/*if(kayt == null){
+			Kayttaja tyhjaKayttaja = new KayttajaImpl();
+			model.addAttribute("kayttaja", tyhjaKayttaja);
+		}*/
+				
+		//model.addAttribute("tapahtuma", tapahtuma);
+		//Kayttaja tyhjaKayttaja = new KayttajaImpl();
+		//model.addAttribute("kayttaja", tyhjaKayttaja);
+		
+		//model.addAttribute("kayttaja", kayttaja);
+			
 		return "tapahtumatiedot";
 	}	
 
 	
 	//hae osallistumisformiin syötetyt tiedot
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.POST)
-	public String create(@ModelAttribute(value="kayttaja") @PathVariable Integer id, @Valid KayttajaImpl kayttaja, BindingResult result) {
+	public String createKayttaja(@ModelAttribute(value="kayttaja") @PathVariable Integer id, @Valid KayttajaImpl kayttaja, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			return "redirect:/tapahtumatiedot/"+id; //virhetekstit eivät vielä näy...
+			model.addAttribute(kayttaja);
+			return "tapahtumatiedot"; //virhetekstit eivät vielä näy...
 		} else {						
 			dao.lisaaUusi(kayttaja, id);	
 			return "redirect:.././onnistui"; 
@@ -88,6 +104,20 @@ public class TapahtumaController {
 		model.addAttribute("tapahtuma", tapahtuma);
 		
 		return "luotapahtuma";
+	}	
+	
+	@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
+	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model) { 
+		
+		if (result.hasErrors()) {
+			model.addAttribute(tapahtuma);
+			return "luotapahtuma"; 
+		} else {						
+			hibernateDAO.lisaaUusi(tapahtuma);	
+			return "redirect:.././onnistui"; 
+		}
+		
+		
 	}	
 		
 }
