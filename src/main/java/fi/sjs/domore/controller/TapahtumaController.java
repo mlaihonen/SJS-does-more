@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.KayttajaImpl;
@@ -59,17 +60,23 @@ public class TapahtumaController {
 	public String viewTapahtuma(@PathVariable Integer id, Model model) { 
 		Tapahtuma tapahtuma = hibernateDAO.etsi(id);
 		model.addAttribute("tapahtuma", tapahtuma);
-		Kayttaja tyhjaKayttaja = new KayttajaImpl();
-		model.addAttribute("kayttaja", tyhjaKayttaja);
+		
+		if(!model.containsAttribute("kayttaja")){
+			model.addAttribute("kayttaja", new KayttajaImpl());
+		}
+					
 		return "tapahtumatiedot";
 	}	
 
 	
 	//hae osallistumisformiin syötetyt tiedot
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.POST)
-	public String create(@ModelAttribute(value="kayttaja") @PathVariable Integer id, @Valid KayttajaImpl kayttaja, BindingResult result) {
+	public String createKayttaja(@ModelAttribute(value="kayttaja") @PathVariable Integer id, @Valid KayttajaImpl kayttaja, BindingResult result, RedirectAttributes attr) {
 		if (result.hasErrors()) {
-			return "redirect:/tapahtumatiedot/"+id; //virhetekstit eivät vielä näy...
+			attr.addFlashAttribute("org.springframework.validation.BindingResult.kayttaja", result);
+			attr.addFlashAttribute("kayttaja", kayttaja);
+			return "redirect:../tapahtumatiedot/"+id;
+	
 		} else {						
 			dao.lisaaUusi(kayttaja, id);	
 			return "redirect:.././onnistui"; 
@@ -88,6 +95,20 @@ public class TapahtumaController {
 		model.addAttribute("tapahtuma", tapahtuma);
 		
 		return "luotapahtuma";
+	}	
+	
+	@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
+	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model) { 
+		
+		if (result.hasErrors()) {
+			model.addAttribute(tapahtuma);
+			return "luotapahtuma"; 
+		} else {						
+			hibernateDAO.lisaaUusi(tapahtuma);	
+			return "redirect:.././onnistui"; 
+		}
+		
+		
 	}	
 		
 }
