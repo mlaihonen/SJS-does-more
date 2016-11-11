@@ -27,9 +27,9 @@
     <body>
  	<div id="taustakuva">
       <ul id="dropdown1" class="dropdown-content">
-      <li><a href="#">FI</a></li>
+      <li><a href="?lang=fi">FI</a></li>
       <li><a href="?lang=swe">SWE</a></li>
-      <li><a href="#">EN</a></li>
+      <li><a href="?lang=en">EN</a></li>
       </ul>
 
   <nav>
@@ -86,7 +86,7 @@
 	</div>
 	<div id="ruutu2body">
 	<div class="container">
-	<h4>Lisätietoja</h4>
+	<h4><spring:message code="tapahtuma.lisatieto"/></h4>
 	<p class="flow-text">${tapahtuma.kuvaus }</p>
 	</div>
 	
@@ -94,7 +94,7 @@
 		<fieldset>
 		
 			<blockquote class="error">
-				<p><i class="tiny material-icons">report_problem</i>Tämä on VIRHETEKSTI!!!!!!!!!!</p>
+				
 				<spring:hasBindErrors name="kayttaja">  	
 					<p class="Virheotsikko"><spring:message code="kayttaja.errors" />:</p>
 					<div class="Virheblokki"><form:errors path="*"/></div>
