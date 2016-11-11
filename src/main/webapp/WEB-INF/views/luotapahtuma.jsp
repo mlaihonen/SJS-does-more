@@ -66,38 +66,38 @@
 	   <div class="row">
 	   
       <form:form modelAttribute="tapahtuma" action="tallennatapahtuma" method="post" class="col l8">
-      
+      	<fieldset>
         <div class="row">
           <div class="input-field col s6">
-            <input path="nimi" id="input_text" type="text" length="20">
-            <label path="nimi" for="input_text">Tapahtuman nimi</label>
+            <form:input path="nimi" id="input_text" type="text" length="20"/>
+            <form:label path="nimi" for="input_text">Tapahtuman nimi</form:label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <textarea path="kuvaus" id="tapahtumakuvaus" class="materialize-textarea" length="200"></textarea>
-            <label path="kuvaus" for="tapahtumakuvaus">Tapahtuman kuvaus</label>
+            <form:textarea path="kuvaus" id="tapahtumakuvaus" class="materialize-textarea" length="200"></form:textarea>
+            <form:label path="kuvaus" for="tapahtumakuvaus">Tapahtuman kuvaus</form:label>
           </div>
         </div>
                 <div class="row">
           <div class="input-field col s4">
-          <input path="pvm" type="date" class="datepicker" id="pvm">
-          <label path="pvm" class="active" for="pvm">Päivämäärä</label>
+          <form:input path="pvm" type="date" class="datepicker" id="pvm"/>
+          <form:label path="pvm" class="active" for="pvm">Päivämäärä</form:label>
           </div>
           <div class="input-field col s1">
-      <input path="aika" value="12:00" id="tapahtuma-aika" type="text" class="validate" length="5">
-      <label path="aika" class="active" for="tapahtuma-aika">Aika</label>
+      <form:input path="aika" value="12:00" id="tapahtuma-aika" type="text" class="validate" length="5"/>
+      <form:label path="aika" class="active" for="tapahtuma-aika">Aika</form:label>
           </div>
           <div class="input-field col s7">
-          <input path="maxOsallistujaLkm" type="range" id="maxosallistujat" min="1" max="20" />
-          <label path="maxOsallistujaLkm" class="active" for="maxosallistujat">Osallistujamäärä</label>
+          <form:input path="maxOsallistujaLkm" type="range" id="maxosallistujat" min="1" max="20" />
+          <form:label path="maxOsallistujaLkm" class="active" for="maxosallistujat">Osallistujamäärä</form:label>
           </div>
           
           </div>
           <div class="row">
           <div class="input-field col s6">
-            <input path="paikka" id="tapahtumapaikka" type="text" length="20">
-            <label path="paikka" for="tapahtumapaikka">Paikka</label>
+            <form:input path="paikka" id="tapahtumapaikka" type="text" length="20"/>
+            <form:label path="paikka" for="tapahtumapaikka">Paikka</form:label>
             </div>
             <div class="input-field col s6">
 				<button class="btn waves-effect indigo darken-4 waves-light" type="submit">Luo
@@ -105,7 +105,7 @@
 				</button>
 				</div>
           </div>
-          
+          </fieldset>
       </form:form> 
       
     </div>
