@@ -82,13 +82,13 @@
           <input type="date" class="datepicker" id="pvm">
           <label class="active" for="pvm">Päivämäärä</label>
           </div>
-          <div class="input-field col s4">
+          <div class="input-field col s1">
       <input value="12:00" id="tapahtuma-aika" type="text" class="validate" length="5">
       <label class="active" for="tapahtuma-aika">Aika</label>
           </div>
-          <div class="input-field col s4">
-          <input type="range" id="maxosallistujat" min="1" max="100" />
-          <label class="active" for="maxosallistujat">Maksimiosallistujat</label>
+          <div class="input-field col s7">
+          <input type="range" id="maxosallistujat" min="1" max="20" />
+          <label class="active" for="maxosallistujat">Osallistujamäärä</label>
           </div>
           
           </div>
@@ -121,10 +121,10 @@
   );
   </script>
  <script> 
-    $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
-  });
+ $('.datepicker').pickadate({
+	    selectMonths: true, // Creates a dropdown to control month
+	    selectYears: 2, // Creates a dropdown of 15 years to control year
+	    format: 'dd.mm.yyyy' });
     </script>
 
 
