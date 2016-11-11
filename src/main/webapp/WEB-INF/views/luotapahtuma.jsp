@@ -97,6 +97,11 @@
             <input id="tapahtumapaikka" type="text" length="20">
             <label for="tapahtumapaikka">Paikka</label>
             </div>
+            <div class="input-field col s6">
+				<button class="btn waves-effect indigo darken-4 waves-light" type="submit">Luo
+				<i class="material-icons right">send</i>
+				</button>
+				</div>
           </div>
       </form>
     </div>
