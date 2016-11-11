@@ -61,10 +61,10 @@
   <div class="row card-panel" id="ruutu2">
 
 	
-	<!-- <form:form modelAttribute="kayttaja" action="../osallistu/${tapahtuma.id}" method="post"> -->
+	<form:form modelAttribute="tapahtuma" action="tallennatapahtuma" method="post">
 	<div class="col l2"></div>
 	   <div class="row">
-      <form class="col l8">
+      <div class="col l8">
         <div class="row">
           <div class="input-field col s6">
             <input id="input_text" type="text" length="20">
@@ -103,10 +103,10 @@
 				</button>
 				</div>
           </div>
-      </form>
+      </div>
     </div>
     <div class="col l2"></div>
-	<!-- </form:form> -->
+	</form:form> 
 		
 		
 	</div>	

@@ -105,7 +105,7 @@ public class TapahtumaController {
 			return "luotapahtuma"; 
 		} else {						
 			hibernateDAO.lisaaUusi(tapahtuma);	
-			return "redirect:.././onnistui"; 
+			return "redirect:/onnistui"; 
 		}
 		
 		
