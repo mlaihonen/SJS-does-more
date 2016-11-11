@@ -72,11 +72,11 @@
 	 <c:forEach items="${tapahtumat}" var="tapahtuma">
     <li class="collection-item avatar">
 	  <div class="collapsible-header hoverable">
-      <span class="title">${tapahtuma.nimi}</span>
+      <span class="title"><c:out value="${tapahtuma.nimi}" /></span>
       <p><span class="material-icons">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
       <span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
-      <span class="material-icons">place</span>${tapahtuma.paikka}
-      <span class="material-icons">people</span> ${tapahtuma.osallistujaLkm} / ${tapahtuma.maxOsallistujaLkm}</p>
+      <span class="material-icons">place</span><c:out value="${tapahtuma.paikka}" />
+      <span class="material-icons">people</span><c:out value="${tapahtuma.osallistujaLkm}"/> / <c:out value="${tapahtuma.maxOsallistujaLkm}" /></p>
 	  </div>
 	  <div class="collapsible-body">
 	  
@@ -102,7 +102,7 @@
       <div class="row">
 	  
 	  	<div class="col m5">
-	  	<p>${tapahtuma.kuvaus } </p>
+	  	<p><c:out value="${tapahtuma.kuvaus }" /> </p>
 	  	<form:form action="tapahtumatiedot/${tapahtuma.id}" method="get">
 	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit""><spring:message code="tapahtuma.lisatieto"/>
 	  	</form:form>
