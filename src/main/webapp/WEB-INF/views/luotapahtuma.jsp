@@ -69,35 +69,35 @@
       
         <div class="row">
           <div class="input-field col s6">
-            <input id="input_text" type="text" length="20">
-            <label for="input_text">Tapahtuman nimi</label>
+            <input path="nimi" id="input_text" type="text" length="20">
+            <label path="nimi" for="input_text">Tapahtuman nimi</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <textarea id="tapahtumakuvaus" class="materialize-textarea" length="200"></textarea>
-            <label for="tapahtumakuvaus">Tapahtuman kuvaus</label>
+            <textarea path="kuvaus" id="tapahtumakuvaus" class="materialize-textarea" length="200"></textarea>
+            <label path="kuvaus" for="tapahtumakuvaus">Tapahtuman kuvaus</label>
           </div>
         </div>
                 <div class="row">
           <div class="input-field col s4">
-          <input type="date" class="datepicker" id="pvm">
-          <label class="active" for="pvm">Päivämäärä</label>
+          <input path="pvm" type="date" class="datepicker" id="pvm">
+          <label path="pvm" class="active" for="pvm">Päivämäärä</label>
           </div>
           <div class="input-field col s1">
-      <input value="12:00" id="tapahtuma-aika" type="text" class="validate" length="5">
-      <label class="active" for="tapahtuma-aika">Aika</label>
+      <input path="aika" value="12:00" id="tapahtuma-aika" type="text" class="validate" length="5">
+      <label path="aika" class="active" for="tapahtuma-aika">Aika</label>
           </div>
           <div class="input-field col s7">
-          <input type="range" id="maxosallistujat" min="1" max="20" />
-          <label class="active" for="maxosallistujat">Osallistujamäärä</label>
+          <input path="maxOsallistujaLkm" type="range" id="maxosallistujat" min="1" max="20" />
+          <label path="maxOsallistujaLkm" class="active" for="maxosallistujat">Osallistujamäärä</label>
           </div>
           
           </div>
           <div class="row">
           <div class="input-field col s6">
-            <input id="tapahtumapaikka" type="text" length="20">
-            <label for="tapahtumapaikka">Paikka</label>
+            <input path="paikka" id="tapahtumapaikka" type="text" length="20">
+            <label path="paikka" for="tapahtumapaikka">Paikka</label>
             </div>
             <div class="input-field col s6">
 				<button class="btn waves-effect indigo darken-4 waves-light" type="submit">Luo
