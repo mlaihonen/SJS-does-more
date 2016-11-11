@@ -1,5 +1,6 @@
 package fi.sjs.domore.bean;
 
+
 import java.util.Date;
 import java.util.List;
 
