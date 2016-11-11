@@ -30,7 +30,7 @@ public class KayttajaImpl implements Kayttaja{
 	
 	@Column(name="k_sposti")
 	@Size(min = 1, max = 30)
-	//@Email
+	@Email
 	private String sposti;
 	
 	@Column(name="k_puh")
