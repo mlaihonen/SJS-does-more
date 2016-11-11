@@ -36,6 +36,10 @@ public class TapahtumaController {
 	@Inject
 	@Qualifier("KayttajaDAOSpring")
 	private KayttajaDAO dao;
+	
+	@Inject
+	@Qualifier("TapahtumaDAOSpring")
+	private TapahtumaDAO tDao;
 
 	/*@Inject
 	private TapahtumaDAO dao;*/	
@@ -104,7 +108,7 @@ public class TapahtumaController {
 			model.addAttribute(tapahtuma);
 			return "luotapahtuma"; 
 		} else {						
-			hibernateDAO.lisaaUusi(tapahtuma);	
+			tDao.lisaaUusi(tapahtuma);	
 			return "redirect:/onnistui"; 
 		}
 		
