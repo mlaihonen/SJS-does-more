@@ -25,7 +25,7 @@
     </head>
 
 <body>
-<div id="etusivu_taustakuva">
+<div class="etusivu_taustakuva filtteri">
       <ul id="dropdown1" class="dropdown-content">
       <li><a href="?lang=fi">FI</a></li>
       <li><a href="?lang=swe">SWE</a></li>
@@ -58,7 +58,7 @@
 
 
 <div style="text-align:center">
-<h1>Tapahtumaan osallistuminen onnistui</h1>
+<h1>Sinä teit sen!!!!!!!!!!!!!111!!!</h1>
 <a class="waves-effect waves-light btn" href="tapahtumat">Takaisin tapahtumiin</a>
 </div>
 

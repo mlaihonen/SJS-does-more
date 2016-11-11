@@ -59,7 +59,20 @@
 	<div>
 	<div class="row card-panel" id="ruutu2">
 	
-	  <div class="col m2 card small right">
+	
+	<div  class="container center-align" id="ruutu2body">
+	<h2>${tapahtuma.nimi}</h2>
+
+	</div>
+	<div class="lapinakuvaharmaa center-align" >
+	<h3><span class="material-icons">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
+      <span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
+      <span class="material-icons">place</span>${tapahtuma.paikka}</h3>
+	</div>
+	<div id="ruutu2body">
+	
+	
+	   <div class="col m2 card small right">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
     </div>
@@ -73,18 +86,11 @@
     </div>
   </div>
 	
-	<div  class="container center-align" id="ruutu2body">
-	<h2>${tapahtuma.nimi}</h2>
 	
-
 	
-	</div>
-	<div class="lapinakuvaharmaa center-align" >
-	<h3><span class="material-icons">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
-      <span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
-      <span class="material-icons">place</span>${tapahtuma.paikka}</h3>
-	</div>
-	<div id="ruutu2body">
+	
+	
+	
 	<div class="container">
 	<h4><spring:message code="tapahtuma.lisatieto"/></h4>
 	<p class="flow-text">${tapahtuma.kuvaus }</p>
