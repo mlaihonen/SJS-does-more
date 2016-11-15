@@ -1,5 +1,6 @@
 package fi.sjs.domore.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -21,8 +22,12 @@ public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 		em.persist(tapahtuma);
     }
 	
-	public List<Tapahtuma> haeKaikki() {
-		return em.createQuery("select tapahtuma from TapahtumaImpl tapahtuma", Tapahtuma.class).getResultList();
+	//Palauttaa listan tulevista tapahtumista järjestyksessä
+	public List<Tapahtuma> haeKaikki() {	
+		return em.createQuery("select tapahtuma from TapahtumaImpl tapahtuma " + 
+				"where date(tapahtuma.pvm) >= current_date "+
+				"order by tapahtuma.pvm asc, tapahtuma.aika asc", Tapahtuma.class)
+				.getResultList();		
 	}
 
 	public Tapahtuma etsi(int id) {
