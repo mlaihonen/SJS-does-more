@@ -97,7 +97,7 @@ public class TapahtumaController {
 	public String createTapahtuma(Model model) { 
 		Tapahtuma tapahtuma = new TapahtumaImpl();
 		model.addAttribute("tapahtuma", tapahtuma);
-		
+		model.addAttribute("kayttaja", new KayttajaImpl());
 		return "luotapahtuma";
 	}
 	

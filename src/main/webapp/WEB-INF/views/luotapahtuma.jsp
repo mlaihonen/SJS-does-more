@@ -37,8 +37,8 @@
       <ul class="left hide-on-med-and-down">
         <li><a href="../"><spring:message code="etusivu"/></a></li>
         <li><a href="luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
-        <li><a href="#"><spring:message code="etsitapahtuma"/></a></li>
-        <li><a href="#"><spring:message code="yhteystiedot"/></a></li>
+        <li><a href="tapahtumat"><spring:message code="etsitapahtuma"/></a></li>
+        <li><a href="yhteystiedot"><spring:message code="yhteystiedot"/></a></li>
       </ul>
        <!-- Dropdown Trigger -->
       
@@ -48,8 +48,8 @@
       <ul class="side-nav" id="mobile-demo">
         <li><a href="../"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
         <li><a href="luotapahtuma"><span class="material-icons" id="navicon">event_note</span><spring:message code="luotapahtuma"/></a></li>
-        <li><a href="#"><span class="material-icons" id="navicon">search</span><spring:message code="etsitapahtuma"/></a></li>
-        <li><a href="#"><span class="material-icons" id="navicon">phone</span><spring:message code="yhteystiedot"/></a></li>
+        <li><a href="tapahtumat"><span class="material-icons" id="navicon">search</span><spring:message code="etsitapahtuma"/></a></li>
+        <li><a href="yhteystiedot"><span class="material-icons" id="navicon">phone</span><spring:message code="yhteystiedot"/></a></li>
       </ul>
     </div>
   </nav>
@@ -96,12 +96,31 @@
 		          <form:label path="maxOsallistujaLkm" class="active" for="maxosallistujat">Osallistujamäärä</form:label>
 	          </div>
           </div>
+<%--           <legend>Järjestäjän tiedot</legend>
+
+        <div class="row">
+          <div class="input-field col s5">
+            <form:input path="etunimi" id="input_text" type="text" length="20"/>
+            <form:label path="etunimi" for="input_text">Etunimi</form:label>
+          </div>
+          <div class="input-field col s5">
+            <form:input path="sukunimi" id="input_text" type="text" length="20"/>
+            <form:label path="sukunimi" for="input_text">Sukunimi</form:label>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="input-field col s10">
+            <form:input path="kuvaus" id="input_text" type="text" length="20"/>
+            <form:label path="kuvaus" for="input_text">Kuvaus</form:label>
+          </div>
+        </div>
+                   --%>         
 		  <div class="input-field col s6">
 			<button class="btn waves-effect indigo darken-4 waves-light" type="submit">Luo
 				<i class="material-icons right">send</i>
 			</button>
 		  </div>
-          
       </form:form> 
       
     	</div>
