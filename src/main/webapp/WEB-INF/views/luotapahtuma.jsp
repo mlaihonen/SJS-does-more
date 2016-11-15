@@ -81,7 +81,7 @@
 	          <form:label path="pvm" class="active" for="pvm">Päivämäärä</form:label>
           </div>
           <div class="input-field col m3">
-		      <form:input path="aika" value="12:00" id="tapahtuma-aika" type="text" class="validate" length="5"/>
+		      <form:input path="aika" id="tapahtuma-aika" type="text" class="validate" length="5"/> <!-- value="12:00" -->
 		      <form:label path="aika" class="active" for="tapahtuma-aika">Aika</form:label>
           </div>
            
