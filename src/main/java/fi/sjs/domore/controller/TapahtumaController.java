@@ -99,7 +99,13 @@ public class TapahtumaController {
 		model.addAttribute("tapahtuma", tapahtuma);
 		
 		return "luotapahtuma";
-	}	
+	}
+	
+	@RequestMapping(value="/yhteystiedot", method=RequestMethod.GET)
+	public String viewYhteystiedot() { //ilman tätä ei voida näyttää onnistui sivua
+		
+		return "yhteystiedot";
+	}
 	
 	@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
 	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model) { 
