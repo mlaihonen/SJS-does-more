@@ -25,7 +25,7 @@
     </head>
 
 <body>
-<div id="etusivu_taustakuva">
+<div class="etusivu_taustakuva">
       <ul id="dropdown1" class="dropdown-content">
       <li><a href="?lang=fi">FI</a></li>
       <li><a href="?lang=swe">SWE</a></li>
