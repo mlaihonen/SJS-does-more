@@ -2,9 +2,9 @@ package fi.sjs.domore.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
-
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -38,12 +38,12 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 		final String sql = "insert into tapahtuma (t_nimi, t_kuvaus, t_pvm, t_aika, t_paikka, t_maxosallistujalkm) VALUES (?,?,?,?,?,?)";
 				
 		java.sql.Date sqlDate = new java.sql.Date(tap.getPvm().getTime());
-		java.sql.Date sqlTime = new java.sql.Date(tap.getAika().getTime());   
+		java.sql.Time sqlTime = new java.sql.Time(tap.getAika().getTime());   
 	   
 		final String tNimi = tap.getNimi();
 		final String tKuvaus = tap.getKuvaus();
 		final Date pvm = sqlDate;
-		final Date aika = sqlTime;
+		final Time aika = sqlTime;
 		final String paikka = tap.getPaikka();
 		final int maxOsall = tap.getMaxOsallistujaLkm();
 
@@ -60,7 +60,7 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 				ps.setString(1, tNimi);
 				ps.setString(2, tKuvaus);
 				ps.setDate(3, pvm);
-				ps.setDate(4, aika);
+				ps.setTime(4, aika);
 				ps.setString(5, paikka);
 				ps.setInt(6, maxOsall);
 				return ps;

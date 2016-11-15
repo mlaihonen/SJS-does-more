@@ -42,7 +42,7 @@
         <li><a href="./"><spring:message code="etusivu"/></a></li>
         <li><a href="luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
         <li><a href="#"><spring:message code="etsitapahtuma"/></a></li>
-        <li><a href="#"><spring:message code="yhteystiedot"/></a></li>
+        <li><a href="yhteystiedot"><spring:message code="yhteystiedot"/></a></li>
       </ul>
        <!-- Dropdown Trigger -->
       
@@ -73,7 +73,7 @@
     <li class="collection-item avatar">
 	  <div class="collapsible-header hoverable">
       <span class="title"><c:out value="${tapahtuma.nimi}" /></span>
-      <p><span class="material-icons">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
+      <p><span class="material-icons">query_builder</span><fmt:formatDate pattern="HH:mm" value="${tapahtuma.aika}"/> 
       <span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
       <span class="material-icons">place</span><c:out value="${tapahtuma.paikka}" />
       <span class="material-icons">people</span><c:out value="${tapahtuma.osallistujaLkm}"/> / <c:out value="${tapahtuma.maxOsallistujaLkm}" /></p>
