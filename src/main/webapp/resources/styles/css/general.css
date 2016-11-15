@@ -42,7 +42,7 @@ i.material-icons {
 
 .etusivu_taustakuva {
 	
-  left: 0;
+ /* left: 0;
   right: 0;
   z-index: -2;
   
@@ -50,7 +50,7 @@ i.material-icons {
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
-  filter: blur(5px);
+  filter: blur(5px);*/
 	
 	min-height:100vh;
 	background-image: url('/DoMore/resources/images/mountain-lake.jpg');
@@ -62,7 +62,7 @@ i.material-icons {
   
 }
 .filtteri{	
-  left: 0;
+ /* left: 0;
   right: 0;
   z-index: -1;
   
@@ -70,7 +70,7 @@ i.material-icons {
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
-  filter: blur(5px);
+  filter: blur(5px);*/
 }
 
 

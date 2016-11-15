@@ -36,7 +36,7 @@
       <a href="../" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
-        <li><a href="/.."><spring:message code="etusivu"/></a></li>
+        <li><a href="../"><spring:message code="etusivu"/></a></li>
         <li><a href="luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
         <li><a href="#"><spring:message code="etsitapahtuma"/></a></li>
         <li><a href="#"><spring:message code="yhteystiedot"/></a></li>
@@ -58,7 +58,7 @@
   
   <h2>Luo tapahtuma</h2>
   </div>
-  <div class="row card-panel" id="ruutu2">
+  <div class="row card-panel" id="ruutu2"><br><br>
 
 	
 	
@@ -66,7 +66,7 @@
 	   <div class="row">
 	   
       <form:form modelAttribute="tapahtuma" action="tallennatapahtuma" method="post" class="col l8">
-      	<fieldset>
+      	
         <div class="row">
           <div class="input-field col s6">
             <form:input path="nimi" id="input_text" type="text" length="20"/>
@@ -105,7 +105,6 @@
 				</button>
 				</div>
           </div>
-          </fieldset>
       </form:form> 
       
     </div>
