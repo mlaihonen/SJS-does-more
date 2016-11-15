@@ -23,7 +23,6 @@
     </head>
     
 <body>
-	 <body>
  	
       <ul id="dropdown1" class="dropdown-content">
       <li><a href="?lang=fi">FI</a></li>
@@ -54,61 +53,58 @@
       </ul>
     </div>
   </nav>
-  <div class="center-align col l12">
+  <div class="center-align col l10">
   
   <h2>Luo tapahtuma</h2>
   </div>
   <div class="row card-panel" id="ruutu2"><br><br>
 
-	
-	
-	<div class="col l2"></div>
-	   <div class="row">
+	   <div class="row center-align">
 	   
-      <form:form modelAttribute="tapahtuma" action="tallennatapahtuma" method="post" class="col l8">
-      	
+      <form:form modelAttribute="tapahtuma" action="tallennatapahtuma" method="post" class="col s10 offset-s2">
+      <legend>Tapahtuman tiedot</legend>
         <div class="row">
-          <div class="input-field col s6">
+          <div class="input-field col s10">
             <form:input path="nimi" id="input_text" type="text" length="20"/>
             <form:label path="nimi" for="input_text">Tapahtuman nimi</form:label>
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s12">
+          <div class="input-field col s10">
             <form:textarea path="kuvaus" id="tapahtumakuvaus" class="materialize-textarea" length="200"></form:textarea>
             <form:label path="kuvaus" for="tapahtumakuvaus">Tapahtuman kuvaus</form:label>
           </div>
         </div>
-                <div class="row">
+        <div class="row">
+          <div class="input-field col s3">
+	          <form:input path="pvm" type="date" class="datepicker" id="pvm"/>
+	          <form:label path="pvm" class="active" for="pvm">Päivämäärä</form:label>
+          </div>
+          <div class="input-field col m3">
+		      <form:input path="aika" value="12:00" id="tapahtuma-aika" type="text" class="validate" length="5"/>
+		      <form:label path="aika" class="active" for="tapahtuma-aika">Aika</form:label>
+          </div>
+           
           <div class="input-field col s4">
-          <form:input path="pvm" type="date" class="datepicker" id="pvm"/>
-          <form:label path="pvm" class="active" for="pvm">Päivämäärä</form:label>
-          </div>
-          <div class="input-field col s1">
-      <form:input path="aika" value="12:00" id="tapahtuma-aika" type="text" class="validate" length="5"/>
-      <form:label path="aika" class="active" for="tapahtuma-aika">Aika</form:label>
-          </div>
-          <div class="input-field col s7">
-          <form:input path="maxOsallistujaLkm" type="range" id="maxosallistujat" min="1" max="20" />
-          <form:label path="maxOsallistujaLkm" class="active" for="maxosallistujat">Osallistujamäärä</form:label>
-          </div>
-          
-          </div>
-          <div class="row">
-          <div class="input-field col s6">
             <form:input path="paikka" id="tapahtumapaikka" type="text" length="20"/>
             <form:label path="paikka" for="tapahtumapaikka">Paikka</form:label>
-            </div>
-            <div class="input-field col s6">
-				<button class="btn waves-effect indigo darken-4 waves-light" type="submit">Luo
-				<i class="material-icons right">send</i>
-				</button>
-				</div>
           </div>
+         </div>
+           <div class="row">
+	          <div class="input-field col s6 offset-s2">
+		          <form:input path="maxOsallistujaLkm" type="range" id="maxosallistujat" min="1" max="20" />
+		          <form:label path="maxOsallistujaLkm" class="active" for="maxosallistujat">Osallistujamäärä</form:label>
+	          </div>
+          </div>
+		  <div class="input-field col s6">
+			<button class="btn waves-effect indigo darken-4 waves-light" type="submit">Luo
+				<i class="material-icons right">send</i>
+			</button>
+		  </div>
+          
       </form:form> 
       
-    </div>
-    <div class="col l2"></div>
+    	</div>
 	
 		
 	</div>	

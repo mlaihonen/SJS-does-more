@@ -33,8 +33,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	}
 	
 	public void lisaaUusi(Kayttaja k, int tId) {
-		System.out.println(k);
-		System.out.println(tId);
+		
 		final String sql = "insert into kayttaja (k_etunimi, k_sukunimi, k_sposti, k_puh) VALUES (?,?,?,?)";
 
 		// anonyymi sis�luokka tarvitsee vakioina v�litett�v�t arvot

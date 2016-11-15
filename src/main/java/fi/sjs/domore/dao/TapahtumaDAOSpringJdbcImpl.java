@@ -34,7 +34,6 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 	}
 	
 	public void lisaaUusi(Tapahtuma tap) {
-		System.out.println(tap);
 	
 		final String sql = "insert into tapahtuma (t_nimi, t_kuvaus, t_pvm, t_aika, t_paikka, t_maxosallistujalkm) VALUES (?,?,?,?,?,?)";
 				

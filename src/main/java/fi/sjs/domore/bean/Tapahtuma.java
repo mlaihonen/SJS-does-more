@@ -37,4 +37,5 @@ public interface Tapahtuma {
 	
 	public abstract void setMaxOsallistujaLkm(int maxOsallistujaLkm);
 
+
 }
