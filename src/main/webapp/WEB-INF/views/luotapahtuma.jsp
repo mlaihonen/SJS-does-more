@@ -35,7 +35,7 @@
       <a href="../" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
-        <li><a href="../"><spring:message code="etusivu"/></a></li>
+        <li><a href="./"><spring:message code="etusivu"/></a></li>
         <li><a href="luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
         <li><a href="tapahtumat"><spring:message code="etsitapahtuma"/></a></li>
         <li><a href="yhteystiedot"><spring:message code="yhteystiedot"/></a></li>
@@ -55,68 +55,65 @@
   </nav>
   <div class="center-align col l10">
   
-  <h2>Luo tapahtuma</h2>
+  <h2><spring:message code="tapahtuma.luo.otsikko"/></h2>
   </div>
   <div class="row card-panel" id="ruutu2"><br><br>
 
-	   <div class="row center-align">
-	   
-      <form:form modelAttribute="tapahtuma" action="tallennatapahtuma" method="post" class="col s10 offset-s2">
-      <legend>Tapahtuman tiedot</legend>
+	   <div class="row container">
+      <form:form modelAttribute="tapahtuma" action="tallennatapahtuma" method="post" >
+      
+      <h5 class="center-align"><spring:message code="tapahtuma.luo.legend"/></h5>
+      
+      <blockquote class="error">
+		<spring:hasBindErrors name="tapahtuma">
+		<p class="Virheotsikko"><spring:message code="tapahtuma.errors" />:</p>
+			<div class="Virheblokki"><form:errors path="*"/></div>
+		</spring:hasBindErrors>
+	  </blockquote><br>
+	  
         <div class="row">
-          <div class="input-field col s10">
+          <div class="input-field col s12">
             <form:input path="nimi" id="input_text" type="text" length="20"/>
-            <form:label path="nimi" for="input_text">Tapahtuman nimi</form:label>
+            <form:label path="nimi" for="input_text"><spring:message code="tapahtuma.luo.nimi" /></form:label>
+            <form:errors path="nimi"/>
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s10">
+          <div class="input-field col s12">
             <form:textarea path="kuvaus" id="tapahtumakuvaus" class="materialize-textarea" length="200"></form:textarea>
-            <form:label path="kuvaus" for="tapahtumakuvaus">Tapahtuman kuvaus</form:label>
+            <form:label path="kuvaus" for="tapahtumakuvaus"><spring:message code="tapahtuma.luo.kuvaus" /></form:label>
+            <form:errors path="kuvaus"/>
           </div>
         </div>
         <div class="row">
-          <div class="input-field col s3">
-	          <form:input path="pvm" type="date" class="datepicker" id="pvm"/>
-	          <form:label path="pvm" class="active" for="pvm">Päivämäärä</form:label>
+          <div class="input-field col s6">
+	          <form:input path="pvm" type="date" class="datepicker validate" id="pvm"/>
+	          <form:label path="pvm" class="active" for="pvm"><spring:message code="tapahtuma.luo.pvm" /></form:label>
+	          <form:errors path="pvm"/>
           </div>
-          <div class="input-field col m3">
-		      <form:input path="aika" id="tapahtuma-aika" type="text" class="validate" length="5"/> <!-- value="12:00" -->
-		      <form:label path="aika" class="active" for="tapahtuma-aika">Aika</form:label>
+          <div class="input-field col s6">
+		      <form:input path="aika" id="tapahtuma-aika" type="text" placeholder="12:00" class="validate" length="5"/>
+		      <form:label path="aika" class="active" for="tapahtuma-aika" style="width:auto"><spring:message code="tapahtuma.luo.aika" /></form:label>
+		      <form:errors path="aika"/>
           </div>
-           
-          <div class="input-field col s4">
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
             <form:input path="paikka" id="tapahtumapaikka" type="text" length="20"/>
-            <form:label path="paikka" for="tapahtumapaikka">Paikka</form:label>
+            <form:label path="paikka" for="tapahtumapaikka"><spring:message code="tapahtuma.luo.paikka" /></form:label>
+            <form:errors path="paikka"/>
           </div>
          </div>
            <div class="row">
-	          <div class="input-field col s6 offset-s2">
-		          <form:input path="maxOsallistujaLkm" type="range" id="maxosallistujat" min="1" max="20" />
-		          <form:label path="maxOsallistujaLkm" class="active" for="maxosallistujat">Osallistujamäärä</form:label>
+	          <div class="input-field col s12">
+	          	<p class="range-field">
+		          <form:input path="maxOsallistujaLkm" type="range" id="maxosallistujat" min="1" max="50"/>
+		        <p>
+		          <form:label path="maxOsallistujaLkm" class="active" for="maxosallistujat"><spring:message code="tapahtuma.luo.maxosallistujat" /></form:label>
+		      
 	          </div>
-          </div>
-<%--           <legend>Järjestäjän tiedot</legend>
-
-        <div class="row">
-          <div class="input-field col s5">
-            <form:input path="etunimi" id="input_text" type="text" length="20"/>
-            <form:label path="etunimi" for="input_text">Etunimi</form:label>
-          </div>
-          <div class="input-field col s5">
-            <form:input path="sukunimi" id="input_text" type="text" length="20"/>
-            <form:label path="sukunimi" for="input_text">Sukunimi</form:label>
-          </div>
-        </div>
-        
-        <div class="row">
-          <div class="input-field col s10">
-            <form:input path="kuvaus" id="input_text" type="text" length="20"/>
-            <form:label path="kuvaus" for="input_text">Kuvaus</form:label>
-          </div>
-        </div>
-                   --%>         
-		  <div class="input-field col s6">
+          </div>       
+		  <div class="input-field center-align">
 			<button class="btn waves-effect indigo darken-4 waves-light" type="submit">Luo
 				<i class="material-icons right">send</i>
 			</button>

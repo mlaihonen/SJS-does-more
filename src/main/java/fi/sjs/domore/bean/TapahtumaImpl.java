@@ -5,8 +5,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-import org.hibernate.annotations.Formula;
 import org.springframework.format.annotation.DateTimeFormat;
 
 	@Entity
@@ -19,27 +20,34 @@ import org.springframework.format.annotation.DateTimeFormat;
 		private int id;
 		
 		@Column(name = "t_nimi")
+		@Size(min = 1, max = 50)
+		@NotNull
 		private String nimi;
 		
 		@Column(name = "t_kuvaus")
+		@Size(min = 1, max = 500)
 		private String kuvaus;
 		
 		@Column(name = "t_pvm")
 		@Temporal(TemporalType.DATE)
 		@DateTimeFormat(pattern="dd.MM.yyyy")
+		@NotNull
 		private Date pvm;
 		
 		@Column(name = "t_aika")
 		@Temporal(TemporalType.TIME)
 		@DateTimeFormat(pattern="HH:mm")
+		@NotNull
 		private Date aika;
 		
 		@Column(name = "t_paikka")
+		@Size(min = 1, max = 50)
 		private String paikka;
 		
 		@Column(name = "t_maxosallistujalkm")
 		private int maxOsallistujaLkm;
 			
+		
 		@ManyToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, 
 				fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 		@JoinTable(
@@ -48,8 +56,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 				inverseJoinColumns = @JoinColumn(name = "k_id"))
 		private List<Kayttaja> osallistujat;
 		
-		/*@Formula("select count(*) from tapahtumaosallistuja where t_id = id")
-		private int osallistujaLkm;*/
+		
 		
 		public TapahtumaImpl() {
 			super();
