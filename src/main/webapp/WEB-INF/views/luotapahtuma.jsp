@@ -32,8 +32,8 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="../" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="./" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
+      <a href="./" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
         <li><a href="./"><spring:message code="etusivu"/></a></li>
         <li><a href="luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
@@ -46,7 +46,7 @@
 	  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">language</i></a></li>
 	  </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="../"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
+        <li><a href="./"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
         <li><a href="luotapahtuma"><span class="material-icons" id="navicon">event_note</span><spring:message code="luotapahtuma"/></a></li>
         <li><a href="tapahtumat"><span class="material-icons" id="navicon">search</span><spring:message code="etsitapahtuma"/></a></li>
         <li><a href="yhteystiedot"><span class="material-icons" id="navicon">phone</span><spring:message code="yhteystiedot"/></a></li>
@@ -80,7 +80,7 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <form:textarea path="kuvaus" id="tapahtumakuvaus" class="materialize-textarea" length="200"></form:textarea>
+            <form:textarea path="kuvaus" id="tapahtumakuvaus" class="materialize-textarea" length="500"></form:textarea>
             <form:label path="kuvaus" for="tapahtumakuvaus"><spring:message code="tapahtuma.luo.kuvaus" /></form:label>
             <form:errors path="kuvaus"/>
           </div>
@@ -112,6 +112,55 @@
 		          <form:label path="maxOsallistujaLkm" class="active" for="maxosallistujat"><spring:message code="tapahtuma.luo.maxosallistujat" /></form:label>
 		      
 	          </div>
+          </div>
+          <div class="row">
+          <div class="col s12">
+          <ul class="collapsible" data-collapsible="expandable">
+          <li>
+      <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Omat tietosi</div>
+      <div class="collapsible-body">
+      <div class="container">
+      <div class="row">    
+      <div class="center-align col s12">
+      <img id="myImg" src="#" alt="*Kuvasi tulee tähän*"/>
+      </div>
+       <div class="file-field input-field">
+      <div class="btn">
+        <span><i class="material-icons">add_a_photo</i> Lisää itsestäsi kuva</span>
+        <input type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+	  </div>
+	  <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="jarjestaja_nimi" type="text" class="validate">
+          <label for="jarjestaja_nimi">Nimi</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <input id="jarjestaja_puhelin" type="tel" class="validate">
+          <label for="jarjestaja_puhelin">Puhelin</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">email</i>
+          <input id="jarjestaja_email" type="email" class="validate">
+          <label for="jarjestaja_email" data-error="wrong" data-success="right">Sähköposti</label>
+        </div>
+          <div class="input-field col s12">
+            <textarea path="kuvaus" id="jarjestaja_kuvaus" class="materialize-textarea" length="500"></textarea>
+            <label for="jarjestaja_kuvaus">Kirjoita itsestäsi kuvaus</label>
+          </div>
+		</div>
+      </div>
+      </div>
+      </li>
+      </ul>
+         
+          </div>
           </div>       
 		  <div class="input-field center-align">
 			<button class="btn waves-effect indigo darken-4 waves-light" type="submit">Luo
@@ -130,6 +179,7 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js" />"></script>
 	  	<script type="text/javascript" src="<c:url value="/resources/js/materialize.js" />"></script>
+	  	<script type="text/javascript" src="<c:url value="/resources/js/imageupload.js" />"></script>
 
 	<script>
 
@@ -144,7 +194,15 @@
 	    selectMonths: true, // Creates a dropdown to control month
 	    selectYears: 2, // Creates a dropdown of 15 years to control year
 	    format: 'dd.mm.yyyy' });
-    </script>
+  </script>
+  <script>
+  $('.collapsible').collapsible({
+      accordion: false, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+      onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
+      onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
+    }
+  );
+  </script>
 
 
 </body>
