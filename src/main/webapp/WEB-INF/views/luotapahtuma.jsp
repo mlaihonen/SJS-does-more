@@ -137,15 +137,20 @@
 	  <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="jarjestaja_nimi" type="text" class="validate">
-          <label for="jarjestaja_nimi">Nimi</label>
+          <input id="jarjestaja_etunimi" type="text" class="validate">
+          <label for="jarjestaja_etunimi">Etunimi</label>
+        </div>
+                <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="jarjestaja_sukunimi" type="text" class="validate">
+          <label for="jarjestaja_sukunimi">Sukunimi</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">phone</i>
           <input id="jarjestaja_puhelin" type="tel" class="validate">
           <label for="jarjestaja_puhelin">Puhelin</label>
         </div>
-        <div class="input-field col s12">
+        <div class="input-field col s6">
           <i class="material-icons prefix">email</i>
           <input id="jarjestaja_email" type="email" class="validate">
           <label for="jarjestaja_email" data-error="wrong" data-success="right">Sähköposti</label>
