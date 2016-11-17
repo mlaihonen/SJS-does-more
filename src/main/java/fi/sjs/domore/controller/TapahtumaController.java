@@ -109,7 +109,7 @@ public class TapahtumaController {
 		return "yhteystiedot";
 	}
 	
-	@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
+	/*@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
 	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model) { 
 		
 		if (result.hasErrors()) {
@@ -118,8 +118,14 @@ public class TapahtumaController {
 		} else {						
 			tDao.lisaaUusi(tapahtuma);	
 			return "redirect:/onnistui"; 
-		}
+		}*/
 		
+		@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
+		public String saveTapahtuma(@ModelAttribute(value="frank")FormFrankenstein frank, BindingResult result, Model model) { 
+			
+								
+				tDao.lisaaUusiFrankenstein(frank);	
+				return "redirect:/onnistui"; 
 		
 	}	
 		
