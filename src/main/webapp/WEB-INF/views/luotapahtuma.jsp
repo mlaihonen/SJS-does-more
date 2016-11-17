@@ -114,17 +114,17 @@
 	          </div>
           </div>
           <div class="row">
-          <div class="col s12">
+          <div class="col m12">
           <ul class="collapsible" data-collapsible="expandable">
           <li>
       <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Omat tietosi</div>
       <div class="collapsible-body">
       <div class="container">
       <div class="row">    
-      <div class="center-align col s12">
-      <img id="myImg" src="#" alt="*Kuvasi tulee tähän*"/>
+      <div class="center-align col m12">
+      <img class="responsive-img" id="myImg" src="#" alt="*Kuvasi tulee tähän*"/>
       </div>
-       <div class="file-field input-field">
+       <div class="file-field input-field col m12">
       <div class="btn">
         <span><i class="material-icons">add_a_photo</i> Lisää itsestäsi kuva</span>
         <form:input path="kayttaja.kuvaId" type="file"/>
@@ -135,27 +135,27 @@
     </div>
 	  </div>
 	  <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col m6">
           <i class="material-icons prefix">account_circle</i>
           <form:input path="kayttaja.etunimi" id="jarjestaja_etunimi" type="text" class="validate"/>
           <form:label path="kayttaja.etunimi" for="jarjestaja_etunimi">Etunimi</form:label>
         </div>
-                <div class="input-field col s6">
+                <div class="input-field col m6">
           <i class="material-icons prefix">account_circle</i>
           <form:input path="kayttaja.sukunimi" id="jarjestaja_sukunimi" type="text" class="validate"/>
           <form:label path="kayttaja.sukunimi" for="jarjestaja_sukunimi">Sukunimi</form:label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col m6">
           <i class="material-icons prefix">phone</i>
           <form:input path="kayttaja.puh" id="jarjestaja_puhelin" type="tel" class="validate" pattern="\+?[0-9 () \-]+"/>
           <form:label path="kayttaja.puh"  for="jarjestaja_puhelin">Puhelin</form:label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col m6">
           <i class="material-icons prefix">email</i>
           <form:input path="kayttaja.sposti" id="jarjestaja_email" type="email" class="validate"/>
           <form:label path="kayttaja.sposti" for="jarjestaja_email" data-error="wrong" data-success="right">Sähköposti</form:label>
         </div>
-          <div class="input-field col s12">
+          <div class="input-field col m12">
             <form:textarea path="kayttaja.kuvaus" id="jarjestaja_kuvaus" class="materialize-textarea" length="500"></form:textarea>
             <form:label path="kayttaja.kuvaus" for="jarjestaja_kuvaus">Kirjoita kuvaus itsestäsi</form:label>
           </div>
