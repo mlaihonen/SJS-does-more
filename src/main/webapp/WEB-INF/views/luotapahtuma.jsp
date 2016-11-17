@@ -147,7 +147,7 @@
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">phone</i>
-          <input id="jarjestaja_puhelin" type="tel" class="validate">
+          <input id="jarjestaja_puhelin" type="tel" class="validate" pattern="\+?[0-9 () \-]+">
           <label for="jarjestaja_puhelin">Puhelin</label>
         </div>
         <div class="input-field col s6">
