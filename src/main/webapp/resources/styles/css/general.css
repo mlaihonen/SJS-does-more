@@ -96,6 +96,7 @@ h2 span.material-icons{font-size: 100%;} /*ei toimi...pitää korjata*/
 blockquote.error{
 background-color:#ee6e73b3;
 font-weight: bold;
+border-radius: 5px;
 }
 
 #taustakuva {

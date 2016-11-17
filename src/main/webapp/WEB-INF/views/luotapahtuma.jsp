@@ -66,7 +66,7 @@
       
       <blockquote class="error">
 		<spring:hasBindErrors name="tapahtuma">
-		<p class="Virheotsikko"><spring:message code="tapahtuma.errors" />:</p>
+		<p class="Virheotsikko"><i class="material-icons">error</i> <spring:message code="tapahtuma.errors" />:</p>
 			<div class="Virheblokki"><form:errors path="*"/></div>
 		</spring:hasBindErrors>
 	  </blockquote><br>
