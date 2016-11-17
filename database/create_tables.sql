@@ -12,7 +12,6 @@ CREATE TABLE tapahtuma
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-
 CREATE TABLE kayttaja
 (k_id INTEGER NOT NULL AUTO_INCREMENT
 , k_etunimi VARCHAR(50) not null
@@ -20,6 +19,7 @@ CREATE TABLE kayttaja
 , k_kuvaus varchar(500)
 , k_sposti varchar (30) not null
 , k_puh varchar (20)
+, k_kuva_id INTEGER AUTO_INCREMENT
 , CONSTRAINT pk_kayt PRIMARY KEY (k_id)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
