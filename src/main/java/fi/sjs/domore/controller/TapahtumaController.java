@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fi.sjs.domore.bean.FormFrankenstein;
 import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.KayttajaImpl;
 import fi.sjs.domore.bean.Tapahtuma;
@@ -98,6 +99,7 @@ public class TapahtumaController {
 		Tapahtuma tapahtuma = new TapahtumaImpl();
 		model.addAttribute("tapahtuma", tapahtuma);
 		model.addAttribute("kayttaja", new KayttajaImpl());
+		model.addAttribute("frank", new FormFrankenstein());
 		return "luotapahtuma";
 	}
 	
