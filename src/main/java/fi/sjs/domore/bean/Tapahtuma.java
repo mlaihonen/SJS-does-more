@@ -29,9 +29,9 @@ public interface Tapahtuma {
 	
 	public abstract void setPaikka(String paikka);
 	
-	public abstract int getJarjestajaId();
+	public abstract Integer getJarjestajaId();
 
-	public abstract void setJarjestajaId(int jarjestajaId);
+	public abstract void setJarjestajaId(Integer jarjestajaId);
 	
 	public abstract List<Kayttaja> getOsallistujat();
 	

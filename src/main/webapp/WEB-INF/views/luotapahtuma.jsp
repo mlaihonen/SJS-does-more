@@ -92,7 +92,7 @@
 	          <form:errors path="pvm"/>
           </div>
           <div class="input-field col s6">
-		      <form:input path="aika" id="tapahtuma-aika" type="text" placeholder="12:00" class="validate" length="5"/>
+		      <form:input path="aika" id="tapahtuma-aika" type="text" value="12:00" class="validate" length="5"/>
 		      <form:label path="aika" class="active" for="tapahtuma-aika" style="width:auto"><spring:message code="tapahtuma.luo.aika" /></form:label>
 		      <form:errors path="aika"/>
           </div>
