@@ -41,6 +41,10 @@ public class KayttajaImpl implements Kayttaja{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="k_id")
 	private int id;
+	
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="k_kuva_id")
+	private Integer kuvaId;
 
 	public KayttajaImpl() {
 		super();
@@ -56,6 +60,18 @@ public class KayttajaImpl implements Kayttaja{
 		this.kuvaus = kuvaus;
 		this.sposti = sposti;
 		this.puh = puh;
+	}
+
+	public KayttajaImpl(String etunimi, String sukunimi, String kuvaus,
+			String sposti, String puh, int id, Integer kuvaId) {
+		super();
+		this.etunimi = etunimi;
+		this.sukunimi = sukunimi;
+		this.kuvaus = kuvaus;
+		this.sposti = sposti;
+		this.puh = puh;
+		this.id = id;
+		this.kuvaId = kuvaId;
 	}
 
 	public int getId() {
@@ -106,13 +122,19 @@ public class KayttajaImpl implements Kayttaja{
 		this.puh = puh;
 	}
 
+	public Integer getKuvaId() {
+		return kuvaId;
+	}
+
+	public void setKuvaId(Integer kuvaId) {
+		this.kuvaId = kuvaId;
+	}
+
 	@Override
 	public String toString() {
-		return "Kayttaja [id=" + id + ", etunimi=" + etunimi + ", sukunimi="
-				+ sukunimi + ", kuvaus=" + kuvaus
-				+ ", sposti=" + sposti + ", puh=" + puh + "]";
-	}
-	
-	
+		return "KayttajaImpl [etunimi=" + etunimi + ", sukunimi=" + sukunimi
+				+ ", kuvaus=" + kuvaus + ", sposti=" + sposti + ", puh=" + puh
+				+ ", id=" + id + ", kuvaId=" + kuvaId + "]";
+	}	
 	
 }

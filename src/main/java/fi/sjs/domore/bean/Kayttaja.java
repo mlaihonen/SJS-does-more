@@ -24,4 +24,8 @@ public interface Kayttaja {
 	public abstract String getPuh();
 	
 	public abstract void setPuh(String puh);
+	
+	public abstract Integer getKuvaId();
+
+	public abstract void setKuvaId(Integer kuvaId);
 }

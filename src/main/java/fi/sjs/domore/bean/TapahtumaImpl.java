@@ -168,10 +168,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 		public String toString() {
 			return "TapahtumaImpl [id=" + id + ", nimi=" + nimi + ", kuvaus="
 					+ kuvaus + ", pvm=" + pvm + ", aika=" + aika + ", paikka="
-					+ paikka + ", maxOsallistujaLkm=" + maxOsallistujaLkm
+					+ paikka + ", jarjestajaId=" + jarjestajaId
+					+ ", maxOsallistujaLkm=" + maxOsallistujaLkm
 					+ ", osallistujat=" + osallistujat + "]";
 		}
-
 			
 	}
 		
