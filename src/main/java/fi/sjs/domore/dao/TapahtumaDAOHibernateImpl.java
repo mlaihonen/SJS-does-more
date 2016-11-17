@@ -39,5 +39,9 @@ public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 	public void lisaaUusiFrankenstein(FormFrankenstein frank){
 		
 	}
+	
+	public void lisaaUusiTapahtumaKayttajalla(Tapahtuma tap) {
+		
+	}
 
 }

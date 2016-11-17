@@ -59,7 +59,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 				inverseJoinColumns = @JoinColumn(name = "k_id"))
 		private List<Kayttaja> osallistujat;
 		
-		
+		@Transient
+		private Kayttaja kayttaja;
 		
 		public TapahtumaImpl() {
 			super();
@@ -78,6 +79,23 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.jarjestajaId = jarjestajaId;
 			this.maxOsallistujaLkm = maxOsallistujaLkm;
 			this.osallistujat = osallistujat;
+		}
+
+		public TapahtumaImpl(int id, String nimi, String kuvaus, Date pvm,
+				Date aika, String paikka, Integer jarjestajaId,
+				int maxOsallistujaLkm, List<Kayttaja> osallistujat,
+				Kayttaja kayttaja) {
+			super();
+			this.id = id;
+			this.nimi = nimi;
+			this.kuvaus = kuvaus;
+			this.pvm = pvm;
+			this.aika = aika;
+			this.paikka = paikka;
+			this.jarjestajaId = jarjestajaId;
+			this.maxOsallistujaLkm = maxOsallistujaLkm;
+			this.osallistujat = osallistujat;
+			this.kayttaja = kayttaja;
 		}
 
 		public int getId() {
@@ -162,6 +180,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 		public int getOsallistujaLkm() {
 			int osallistujaLkm = osallistujat.size();
 			return osallistujaLkm;
+		}
+		
+
+		public Kayttaja getKayttaja() {
+			return kayttaja;
+		}
+
+		public void setKayttaja(Kayttaja kayttaja) {
+			this.kayttaja = kayttaja;
 		}
 
 		@Override

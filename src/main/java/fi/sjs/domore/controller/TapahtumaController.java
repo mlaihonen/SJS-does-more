@@ -98,8 +98,13 @@ public class TapahtumaController {
 	public String createTapahtuma(Model model) { 
 		Tapahtuma tapahtuma = new TapahtumaImpl();
 		model.addAttribute("tapahtuma", tapahtuma);
-		model.addAttribute("kayttaja", new KayttajaImpl());
-		model.addAttribute("frank", new FormFrankenstein());
+		
+		//Kayttaja kayttaja = new KayttajaImpl();
+		//model.addAttribute("kayttaja", kayttaja);
+		
+		//FormFrankenstein frank = new FormFrankenstein(kayttaja, tapahtuma);
+		
+		//model.addAttribute("frank", frank);
 		return "luotapahtuma";
 	}
 	
@@ -109,24 +114,27 @@ public class TapahtumaController {
 		return "yhteystiedot";
 	}
 	
-	/*@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
+	@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
 	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model) { 
 		
 		if (result.hasErrors()) {
 			model.addAttribute(tapahtuma);
 			return "luotapahtuma"; 
 		} else {						
-			tDao.lisaaUusi(tapahtuma);	
+			//tDao.lisaaUusi(tapahtuma);
+			tDao.lisaaUusiTapahtumaKayttajalla(tapahtuma);
 			return "redirect:/onnistui"; 
-		}*/
-		
-		@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
-		public String saveTapahtuma(@ModelAttribute(value="frank")FormFrankenstein frank, BindingResult result, Model model) { 
-			
-								
-				tDao.lisaaUusiFrankenstein(frank);	
-				return "redirect:/onnistui"; 
+		}		
 		
 	}	
+	
+	/*@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
+	public String saveTapahtuma(@ModelAttribute(value="frank")FormFrankenstein frank, BindingResult result, Model model) { 
+		
+							
+			tDao.lisaaUusiFrankenstein(frank);	
+			return "redirect:/onnistui"; 
+			
+	}*/
 		
 }

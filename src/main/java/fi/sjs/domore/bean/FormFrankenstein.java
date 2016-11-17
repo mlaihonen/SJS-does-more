@@ -5,6 +5,17 @@ public class FormFrankenstein{
 	public Kayttaja kayttaja;
 	public Tapahtuma tapahtuma;
 	
+	public FormFrankenstein() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public FormFrankenstein(Kayttaja kayttaja, Tapahtuma tapahtuma) {
+		super();
+		this.kayttaja = kayttaja;
+		this.tapahtuma = tapahtuma;
+	}
+
 	public Tapahtuma getTapahtuma() {
 		return tapahtuma;
 	}

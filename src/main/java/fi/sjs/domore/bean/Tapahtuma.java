@@ -40,6 +40,9 @@ public interface Tapahtuma {
 	public abstract int getMaxOsallistujaLkm();
 	
 	public abstract void setMaxOsallistujaLkm(int maxOsallistujaLkm);
+	
+	public abstract Kayttaja getKayttaja();
 
+	public abstract void setKayttaja(Kayttaja kayttaja);
 
 }
