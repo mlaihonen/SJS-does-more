@@ -108,8 +108,11 @@ border-radius: 5px;
 }
 
 #myImg {
-	max-height:300px;
+	max-height:300px; /* tämä estää järjettömän pitkät kuvat rikkomasta sivua */
+	/*max-width:200px;  pitää olla alle 300px, jotta ei rikkoudu mobiililla...update: korjattu image-responsive classilla */
 }
+
+
 /*================================================================================================================
 Tapahtumatiedot end
 ================================================================================================================*/

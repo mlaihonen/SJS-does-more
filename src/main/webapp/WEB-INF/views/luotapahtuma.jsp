@@ -114,17 +114,17 @@
 	          </div>
           </div>
           <div class="row">
-          <div class="col s12">
+          <div class="col m12">
           <ul class="collapsible" data-collapsible="expandable">
           <li>
       <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Omat tietosi</div>
       <div class="collapsible-body">
       <div class="container">
       <div class="row">    
-      <div class="center-align col s12">
-      <img id="myImg" src="#" alt="*Kuvasi tulee tähän*"/>
+      <div class="center-align col m12">
+      <img class="responsive-img" id="myImg" src="#" alt="*Kuvasi tulee tähän*"/>
       </div>
-       <div class="file-field input-field">
+       <div class="file-field input-field col m12">
       <div class="btn">
         <span><i class="material-icons">add_a_photo</i> Lisää itsestäsi kuva</span>
         <input type="file">
@@ -135,27 +135,27 @@
     </div>
 	  </div>
 	  <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col m6">
           <i class="material-icons prefix">account_circle</i>
           <input id="jarjestaja_etunimi" type="text" class="validate">
           <label for="jarjestaja_etunimi">Etunimi</label>
         </div>
-                <div class="input-field col s6">
+                <div class="input-field col m6">
           <i class="material-icons prefix">account_circle</i>
           <input id="jarjestaja_sukunimi" type="text" class="validate">
           <label for="jarjestaja_sukunimi">Sukunimi</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col m6">
           <i class="material-icons prefix">phone</i>
           <input id="jarjestaja_puhelin" type="tel" class="validate" pattern="\+?[0-9 () \-]+">
           <label for="jarjestaja_puhelin">Puhelin</label>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col m6">
           <i class="material-icons prefix">email</i>
           <input id="jarjestaja_email" type="email" class="validate">
           <label for="jarjestaja_email" data-error="wrong" data-success="right">Sähköposti</label>
         </div>
-          <div class="input-field col s12">
+          <div class="input-field col m12">
             <textarea path="kuvaus" id="jarjestaja_kuvaus" class="materialize-textarea" length="500"></textarea>
             <label for="jarjestaja_kuvaus">Kirjoita itsestäsi kuvaus</label>
           </div>
