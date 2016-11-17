@@ -44,6 +44,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 		@Size(min = 1, max = 50)
 		private String paikka;
 		
+		@Column(name = "t_jarjestaja_id")
+		private int jarjestajaId;
+		
 		@Column(name = "t_maxosallistujalkm")
 		private int maxOsallistujaLkm;
 			
@@ -72,6 +75,21 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.pvm = pvm;
 			this.aika = aika;
 			this.paikka = paikka;
+			this.maxOsallistujaLkm = maxOsallistujaLkm;
+			this.osallistujat = osallistujat;
+		}
+
+		public TapahtumaImpl(int id, String nimi, String kuvaus, Date pvm,
+				Date aika, String paikka, int jarjestajaId,
+				int maxOsallistujaLkm, List<Kayttaja> osallistujat) {
+			super();
+			this.id = id;
+			this.nimi = nimi;
+			this.kuvaus = kuvaus;
+			this.pvm = pvm;
+			this.aika = aika;
+			this.paikka = paikka;
+			this.jarjestajaId = jarjestajaId;
 			this.maxOsallistujaLkm = maxOsallistujaLkm;
 			this.osallistujat = osallistujat;
 		}
@@ -124,6 +142,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.paikka = paikka;	
 		}
 		
+		
+		public int getJarjestajaId() {
+			return jarjestajaId;
+		}
+
+		public void setJarjestajaId(int jarjestajaId) {
+			this.jarjestajaId = jarjestajaId;
+		}
+
 		public int getMaxOsallistujaLkm() {
 			return maxOsallistujaLkm;
 		}

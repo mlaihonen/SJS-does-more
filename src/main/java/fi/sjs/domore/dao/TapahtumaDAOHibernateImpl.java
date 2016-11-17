@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fi.sjs.domore.bean.FormFrankenstein;
 import fi.sjs.domore.bean.Tapahtuma;
 
 @Transactional
@@ -33,6 +34,10 @@ public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 	public Tapahtuma etsi(int id) {
 		  return em.createQuery("select tapahtuma from TapahtumaImpl tapahtuma "
 	        		+ "where id ="+id, Tapahtuma.class).getSingleResult();
+	}
+	
+	public void lisaaUusiFrankenstein(FormFrankenstein frank){
+		
 	}
 
 }
