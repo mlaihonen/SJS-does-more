@@ -9,8 +9,6 @@ public interface TapahtumaDAO {
 	
 	public abstract void lisaaUusi(Tapahtuma tapahtuma);
 	
-	public abstract void lisaaUusiFrankenstein(FormFrankenstein frank);
-	
 	public abstract void lisaaUusiTapahtumaKayttajalla(Tapahtuma tap);
 	
 	public abstract List<Tapahtuma> haeKaikki();

@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 	@Entity
@@ -60,10 +61,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 		private List<Kayttaja> osallistujat;
 		
 		@Transient
-		private Kayttaja kayttaja;
+		private Kayttaja kayttaja = new KayttajaImpl();
 		
 		public TapahtumaImpl() {
 			super();
+		}
+		
+		public TapahtumaImpl(Kayttaja kayttaja) {
+			this.kayttaja = kayttaja;
 		}
 
 		public TapahtumaImpl(int id, String nimi, String kuvaus, Date pvm,

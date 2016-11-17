@@ -72,9 +72,9 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 	
 	}
 	
-	public void lisaaUusiFrankenstein(FormFrankenstein frank) {
+	/*public void lisaaUusiFrankenstein(FormFrankenstein frank) {
 		
-		/*final String sql = "INSERT INTO kayttaja(k_etunimi, k_sukunimi, k_kuvaus, k_sposti, k_puh) VALUES (?,?,?,?,?)";
+		final String sql = "INSERT INTO kayttaja(k_etunimi, k_sukunimi, k_kuvaus, k_sposti, k_puh) VALUES (?,?,?,?,?)";
 		
 		final String eNimi = frank.kayttaja.getEtunimi();
 		final String sNimi = frank.kayttaja.getSukunimi();
@@ -137,9 +137,9 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 			}
 		}, idHolder2);
 		
-		frank.tapahtuma.setId(idHolder2.getKey().intValue());	*/
+		frank.tapahtuma.setId(idHolder2.getKey().intValue());	
 	
-	}
+	}*/
 	
 	public void lisaaUusiTapahtumaKayttajalla(Tapahtuma tap) {
 		
