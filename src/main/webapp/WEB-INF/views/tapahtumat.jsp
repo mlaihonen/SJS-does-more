@@ -93,8 +93,7 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><spring:message code="tapahtuma.tietoaminusta"/><i class="material-icons right">close</i></span>
-      <p>Hei! Olen Ella ja opiskelen Teatterikorkeakoulussa esiintymistä. 
-      Minulla on 15 vuoden kokemus näyttelijänä ja ensimmäinen esitykseni oli 6-vuotiaana.</p>
+      <p><c:out value="${tapahtuma.kayttaja.kuvaus}"/></p>
     </div>
   </div>
 

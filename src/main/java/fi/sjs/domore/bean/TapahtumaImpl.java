@@ -45,7 +45,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 		@Size(min = 1, max = 50)
 		private String paikka;
 		
-		@Column(name = "t_jarjestaja_id")
 		private Integer jarjestajaId;
 		
 		@Column(name = "t_maxosallistujalkm")
@@ -187,7 +186,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 			return osallistujaLkm;
 		}
 		
-
+		@ManyToOne(cascade=CascadeType.ALL)
+		@JoinColumn(name="k_id")
 		public Kayttaja getKayttaja() {
 			return kayttaja;
 		}
