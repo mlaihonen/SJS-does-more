@@ -44,9 +44,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 		@Column(name = "t_paikka")
 		@Size(min = 1, max = 50)
 		private String paikka;
-		
-		private Integer jarjestajaId;
-		
+				
 		@Column(name = "t_maxosallistujalkm")
 		private int maxOsallistujaLkm;
 			
