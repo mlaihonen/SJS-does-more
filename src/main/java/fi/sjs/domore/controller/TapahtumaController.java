@@ -46,7 +46,7 @@ public class TapahtumaController {
 	
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String create(Model model) {
+	public String create() {
 		
 		return "etusivu";
 	} 
@@ -59,7 +59,7 @@ public class TapahtumaController {
 		return "tapahtumat";
 	} 	
 	
-	//näytä yhden tapahtuman tiedot ja osallistumisformi
+	//nÃ¤ytÃ¤ yhden tapahtuman tiedot ja osallistumisformi
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.GET)
 	public String viewTapahtuma(@PathVariable Integer id, Model model) { 
 		Tapahtuma tapahtuma = hibernateDAO.etsi(id);
@@ -73,7 +73,7 @@ public class TapahtumaController {
 	}	
 
 	
-	//hae osallistumisformiin syötetyt tiedot
+	//hae osallistumisformiin syÃ¶tetyt tiedot
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.POST)
 	public String createKayttaja(@ModelAttribute(value="kayttaja") @PathVariable Integer id, @Valid KayttajaImpl kayttaja, BindingResult result, RedirectAttributes attr) {
 		if (result.hasErrors()) {
@@ -88,7 +88,7 @@ public class TapahtumaController {
 	}
 	
 	@RequestMapping(value="/onnistui", method=RequestMethod.GET)
-	public String viewOnnistui() { //ilman tätä ei voida näyttää onnistui sivua
+	public String viewOnnistui() { 
 		
 		return "onnistui";
 	}
@@ -97,21 +97,14 @@ public class TapahtumaController {
 	public String createTapahtuma(Model model) { 
 		Tapahtuma tapahtuma = new TapahtumaImpl();
 		Kayttaja kayttaja = new KayttajaImpl();
-		kayttaja.setEtunimi("Testeri");
 		tapahtuma.setKayttaja(kayttaja);
 		model.addAttribute("tapahtuma", tapahtuma);
 		
-		//Kayttaja kayttaja = new KayttajaImpl();
-		//model.addAttribute("kayttaja", kayttaja);
-		
-		//FormFrankenstein frank = new FormFrankenstein(kayttaja, tapahtuma);
-		
-		//model.addAttribute("frank", frank);
 		return "luotapahtuma";
 	}
 	
 	@RequestMapping(value="/yhteystiedot", method=RequestMethod.GET)
-	public String viewYhteystiedot() { //ilman tätä ei voida näyttää onnistui sivua
+	public String viewYhteystiedot() { 
 		
 		return "yhteystiedot";
 	}
@@ -124,19 +117,10 @@ public class TapahtumaController {
 			return "luotapahtuma"; 
 		} else {						
 			//tDao.lisaaUusi(tapahtuma);
-			tDao.lisaaUusiTapahtumaKayttajalla(tapahtuma);
+			tDao.lisaaUusi(tapahtuma);
 			return "redirect:/onnistui"; 
 		}		
 		
 	}	
-	
-	/*@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
-	public String saveTapahtuma(@ModelAttribute(value="frank")FormFrankenstein frank, BindingResult result, Model model) { 
-		
-							
-			tDao.lisaaUusiFrankenstein(frank);	
-			return "redirect:/onnistui"; 
-			
-	}*/
 		
 }
