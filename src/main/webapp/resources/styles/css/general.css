@@ -28,6 +28,7 @@
     }
 }
 
+
 #hasat{
 	padding:0.5%;
 }
@@ -74,6 +75,64 @@ i.material-icons {
 }
 
 
+/*================================================================================================================
+Mikon responsiiviset otsikot alkaa
+================================================================================================================*/
+
+
+h1{
+	font-size: 7.5vw;
+	overflow: hidden;
+}
+
+@media all and (min-width: 960px) {
+h1{
+    font-size: 5.5vw;
+    overflow: hidden;
+  }
+}
+
+
+h2{
+	font-size: 6.5vw;
+	overflow: hidden;
+}
+
+@media all and (min-width: 960px) {
+h2{
+    font-size: 4.5vw;
+    overflow: hidden;
+  }
+}
+
+h3{
+	font-size: 4.5vw;
+	overflow: hidden;
+}
+
+@media all and (min-width: 960px) {
+h3{
+    font-size: 2.5vw;
+    overflow: hidden;
+  }
+}
+
+h4{
+	font-size: 3.5vw;
+	overflow: hidden;
+}
+
+@media all and (min-width: 960px) {
+h4{
+    font-size: 1.5vw;
+    overflow: hidden;
+  }
+}
+
+/* Jos käytät esim h4, h5, h5... niin responsiivinen teksti ei toimi. /*
+/*================================================================================================================
+Mikon responsiiviset otsikot loppuu
+================================================================================================================/*
 
 /*================================================================================================================
 Tapahtumatiedot start
@@ -176,6 +235,8 @@ FORM INPUT COLOR ENDS
 ================================================================================================================*/
 
 
-
+#lisatietojanappi{
+	padding: 2rem;
+}
 
 

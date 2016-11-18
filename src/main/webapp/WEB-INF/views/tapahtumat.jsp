@@ -103,7 +103,9 @@
 	  	<div class="col m5">
 	  	<p><c:out value="${tapahtuma.kuvaus }" /> </p>
 	  	<form:form action="tapahtumatiedot/${tapahtuma.id}" method="get">
-	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit""><spring:message code="tapahtuma.lisatieto"/>
+	  	<div id="lisatietojanappi">
+	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="tapahtuma.lisatieto"/>
+	  	</div>
 	  	</form:form>
 		</div>
 		<div class="col m5">
