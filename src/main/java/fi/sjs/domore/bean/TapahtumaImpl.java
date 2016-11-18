@@ -44,9 +44,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 		@Column(name = "t_paikka")
 		@Size(min = 1, max = 50)
 		private String paikka;
-		
-		private Integer jarjestajaId;
-		
+				
 		@Column(name = "t_maxosallistujalkm")
 		private int maxOsallistujaLkm;
 			
@@ -71,7 +69,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 		}
 
 		public TapahtumaImpl(int id, String nimi, String kuvaus, Date pvm,
-				Date aika, String paikka, Integer jarjestajaId,
+				Date aika, String paikka,
 				int maxOsallistujaLkm, List<Kayttaja> osallistujat) {
 			super();
 			this.id = id;
@@ -80,13 +78,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.pvm = pvm;
 			this.aika = aika;
 			this.paikka = paikka;
-			this.jarjestajaId = jarjestajaId;
 			this.maxOsallistujaLkm = maxOsallistujaLkm;
 			this.osallistujat = osallistujat;
 		}
 
 		public TapahtumaImpl(int id, String nimi, String kuvaus, Date pvm,
-				Date aika, String paikka, Integer jarjestajaId,
+				Date aika, String paikka,
 				int maxOsallistujaLkm, List<Kayttaja> osallistujat,
 				Kayttaja kayttaja) {
 			super();
@@ -96,7 +93,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.pvm = pvm;
 			this.aika = aika;
 			this.paikka = paikka;
-			this.jarjestajaId = jarjestajaId;
 			this.maxOsallistujaLkm = maxOsallistujaLkm;
 			this.osallistujat = osallistujat;
 			this.kayttaja = kayttaja;
@@ -149,15 +145,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 		public void setPaikka(String paikka) {
 			this.paikka = paikka;	
 		}
-		
-		
-		public Integer getJarjestajaId() {
-			return jarjestajaId;
-		}
-
-		public void setJarjestajaId(Integer jarjestajaId) {
-			this.jarjestajaId = jarjestajaId;
-		}
 
 		public int getMaxOsallistujaLkm() {
 			return maxOsallistujaLkm;
@@ -200,7 +187,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 		public String toString() {
 			return "TapahtumaImpl [id=" + id + ", nimi=" + nimi + ", kuvaus="
 					+ kuvaus + ", pvm=" + pvm + ", aika=" + aika + ", paikka="
-					+ paikka + ", jarjestajaId=" + jarjestajaId
+					+ paikka 
 					+ ", maxOsallistujaLkm=" + maxOsallistujaLkm
 					+ ", osallistujat=" + osallistujat + "]";
 		}

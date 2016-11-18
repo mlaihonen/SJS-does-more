@@ -62,14 +62,14 @@
 	   <div class="row container">
       <form:form modelAttribute="tapahtuma" action="tallennatapahtuma" method="post" >
       
-      <!-- <h5 class="center-align"><spring:message code="tapahtuma.luo.legend"/></h5>
+      <h5 class="center-align"><spring:message code="tapahtuma.luo.legend"/></h5>
       
         <blockquote class="error">
 		<spring:hasBindErrors name="tapahtuma">
 		<p class="Virheotsikko"><i class="material-icons">error</i> <spring:message code="tapahtuma.errors" />:</p>
 			<div class="Virheblokki"><form:errors path="*"/></div>
 		</spring:hasBindErrors>
-	  </blockquote><br> -->
+	  </blockquote><br>
 	  
         <div class="row">
           <div class="input-field col s12">
@@ -107,7 +107,7 @@
            <div class="row">
 	          <div class="input-field col s12">
 	          	<p class="range-field">
-		          <form:input path="maxOsallistujaLkm" type="range" id="maxosallistujat" min="1" max="50"/>
+		          <form:input path="maxOsallistujaLkm" type="range" id="maxosallistujat" min="1" max="50"/><form:errors path="maxOsallistujaLkm"/>
 		        <p>
 		          <form:label path="maxOsallistujaLkm" class="active" for="maxosallistujat"><spring:message code="tapahtuma.luo.maxosallistujat" /></form:label>
 		      
@@ -137,26 +137,26 @@
 	  <div class="row">
         <div class="input-field col m6">
           <i class="material-icons prefix">account_circle</i>
-          <form:input path="kayttaja.etunimi" id="jarjestaja_etunimi" type="text" class="validate"/>
+          <form:input path="kayttaja.etunimi" id="jarjestaja_etunimi" type="text" class="validate"/><form:errors path="kayttaja.etunimi"/>
           <form:label path="kayttaja.etunimi" for="jarjestaja_etunimi">Etunimi</form:label>
         </div>
                 <div class="input-field col m6">
           <i class="material-icons prefix">account_circle</i>
-          <form:input path="kayttaja.sukunimi" id="jarjestaja_sukunimi" type="text" class="validate"/>
+          <form:input path="kayttaja.sukunimi" id="jarjestaja_sukunimi" type="text" class="validate"/><form:errors path="kayttaja.sukunimi"/>
           <form:label path="kayttaja.sukunimi" for="jarjestaja_sukunimi">Sukunimi</form:label>
         </div>
         <div class="input-field col m6">
           <i class="material-icons prefix">phone</i>
-          <form:input path="kayttaja.puh" id="jarjestaja_puhelin" type="tel" class="validate" pattern="\+?[0-9 () \-]+"/>
+          <form:input path="kayttaja.puh" id="jarjestaja_puhelin" type="tel" class="validate" pattern="\+?[0-9 () \-]+"/><form:errors path="kayttaja.puh"/>
           <form:label path="kayttaja.puh"  for="jarjestaja_puhelin">Puhelin</form:label>
         </div>
         <div class="input-field col m6">
           <i class="material-icons prefix">email</i>
-          <form:input path="kayttaja.sposti" id="jarjestaja_email" type="email" class="validate"/>
+          <form:input path="kayttaja.sposti" id="jarjestaja_email" type="email" class="validate"/><form:errors path="kayttaja.sposti"/>
           <form:label path="kayttaja.sposti" for="jarjestaja_email" data-error="wrong" data-success="right">Sähköposti</form:label>
         </div>
           <div class="input-field col m12">
-            <form:textarea path="kayttaja.kuvaus" id="jarjestaja_kuvaus" class="materialize-textarea" length="500"></form:textarea>
+            <form:textarea path="kayttaja.kuvaus" id="jarjestaja_kuvaus" class="materialize-textarea" length="500"></form:textarea><form:errors path="kayttaja.kuvaus"/>
             <form:label path="kayttaja.kuvaus" for="jarjestaja_kuvaus">Kirjoita kuvaus itsestäsi</form:label>
           </div>
 		</div>

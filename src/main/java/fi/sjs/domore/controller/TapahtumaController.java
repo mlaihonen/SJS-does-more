@@ -116,7 +116,6 @@ public class TapahtumaController {
 			model.addAttribute(tapahtuma);
 			return "luotapahtuma"; 
 		} else {						
-			//tDao.lisaaUusi(tapahtuma);
 			tDao.lisaaUusi(tapahtuma);
 			return "redirect:/onnistui"; 
 		}		
