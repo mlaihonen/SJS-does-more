@@ -22,7 +22,7 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"> <!-- saa IE sivut rokkaamaan -->
-	  
+	 
 		  
     </head>
 
@@ -84,16 +84,16 @@
 	  <p class="title"><spring:message code="tapahtuma.lisatieto"/></p>
 	  </div>
 	  
-	  		   <div class="col m2 card small right">
+	<div class="col m2 card small right">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-3">Ei-Ella Esiintyjä</span>
+      <span class="card-title activator grey-text text-darken-3" id="nimi"></span>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><spring:message code="tapahtuma.tietoaminusta"/><i class="material-icons right">close</i></span>
-      <p><c:out value="${tapahtuma.kayttaja.kuvaus}"/></p>
+      <section id="kuvaus"></section>
     </div>
   </div>
 
@@ -160,7 +160,7 @@
 	
 
       <!--Import jQuery before materialize.js AINA LOPPUUN!!!!!!!!!!!-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js" />"></script>
 	  	<script type="text/javascript" src="<c:url value="/resources/js/materialize.js" />"></script>
 		<script>
@@ -174,6 +174,31 @@
   //$('.collapsible').collapsible();
 	</script>
 	
-	
+	<script>
+		
+		$(document).ready(function(){
+				
+				$.getJSON( "jarjestajat.json", function( data ) {
+					$.each( data, function( key, val ) {
+						var j = $("<section class='Olio'/>").appendTo("#nimi");
+						$("<p/>").text(val.etunimi + " " +val.sukunimi).appendTo(j);
+						var j = $("<section class='Olio'/>").appendTo("#kuvaus");
+						$("<p/>").text(val.kuvaus).appendTo(j);
+						
+					});
+				}).error(function() { //palvelinyhteys aiheutti virheen
+					$("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa. Tarkista tietokantayhteys.</p>").appendTo("#lista");
+				});
+				
+				for(var i = 0; i < results.length; i += 1){
+				    var result = results[i];
+				    if(result.id === id){
+				        return result;
+				    }
+				}
+				
+			});
+	</script>
+
     </body>
   </html>

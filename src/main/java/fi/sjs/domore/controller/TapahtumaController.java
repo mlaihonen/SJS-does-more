@@ -56,7 +56,6 @@ public class TapahtumaController {
 	@RequestMapping(value="tapahtumat", method=RequestMethod.GET)
 	public String getList(Model model) {
 		List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(hibernateDAO.haeKaikki());
-		System.out.println("JÄRJESTÄJÄ: "+tapahtumat.get(tapahtumat.size()-1).getKayttaja().toString());
 		model.addAttribute("tapahtumat", tapahtumat);
 		return "tapahtumat";
 	} 	

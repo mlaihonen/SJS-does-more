@@ -166,9 +166,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 			return osallistujaLkm;
 		}
 		
-		@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL, 
-				targetEntity = fi.sjs.domore.bean.KayttajaImpl.class)
-		@JoinColumn(name="k_id")
+//		@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL, 
+//				targetEntity = fi.sjs.domore.bean.KayttajaImpl.class)
+//		@JoinTable(name="kayttaja",
+//				joinColumns = @JoinColumn(name = "t_jarjestaja_id"),
+//				inverseJoinColumns = @JoinColumn(name = "k_id"))
+		
+		@ManyToOne(cascade=CascadeType.ALL, targetEntity = fi.sjs.domore.bean.KayttajaImpl.class) 
 		public Kayttaja getKayttaja() {
 			return kayttaja;
 		}
