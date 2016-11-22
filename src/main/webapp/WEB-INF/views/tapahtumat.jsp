@@ -84,12 +84,12 @@
 	  <p class="title"><spring:message code="tapahtuma.lisatieto"/></p>
 	  </div>
 	  
-	  		   <div class="col m2 card small right">
+	<div class="col m2 card small right">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-3">Ei-Ella Esiintyjä</span>
+      <span class="card-title activator grey-text text-darken-3" id="nimi"></span>
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><spring:message code="tapahtuma.tietoaminusta"/><i class="material-icons right">close</i></span>
@@ -174,6 +174,26 @@
   //$('.collapsible').collapsible();
 	</script>
 	
-	
+	<script>
+		//dokumentin latautuessa aktivoidaan tapahtumankuuntelijat
+		$(document).ready(function(){
+				
+				$.getJSON( "jarjestajat.json", function( data ) {
+					$.each( data, function( key, val ) {
+						var j = $("<section class='Olio'/>").appendTo("#nimi");
+						$("<h2/>").text(val.etunimi + " " +val.sukunimi).appendTo(j);
+						
+						var linkki = $("<a/>", {html: val.sahkoposti, href: "mailto:"+val.sahkoposti});
+						$("<p/>").append(linkki).appendTo(henk);
+						$("<p/>").append(val.lahiosoite + ", " + val.postinumero + " " + val.postitoimipaikka).appendTo(henk);
+					});
+				}).error(function() { //palvelinyhteys aiheutti virheen
+					$("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa. Tarkista tietokantayhteys.</p>").appendTo("#lista");
+				});
+				
+			});
+			
+		});
+		</script>
     </body>
   </html>

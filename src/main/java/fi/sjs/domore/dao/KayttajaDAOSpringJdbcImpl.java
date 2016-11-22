@@ -7,14 +7,18 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fi.sjs.domore.bean.Kayttaja;
+import fi.sjs.domore.bean.Tapahtuma;
 
 
 @Transactional
@@ -83,9 +87,15 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	
 	}
 
-	public List<Kayttaja> haeKaikki() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Kayttaja> haeKaikki() {return null;}
+
+	
+	public List<Kayttaja> haeJarjestajat() {
+		final String sql ="select * from kayttaja k join tapahtuma t on k.k_id = t.t_jarjestaja_id";		
+		RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
+		
+		List<Kayttaja> jarjestajat = jdbcTemplate.query(sql,mapper);
+		return jarjestajat;
 	}
 	
 }
