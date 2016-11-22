@@ -8,7 +8,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 	@Entity
@@ -154,12 +153,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 			this.maxOsallistujaLkm = maxOsallistujaLkm;
 		}
 
-		/*@OneToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, cascade = CascadeType.ALL)
-		@JoinTable(
-		        name = "tapahtumaosallistuja",
-		        joinColumns = @JoinColumn(name = "k_id"),
-		        inverseJoinColumns = @JoinColumn(name = "t_id")
-		)*/
 		public List<Kayttaja> getOsallistujat() {
 			return osallistujat;
 		}
@@ -173,7 +166,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 			return osallistujaLkm;
 		}
 		
-		@ManyToOne(cascade=CascadeType.ALL)
+		@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL, 
+				targetEntity = fi.sjs.domore.bean.KayttajaImpl.class)
 		@JoinColumn(name="k_id")
 		public Kayttaja getKayttaja() {
 			return kayttaja;

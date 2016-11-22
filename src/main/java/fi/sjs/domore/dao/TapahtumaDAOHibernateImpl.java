@@ -26,7 +26,7 @@ public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 		return em.createQuery("select tapahtuma from TapahtumaImpl tapahtuma " + 
 				"where date(tapahtuma.pvm) >= current_date "+
 				"order by tapahtuma.pvm asc, tapahtuma.aika asc", Tapahtuma.class)
-				.getResultList();		
+				.getResultList();
 	}
 
 	public Tapahtuma etsi(int id) {
