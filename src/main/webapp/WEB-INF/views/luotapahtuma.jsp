@@ -60,7 +60,7 @@
   <div class="row card-panel" id="ruutu2"><br><br>
 
 	   <div class="row container">
-      <form:form modelAttribute="tapahtuma" action="tallennatapahtuma" method="post" >
+      <form:form modelAttribute="tapahtuma" action="tallennatapahtuma" method="post" id="tapahtuma">
       
       <h5 class="center-align"><spring:message code="tapahtuma.luo.legend"/></h5>
       
@@ -126,8 +126,10 @@
       </div>
        <div class="file-field input-field col m12">
       <div class="btn">
-        <span><i class="material-icons">add_a_photo</i> Lisää itsestäsi kuva</span>
-        <form:input path="kayttaja.kuvaId" type="file"/>
+      	<form:form modelAttribute="file" method="POST" action="uploadFile" enctype="multipart/form-data" id="kuva">
+        <span><i class="material-icons">add_a_photo</i> Lisää kuva itsestäsi</span>
+        <form:input path="file" type="file"/>
+        </form:form>
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
@@ -168,7 +170,7 @@
           </div>
           </div>       
 		  <div class="input-field center-align">
-			<button class="btn waves-effect indigo darken-4 waves-light" type="submit">Luo
+			<button class="btn waves-effect indigo darken-4 waves-light" type="submit" onclick="submitForms()">Luo
 				<i class="material-icons right">send</i>
 			</button>
 		  </div>
@@ -207,6 +209,12 @@
       onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
     }
   );
+  </script>
+  <script>
+  submitForms = function(){
+	    document.getElementById("tapahtuma").submit();
+	    document.getElementById("kuva").submit();
+	}
   </script>
 
 

@@ -39,5 +39,15 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
+    
+     <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- max upload size in bytes 
+        <property name="maxUploadSize" value="10971520" /> 
+         
+       max size of file in memory (in bytes) 
+        <property name="maxInMemorySize" value="1048576" /> -->
+ 
+    </bean>
 
 </beans>

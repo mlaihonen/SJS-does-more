@@ -1,6 +1,7 @@
 package fi.sjs.domore.controller;
 
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class TapahtumaController {
 		return "tapahtumat";
 	} 	
 	
-	//nÃ¤ytÃ¤ yhden tapahtuman tiedot ja osallistumisformi
+	//näytä yhden tapahtuman tiedot ja osallistumisformi
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.GET)
 	public String viewTapahtuma(@PathVariable Integer id, Model model) { 
 		Tapahtuma tapahtuma = hibernateDAO.etsi(id);
@@ -74,7 +75,7 @@ public class TapahtumaController {
 	}	
 
 	
-	//hae osallistumisformiin syÃ¶tetyt tiedot
+	//hae osallistumisformiin syötetyt tiedot
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.POST)
 	public String createKayttaja(@ModelAttribute(value="kayttaja") @PathVariable Integer id, @Valid KayttajaImpl kayttaja, BindingResult result, RedirectAttributes attr) {
 		if (result.hasErrors()) {
@@ -98,8 +99,11 @@ public class TapahtumaController {
 	public String createTapahtuma(Model model) { 
 		Tapahtuma tapahtuma = new TapahtumaImpl();
 		Kayttaja kayttaja = new KayttajaImpl();
+		File file = new File("kuva");
 		tapahtuma.setKayttaja(kayttaja);
+		
 		model.addAttribute("tapahtuma", tapahtuma);
+		model.addAttribute("file", file);
 		
 		return "luotapahtuma";
 	}
@@ -118,7 +122,7 @@ public class TapahtumaController {
 			return "luotapahtuma"; 
 		} else {						
 			tDao.lisaaUusi(tapahtuma);
-			return "redirect:/onnistui"; 
+			return "redirect:/uploadFile"; 
 		}		
 		
 	}	
