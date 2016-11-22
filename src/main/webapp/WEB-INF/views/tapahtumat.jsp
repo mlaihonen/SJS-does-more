@@ -22,7 +22,7 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"> <!-- saa IE sivut rokkaamaan -->
-	  
+	 
 		  
     </head>
 
@@ -93,7 +93,7 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><spring:message code="tapahtuma.tietoaminusta"/><i class="material-icons right">close</i></span>
-      <p><c:out value="${tapahtuma.kayttaja.kuvaus}"/></p>
+      <section id="kuvaus"></section>
     </div>
   </div>
 
@@ -160,7 +160,7 @@
 	
 
       <!--Import jQuery before materialize.js AINA LOPPUUN!!!!!!!!!!!-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js" />"></script>
 	  	<script type="text/javascript" src="<c:url value="/resources/js/materialize.js" />"></script>
 		<script>
@@ -175,25 +175,30 @@
 	</script>
 	
 	<script>
-		//dokumentin latautuessa aktivoidaan tapahtumankuuntelijat
+		
 		$(document).ready(function(){
 				
 				$.getJSON( "jarjestajat.json", function( data ) {
 					$.each( data, function( key, val ) {
 						var j = $("<section class='Olio'/>").appendTo("#nimi");
-						$("<h2/>").text(val.etunimi + " " +val.sukunimi).appendTo(j);
+						$("<p/>").text(val.etunimi + " " +val.sukunimi).appendTo(j);
+						var j = $("<section class='Olio'/>").appendTo("#kuvaus");
+						$("<p/>").text(val.kuvaus).appendTo(j);
 						
-						var linkki = $("<a/>", {html: val.sahkoposti, href: "mailto:"+val.sahkoposti});
-						$("<p/>").append(linkki).appendTo(henk);
-						$("<p/>").append(val.lahiosoite + ", " + val.postinumero + " " + val.postitoimipaikka).appendTo(henk);
 					});
 				}).error(function() { //palvelinyhteys aiheutti virheen
 					$("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa. Tarkista tietokantayhteys.</p>").appendTo("#lista");
 				});
 				
+				for(var i = 0; i < results.length; i += 1){
+				    var result = results[i];
+				    if(result.id === id){
+				        return result;
+				    }
+				}
+				
 			});
-			
-		});
-		</script>
+	</script>
+
     </body>
   </html>
