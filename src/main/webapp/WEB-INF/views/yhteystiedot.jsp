@@ -58,7 +58,7 @@
 
 <div class="row" >
 	
-
+<h2 class="center">Yhteystiedot</h2>
 
 <div class="row card-panel" id="ruutu">
 <div class="container center">
