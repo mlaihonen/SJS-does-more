@@ -41,7 +41,6 @@ public class UploadDAO {
 			System.out.println(src.toString());
 			createUserDir(kayttajaId);
 			File destination = new File(imagesPath + File.separator + kayttajaId + File.separator + kayttajaId + ".jpg"); 
-			//yllä oleva menee nyt kansioon: C:\Users\a1500951\ws_22_11\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\DoMore\upload_82ec7df1_642d_4510_bf87_6bba0d49dd34_00000000.tmp
 			ImageIO.write(src, "jpg", destination);
 		} catch (IOException e) {
 			System.out.println("Upload ei onnistunut");
