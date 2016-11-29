@@ -58,8 +58,8 @@
 
 
 <div style="text-align:center">
-<h1>Sinä teit sen!!!!!!!!!!!!!111!!!</h1>
-<a class="waves-effect waves-light btn" href="tapahtumat">Takaisin tapahtumiin</a>
+<h1><spring:message code="onnistui"/></h1>
+<a class="waves-effect waves-light btn" href="tapahtumat"><spring:message code="takaisintapahtumiin"/></a>
 </div>
 
 
