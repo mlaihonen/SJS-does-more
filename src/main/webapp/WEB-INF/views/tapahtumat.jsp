@@ -93,7 +93,7 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><spring:message code="tapahtuma.tietoaminusta"/><i class="material-icons right">close</i></span>
-      <section id="kuvaus"></section>
+      <section id="kuvaus + ${tapahtuma.kayttaja.id}"></section>
     </div>
   </div>
 
@@ -180,9 +180,9 @@
 				
 				$.getJSON( "jarjestajat.json", function( data ) {
 					$.each( data, function( key, val ) {
-						var j = $("<section class='Olio'/>").appendTo("#nimi");
-						$("<p/>").text(val.etunimi + " " +val.sukunimi).appendTo(j);
-						var j = $("<section class='Olio'/>").appendTo("#kuvaus");
+						var j = $("<section class='Olio'/>").appendTo("#nimi" +val.tapahtuma.kayttaja.id);
+						$("<p/>").text(val.etunimi).appendTo(j);						
+						var j = $("<section class='Olio'/>").appendTo("#kuvaus"+val.tapahtuma.kayttaja.id);
 						$("<p/>").text(val.kuvaus).appendTo(j);
 						
 					});
@@ -190,14 +190,31 @@
 					$("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa. Tarkista tietokantayhteys.</p>").appendTo("#lista");
 				});
 				
-				for(var i = 0; i < results.length; i += 1){
-				    var result = results[i];
-				    if(result.id === id){
-				        return result;
-				    }
-				}
+// 				for(var i = 0; i < results.length; i += 1){
+// 				    var result = results[i];
+// 				    if(result.id === id){
+// 				        return result;
+// 				    }
+// 				}
 				
 			});
+	</script>
+	
+	
+	<script>
+	
+	$.getJSON( "jarjestajat.json", function( data ) {
+		$.each( data, function( key, val ) {
+			var j = $("<section class='Olio'/>").appendTo("#nimi");
+			$("<p/>").text(val.etunimi).appendTo(j);						
+			var j = $("<section class='Olio'/>").appendTo("#kuvaus");
+			$("<p/>").text(val.kuvaus).appendTo(j);
+			
+		});
+	}).error(function() { //palvelinyhteys aiheutti virheen
+		$("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa. Tarkista tietokantayhteys.</p>").appendTo("#lista");
+	});
+	
 	</script>
 
     </body>

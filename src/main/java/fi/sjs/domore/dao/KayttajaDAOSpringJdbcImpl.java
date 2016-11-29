@@ -91,7 +91,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 
 	
 	public List<Kayttaja> haeJarjestajat() {
-		final String sql ="select * from kayttaja k join tapahtuma t on k.k_id = t.t_jarjestaja_id";		
+		final String sql ="select t.t_jarjestaja_id, t.t_id, k.k_id, k.k_etunimi, k.k_sukunimi, k.k_kuvaus, k.k_sposti, k.k_puh, k.k_kuva_id  from kayttaja k join tapahtuma t on k.k_id = t.t_jarjestaja_id";		
 		RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
 		
 		List<Kayttaja> jarjestajat = jdbcTemplate.query(sql,mapper);
