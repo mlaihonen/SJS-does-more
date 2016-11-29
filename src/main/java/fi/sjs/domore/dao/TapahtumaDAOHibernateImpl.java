@@ -8,13 +8,14 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.Tapahtuma;
 
 @Transactional
 @Repository("TapahtumaDAOHibernate")
 public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 
-	@PersistenceContext
+/*	@PersistenceContext
 	private EntityManager em;
 	
 	public void lisaaUusi(Tapahtuma tapahtuma) {
@@ -37,5 +38,10 @@ public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 	public void lisaaUusiTapahtumaKayttajalla(Tapahtuma tap) {
 		
 	}
+
+	public List<Kayttaja> haeOsallistujat() {
+		// TODO Auto-generated method stub
+		return null;
+	}*/
 
 }

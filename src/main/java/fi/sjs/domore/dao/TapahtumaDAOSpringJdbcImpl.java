@@ -163,4 +163,24 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 		
 	}
 
+	public List<Kayttaja> haeOsallistujat( int tId) {
+		final String sql = "select k.id, k.etunimi, k.sukunimi, k.kuvaus, k.sposti, k.puh"
+							+ " FROM kayttaja k"
+							+ " JOIN tapahtumaosallistuja o"
+							+ " ON k.id = o.k_id"
+							+ " JOIN tapahtuma t"
+							+ " ON t.id = o.t_id"
+							+ " WHERE o.t_id = ?;";
+		public PreparedStatement createPreparedStatement(
+				Connection connection) throws SQLException {
+			PreparedStatement ps = connection.prepareStatement(sql,
+					new String[] { "id" });
+			
+			ps.setString(1, tNimi);
+		
+		RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
+		List<Kayttaja> osallistujat = jdbc
+		return null;
+	}
+
 }
