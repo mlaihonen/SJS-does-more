@@ -1,4 +1,4 @@
-package fi.sjs.domore.dao;
+/*package fi.sjs.domore.dao;
 
 import java.util.List;
 
@@ -19,12 +19,13 @@ import fi.sjs.domore.bean.Kayttaja;
 	//@PersistenceContext
     //private EntityManager em;
      
-    /*public void lisaaUusi(Kayttaja kayttaja, int t_id) {
+    public void lisaaUusi(Kayttaja kayttaja, int t_id) {
         em.persist(kayttaja);
     }
 	
     public List<Kayttaja> haeKaikki() {
 		return em.createQuery("select kayttaja from KayttajaImpl kayttaja", Kayttaja.class).getResultList();
-	}*/
+	}
 
 //}
+*/

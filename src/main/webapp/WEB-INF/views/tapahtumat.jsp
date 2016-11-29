@@ -89,11 +89,10 @@
       <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-3" id="nimi"></span>
+      <span class="card-title activator grey-text text-darken-3" id="nimi"><c:out value="${tapahtuma.kayttaja.etunimi }"/> <c:out value="${tapahtuma.kayttaja.sukunimi }"/></span>    
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><spring:message code="tapahtuma.tietoaminusta"/><i class="material-icons right">close</i></span>
-      <section id="kuvaus + ${tapahtuma.kayttaja.id}"></section>
     </div>
   </div>
 

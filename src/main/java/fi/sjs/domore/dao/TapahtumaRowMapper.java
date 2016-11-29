@@ -16,7 +16,7 @@ public class TapahtumaRowMapper implements RowMapper<Tapahtuma> {
 		int edellinenTid = 0;		
 		TapahtumaImpl t = new TapahtumaImpl();
 
-		t.setId(rs.getInt("id"));
+		t.setId(rs.getInt("tapahtumaid"));
 		t.setNimi(rs.getString("nimi"));
 		t.setKuvaus(rs.getString("kuvaus"));
 		t.setPvm(rs.getDate("pvm"));
@@ -26,14 +26,14 @@ public class TapahtumaRowMapper implements RowMapper<Tapahtuma> {
 		edellinenTid = nykyinenTid;
 							
 		int jId = rs.getInt("jarjestaja_id");
-		int kId = rs.getInt("kid");
+		int kId = rs.getInt("kayttajaid");
 		
 		if (jId == kId) {
 			KayttajaImpl k = new KayttajaImpl();
 			k.setId(kId);
 			k.setEtunimi(rs.getString("etunimi"));
 			k.setSukunimi(rs.getString("sukunimi"));
-			k.setKuvaus(rs.getString("kkuvaus"));
+			k.setKuvaus(rs.getString("bio"));
 			k.setPuh(rs.getString("puh"));
 			k.setSposti(rs.getString("sposti"));
 			t.setKayttaja(k);

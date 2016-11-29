@@ -1,5 +1,6 @@
 package fi.sjs.domore.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fi.sjs.domore.bean.Kayttaja;
@@ -13,6 +14,6 @@ public interface TapahtumaDAO {
 	
 	public abstract Tapahtuma etsi(int id);
 	
-	public abstract List<Kayttaja> haeOsallistujat();
+	public abstract List<Kayttaja> haeOsallistujat(int tId);
 	
 }

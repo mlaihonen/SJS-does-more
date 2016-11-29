@@ -10,12 +10,12 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-	@Entity
+	//@Entity
 	//@Table(name = "tapahtuma")
 	public class TapahtumaImpl implements Tapahtuma{
 		
-		@Id
-		@GeneratedValue(strategy = GenerationType.AUTO)
+		//@Id
+		//@GeneratedValue(strategy = GenerationType.AUTO)
 		//@Column(name = "id")
 		private int id;
 		
@@ -29,13 +29,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 		private String kuvaus;
 		
 		//@Column(name = "pvm")
-		@Temporal(TemporalType.DATE)
+		//@Temporal(TemporalType.DATE)
 		@DateTimeFormat(pattern="dd.MM.yyyy")
 		@NotNull
 		private Date pvm;
 		
 		//@Column(name = "aika")
-		@Temporal(TemporalType.TIME)
+		//@Temporal(TemporalType.TIME)
 		@DateTimeFormat(pattern="HH:mm")
 		@NotNull
 		private Date aika;
@@ -44,7 +44,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 		@Size(min = 1, max = 50)
 		private String paikka;
 				
-		@Column(name = "maxosallistujalkm")
+		//@Column(name = "maxosallistujalkm")
 		private int maxOsallistujaLkm;
 			
 		
@@ -56,7 +56,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 				inverseJoinColumns = @JoinColumn(name = "k_id"))*/
 		private List<Kayttaja> osallistujat;
 		
-		@Transient
 		private Kayttaja kayttaja = new KayttajaImpl();
 		
 		public TapahtumaImpl() {
@@ -162,8 +161,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 		}
 		
 		public int getOsallistujaLkm() {
-			int osallistujaLkm = osallistujat.size();
-			return osallistujaLkm;
+			//int osallistujaLkm = osallistujat.size();
+			return 0;
 		}
 	
 		//@ManyToOne(cascade=CascadeType.ALL, targetEntity = fi.sjs.domore.bean.KayttajaImpl.class) 

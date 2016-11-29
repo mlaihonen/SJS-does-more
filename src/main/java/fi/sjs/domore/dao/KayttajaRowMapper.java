@@ -12,10 +12,10 @@ public class KayttajaRowMapper implements RowMapper<Kayttaja>{
 
 	public Kayttaja mapRow(ResultSet rs, int rownum) throws SQLException {
 		KayttajaImpl k = new KayttajaImpl();
-		k.setId(rs.getInt("kid"));
+		k.setId(rs.getInt("kayttajaid"));
 		k.setEtunimi(rs.getString("etunimi"));
 		k.setSukunimi(rs.getString("sukunimi"));
-		k.setKuvaus(rs.getString("kkuvaus"));
+		k.setKuvaus(rs.getString("bio"));
 		k.setPuh(rs.getString("puh"));
 		k.setSposti(rs.getString("sposti"));
 		return k;

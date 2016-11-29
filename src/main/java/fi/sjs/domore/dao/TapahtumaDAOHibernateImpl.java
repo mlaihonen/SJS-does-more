@@ -1,4 +1,4 @@
-package fi.sjs.domore.dao;
+/*package fi.sjs.domore.dao;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import fi.sjs.domore.bean.Tapahtuma;
 @Repository("TapahtumaDAOHibernate")
 public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 
-/*	@PersistenceContext
+	@PersistenceContext
 	private EntityManager em;
 	
 	public void lisaaUusi(Tapahtuma tapahtuma) {
@@ -28,20 +28,23 @@ public class TapahtumaDAOHibernateImpl implements TapahtumaDAO{
 				"where date(tapahtuma.pvm) >= current_date "+
 				"order by tapahtuma.pvm asc, tapahtuma.aika asc", Tapahtuma.class)
 				.getResultList();
+		return null;
 	}
 
 	public Tapahtuma etsi(int id) {
 		  return em.createQuery("select tapahtuma from TapahtumaImpl tapahtuma "
 	        		+ "where id ="+id, Tapahtuma.class).getSingleResult();
+		return null;
 	}
 	
 	public void lisaaUusiTapahtumaKayttajalla(Tapahtuma tap) {
 		
 	}
 
-	public List<Kayttaja> haeOsallistujat() {
+	public List<Kayttaja> haeOsallistujat(int tId) {
 		// TODO Auto-generated method stub
 		return null;
-	}*/
+	}
 
 }
+*/

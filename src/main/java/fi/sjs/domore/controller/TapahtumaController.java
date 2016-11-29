@@ -31,10 +31,6 @@ import fi.sjs.domore.dao.TapahtumaDAO;
 public class TapahtumaController {
 	
 	@Inject
-	@Qualifier("TapahtumaDAOHibernate")
-	private TapahtumaDAO hibernateDAO;
-	
-	@Inject
 	@Qualifier("KayttajaDAOSpring")
 	private KayttajaDAO dao;
 	
@@ -42,10 +38,6 @@ public class TapahtumaController {
 	@Qualifier("TapahtumaDAOSpring")
 	private TapahtumaDAO tDao;
 
-	/*@Inject
-	private TapahtumaDAO dao;*/	
-	
-	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String create() {
 		
@@ -55,7 +47,11 @@ public class TapahtumaController {
 	//Listaa kaikki tapahtumat
 	@RequestMapping(value="tapahtumat", method=RequestMethod.GET)
 	public String getList(Model model) {
-		List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(hibernateDAO.haeKaikki());
+		List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(tDao.haeKaikki());
+		for (int i = 1; i < tapahtumat.size(); i++) {
+			List<Kayttaja> o = tDao.haeOsallistujat(tapahtumat.get(i).getId());
+			tapahtumat.get(i).setOsallistujat(o);
+		}
 		model.addAttribute("tapahtumat", tapahtumat);
 		return "tapahtumat";
 	} 	
@@ -63,7 +59,7 @@ public class TapahtumaController {
 	//näytä yhden tapahtuman tiedot ja osallistumisformi
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.GET)
 	public String viewTapahtuma(@PathVariable Integer id, Model model) { 
-		Tapahtuma tapahtuma = hibernateDAO.etsi(id);
+		Tapahtuma tapahtuma = tDao.etsi(id);
 		model.addAttribute("tapahtuma", tapahtuma);
 		
 		if(!model.containsAttribute("kayttaja")){

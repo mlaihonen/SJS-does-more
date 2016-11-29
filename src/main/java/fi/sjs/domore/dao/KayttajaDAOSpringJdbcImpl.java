@@ -38,7 +38,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	
 	public void lisaaUusi(Kayttaja k, int tId) {
 		
-		final String sql = "insert into kayttaja (k_etunimi, k_sukunimi, k_sposti, k_puh) VALUES (?,?,?,?)";
+		final String sql = "insert into kayttaja (etunimi, sukunimi, sposti, puh) VALUES (?,?,?,?)";
 
 		// anonyymi sis�luokka tarvitsee vakioina v�litett�v�t arvot
 		final String etunimi = k.getEtunimi();
@@ -75,7 +75,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		final int tapId = tId;
 		
 		jdbcTemplate.update(new PreparedStatementCreator() {
-			PreparedStatement createPreparedStatement(
+			public PreparedStatement createPreparedStatement(
 					Connection connection) throws SQLException {
 				PreparedStatement ps = connection.prepareStatement(sql2);
 				ps.setInt(1, kaytId);
@@ -91,7 +91,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 
 	
 	public List<Kayttaja> haeJarjestajat() {
-		final String sql ="select t.jarjestaja_id, t.id, k.id, k.etunimi, k.sukunimi, k.kuvaus, k.sposti, k.puh, k.kuva_id  from kayttaja k join tapahtuma t on k.id = t.jarjestaja_id";		
+		final String sql ="select t.jarjestaja_id, t.tapahtumaid, k.kayttajaid, k.etunimi, k.sukunimi, k.bio, k.sposti, k.puh, k.kuva_id  from kayttaja k join tapahtuma t on k.kayttajaid = t.jarjestaja_id";		
 		RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
 		
 		List<Kayttaja> jarjestajat = jdbcTemplate.query(sql,mapper);

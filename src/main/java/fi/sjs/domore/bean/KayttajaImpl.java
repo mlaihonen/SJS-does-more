@@ -1,18 +1,11 @@
 package fi.sjs.domore.bean;
 
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 
-@Entity
+//@Entity
 //@Table(name = "kayttaja")
 public class KayttajaImpl implements Kayttaja{
 	
@@ -37,8 +30,8 @@ public class KayttajaImpl implements Kayttaja{
 	//@Pattern(regexp = "\\d\\-\\+{7,13}")
 	private String puh;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	//@Column(name="id")
 	private int id;
 

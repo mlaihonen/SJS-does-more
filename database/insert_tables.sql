@@ -18,7 +18,7 @@ INSERT INTO tapahtuma (nimi, kuvaus, pvm, aika, paikka, maxosallistujalkm, jarje
 , 2
 );
 
-INSERT INTO kayttaja (etunimi, sukunimi, kuvaus, sposti, puh) VALUES
+INSERT INTO kayttaja (etunimi, sukunimi, bio, sposti, puh) VALUES
 ( 'Timo'
 , 'Testaaja'
 , 'Hei, Olen testaaja'
@@ -27,13 +27,13 @@ INSERT INTO kayttaja (etunimi, sukunimi, kuvaus, sposti, puh) VALUES
 );
 
 INSERT INTO tapahtumaosallistuja (k_id, t_id) VALUES
-( 2
-, 8
+( 1
+, 2
 );
 
 INSERT INTO tapahtumaosallistuja (k_id, t_id) VALUES
-( 3
-, 9
+( 1
+, 1
 );
 
 
