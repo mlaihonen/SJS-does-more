@@ -34,7 +34,6 @@ public class UploadController<MultipartConfigFactory> {
 		System.out.println("File: "+file.toString());
 		
 		 if (!file.isEmpty()) {
-			 dao.createImagesDirIfNeeded();
 			 dao.saveImage(file, 5); //toi numero ois se käyttäjäid
 			 return "redirect:/onnistui";
 		 } else {
