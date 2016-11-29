@@ -5,17 +5,20 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fi.sjs.domore.bean.Kayttaja;
 import fi.sjs.domore.bean.Tapahtuma;
 
 @Transactional
@@ -35,7 +38,7 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 	
 	/*public void lisaaUusiIlmanKayttajaa(Tapahtuma tap) {
 	
-		final String sql = "insert into tapahtuma (t_nimi, t_kuvaus, t_pvm, t_aika, t_paikka, t_maxosallistujalkm) VALUES (?,?,?,?,?,?)";
+		final String sql = "insert into tapahtuma (nimi, kuvaus, pvm, aika, paikka, maxosallistujalkm) VALUES (?,?,?,?,?,?)";
 				
 		java.sql.Date sqlDate = new java.sql.Date(tap.getPvm().getTime());
 		java.sql.Time sqlTime = new java.sql.Time(tap.getAika().getTime());   
@@ -74,7 +77,7 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 	
 	public void lisaaUusi(Tapahtuma tap) {
 		
-		final String sql = "INSERT INTO kayttaja(k_etunimi, k_sukunimi, k_kuvaus, k_sposti, k_puh) VALUES (?,?,?,?,?)";
+		final String sql = "INSERT INTO kayttaja(etunimi, sukunimi, kuvaus, sposti, puh) VALUES (?,?,?,?,?)";
 		
 		final String eNimi = tap.getKayttaja().getEtunimi();
 		final String sNimi = tap.getKayttaja().getSukunimi();
@@ -103,7 +106,7 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 		
 		tap.getKayttaja().setId(idHolder.getKey().intValue());		
 		
-		final String sql2 = "insert into tapahtuma (t_nimi, t_kuvaus, t_pvm, t_aika, t_paikka, t_jarjestaja_id, t_maxosallistujalkm) VALUES (?,?,?,?,?,?,?)";
+		final String sql2 = "insert into tapahtuma (nimi, kuvaus, pvm, aika, paikka, jarjestaja_id, maxosallistujalkm) VALUES (?,?,?,?,?,?,?)";
 				
 		Date sqlDate = new Date(tap.getPvm().getTime());
 		Time sqlTime = new Time(tap.getAika().getTime());   
@@ -142,7 +145,16 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 	}
 	
 	public  List<Tapahtuma> haeKaikki(){
-		return null;
+		final String sql = "SELECT t.id, t.nimi, t.kuvaus, t.pvm, t.aika, t.paikka, t.maxosallistujalkm, t.jarjestaja_id, k.id as kid, k.etunimi, k.sukunimi, k.kuvaus as kkuvaus, k.sposti, k.puh" 
+							+ " FROM tapahtuma t" 
+							+ " LEFT JOIN kayttaja k" 
+							+ " ON k.id = t.jarjestaja_id;";
+		
+		RowMapper<Tapahtuma> mapper = new TapahtumaRowMapper();
+		
+		List<Tapahtuma> tapahtumat = jdbcTemplate.query(sql,mapper);
+
+		return tapahtumat;
 		
 	}
 	

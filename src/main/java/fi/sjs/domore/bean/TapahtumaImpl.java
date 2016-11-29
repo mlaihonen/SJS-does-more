@@ -11,49 +11,49 @@ import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 	@Entity
-	@Table(name = "tapahtuma")
+	//@Table(name = "tapahtuma")
 	public class TapahtumaImpl implements Tapahtuma{
 		
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
-		@Column(name = "t_id")
+		//@Column(name = "id")
 		private int id;
 		
-		@Column(name = "t_nimi")
+		//@Column(name = "nimi")
 		@Size(min = 1, max = 50)
 		@NotNull
 		private String nimi;
 		
-		@Column(name = "t_kuvaus")
+		//@Column(name = "kuvaus")
 		@Size(min = 1, max = 500)
 		private String kuvaus;
 		
-		@Column(name = "t_pvm")
+		//@Column(name = "pvm")
 		@Temporal(TemporalType.DATE)
 		@DateTimeFormat(pattern="dd.MM.yyyy")
 		@NotNull
 		private Date pvm;
 		
-		@Column(name = "t_aika")
+		//@Column(name = "aika")
 		@Temporal(TemporalType.TIME)
 		@DateTimeFormat(pattern="HH:mm")
 		@NotNull
 		private Date aika;
 		
-		@Column(name = "t_paikka")
+		//@Column(name = "paikka")
 		@Size(min = 1, max = 50)
 		private String paikka;
 				
-		@Column(name = "t_maxosallistujalkm")
+		@Column(name = "maxosallistujalkm")
 		private int maxOsallistujaLkm;
 			
 		
-		@ManyToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, 
+		/*@ManyToMany(targetEntity = fi.sjs.domore.bean.KayttajaImpl.class, 
 				fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 		@JoinTable(
 				name = "tapahtumaosallistuja",
 				joinColumns = @JoinColumn(name = "t_id"),
-				inverseJoinColumns = @JoinColumn(name = "k_id"))
+				inverseJoinColumns = @JoinColumn(name = "k_id"))*/
 		private List<Kayttaja> osallistujat;
 		
 		@Transient
@@ -165,14 +165,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 			int osallistujaLkm = osallistujat.size();
 			return osallistujaLkm;
 		}
-		
-//		@ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL, 
-//				targetEntity = fi.sjs.domore.bean.KayttajaImpl.class)
-//		@JoinTable(name="kayttaja",
-//				joinColumns = @JoinColumn(name = "t_jarjestaja_id"),
-//				inverseJoinColumns = @JoinColumn(name = "k_id"))
-		
-		@ManyToOne(cascade=CascadeType.ALL, targetEntity = fi.sjs.domore.bean.KayttajaImpl.class) 
+	
+		//@ManyToOne(cascade=CascadeType.ALL, targetEntity = fi.sjs.domore.bean.KayttajaImpl.class) 
 		public Kayttaja getKayttaja() {
 			return kayttaja;
 		}

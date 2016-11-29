@@ -13,38 +13,34 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.Email;
 
 @Entity
-@Table(name = "kayttaja")
+//@Table(name = "kayttaja")
 public class KayttajaImpl implements Kayttaja{
 	
-	@Column(name="k_etunimi")
+	//@Column(name="etunimi")
 	@Size(min = 1, max = 50)
 	private String etunimi;
 	
-	@Column(name="k_sukunimi")
+	//@Column(name="sukunimi")
 	@Size(min = 1, max = 50)
 	private String sukunimi;
 	
-	@Column(name="k_kuvaus")
+	//@Column(name="kuvaus")
 	@Size(min = 0, max = 500)
 	private String kuvaus;
 	
-	@Column(name="k_sposti")
+	//@Column(name="sposti")
 	@Size(min = 1, max = 30)
 	@Email
 	private String sposti;
 	
-	@Column(name="k_puh")
+	//@Column(name="puh")
 	//@Pattern(regexp = "\\d\\-\\+{7,13}")
 	private String puh;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="k_id")
+	//@Column(name="id")
 	private int id;
-	
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="k_kuva_id")
-	private Integer kuvaId;
 
 	public KayttajaImpl() {
 		super();
@@ -63,7 +59,7 @@ public class KayttajaImpl implements Kayttaja{
 	}
 
 	public KayttajaImpl(String etunimi, String sukunimi, String kuvaus,
-			String sposti, String puh, int id, Integer kuvaId) {
+			String sposti, String puh, int id) {
 		super();
 		this.etunimi = etunimi;
 		this.sukunimi = sukunimi;
@@ -71,7 +67,6 @@ public class KayttajaImpl implements Kayttaja{
 		this.sposti = sposti;
 		this.puh = puh;
 		this.id = id;
-		this.kuvaId = kuvaId;
 	}
 
 	public int getId() {
@@ -122,19 +117,12 @@ public class KayttajaImpl implements Kayttaja{
 		this.puh = puh;
 	}
 
-	public Integer getKuvaId() {
-		return kuvaId;
-	}
-
-	public void setKuvaId(Integer kuvaId) {
-		this.kuvaId = kuvaId;
-	}
 
 	@Override
 	public String toString() {
 		return "KayttajaImpl [etunimi=" + etunimi + ", sukunimi=" + sukunimi
 				+ ", kuvaus=" + kuvaus + ", sposti=" + sposti + ", puh=" + puh
-				+ ", id=" + id + ", kuvaId=" + kuvaId + "]";
+				+ ", id=" + id +"]";
 	}	
 	
 }

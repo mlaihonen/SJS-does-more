@@ -1,22 +1,24 @@
-INSERT INTO tapahtuma (t_nimi, t_kuvaus, t_pvm, t_aika, t_paikka, t_maxosallistujalkm) VALUES
-( 'Esiintymistaito'
-, 'Tervetuloa parantamaan esiintymistaitoasi näyttelijägurun johdolla!'
-, '2016-01-10'
+INSERT INTO tapahtuma (nimi, kuvaus, pvm, aika, paikka, maxosallistujalkm, jarjestaja_id) VALUES
+( 'Jalkapalloa'
+, 'Tervetuloa parantamaan jalkapallotaitojasi näyttelijägurun johdolla!'
+, '2017-01-10'
 , '12:30'
 , 'Pasilan kirjasto'
 , 20
+, 1
 );
 
-INSERT INTO tapahtuma (t_nimi, t_kuvaus, t_pvm, t_aika, t_paikka, t_maxosallistujalkm) VALUES
-( 'Nokkahuilutunti'
-, 'Nokkahuilu on rock!!!!1'
-, '2016-10-11'
-, '18:00'
+INSERT INTO tapahtuma (nimi, kuvaus, pvm, aika, paikka, maxosallistujalkm, jarjestaja_id) VALUES
+( 'Rumputunti'
+, 'Rummut on rock!!!!1'
+, '2017-10-11'
+, '19:00'
 , 'Haaga-Helia'
 , 10
+, 2
 );
 
-INSERT INTO kayttaja (k_etunimi, k_sukunimi, k_kuvaus, k_sposti, k_puh) VALUES
+INSERT INTO kayttaja (etunimi, sukunimi, kuvaus, sposti, puh) VALUES
 ( 'Timo'
 , 'Testaaja'
 , 'Hei, Olen testaaja'
@@ -25,13 +27,13 @@ INSERT INTO kayttaja (k_etunimi, k_sukunimi, k_kuvaus, k_sposti, k_puh) VALUES
 );
 
 INSERT INTO tapahtumaosallistuja (k_id, t_id) VALUES
-( 1
-, 1
+( 2
+, 8
 );
 
 INSERT INTO tapahtumaosallistuja (k_id, t_id) VALUES
-( 2
-, 2
+( 3
+, 9
 );
 
 
