@@ -77,8 +77,10 @@ public class TapahtumaController {
 			attr.addFlashAttribute("org.springframework.validation.BindingResult.kayttaja", result);
 			attr.addFlashAttribute("kayttaja", kayttaja);
 			return "redirect:../tapahtumatiedot/"+id;
-		} else {								
-			return "redirect:../tapahtumatiedot/"+id+"/onnistui"; 
+		} else {
+			boolean ok = dao.lisaaUusi(kayttaja, id);
+			
+			return "redirect:../tapahtumatiedot/"+id+"?onnistui="+ok; 
 		}
 	}
 	
@@ -98,11 +100,9 @@ public class TapahtumaController {
 	public String createTapahtuma(Model model) { 
 		Tapahtuma tapahtuma = new TapahtumaImpl();
 		Kayttaja kayttaja = new KayttajaImpl();
-		//File file = new File("kuva");
 		tapahtuma.setKayttaja(kayttaja);
 		
 		model.addAttribute("tapahtuma", tapahtuma);
-		//model.addAttribute("file", file);
 		
 		return "luotapahtuma";
 	}

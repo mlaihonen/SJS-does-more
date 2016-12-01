@@ -20,6 +20,8 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"> <!-- saa IE sivut rokkaamaan -->
+      
+      
 	  
 		  
     </head>
@@ -57,26 +59,33 @@
   </nav>
 
 
-<div >
-<h1>Lisää kuva itsestäsi</h1>
- <div >
- <form:form method="post" enctype="multipart/form-data" action="uploadFile"  >
-		Upload File: <input type="file" name="file">
-		<%-- <form:input type="hidden" path="jarjestaja" />
-		<form:label type="hidden" path="jarjestaja" /> --%>
-		<br/><button type="submit" >Tallenna</button> 
-		
-	</form:form>
+
+<div>
+
+  <div class="center-align col l10">
+  
+  <h2>Lisää itsestäsi kuva!</h2>
+  </div>
+  	<div class="row card-panel" id="ruutu2">
+  	<div class="container center">
+  	<div>
+   				<form:form method="post" enctype="multipart/form-data" action="uploadFile/${jarjestaja}"  >
+   				<div class="imagePreview"></div>
+				<input type="file" name="file" onchange="previewImage(this,[256],4);" />
+				<!--  onchange="previewImage(this,[sizes],limit);" * limit is number of Mb  -->
+				<br/><button  class="btn waves-effect waves-light" type="submit" ><span><i class="material-icons">add_a_photo</i> Lisää kuva itsestäsi</span></button>
+				</form:form>
  
       
-</div>
-
-
-</div>
+	</div>
+	</div>
+	</div>
+	</div>
       <!--Import jQuery before materialize.js AINA LOPPUUN!!!!!!!!!!!-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="<c:url value="/resources/js/materialize.min.js" />"></script>
 	  	<script type="text/javascript" src="<c:url value="/resources/js/materialize.js" />"></script>
+	  	<script src="<c:url value="/resources/js/html5.image.preview.min.js" />"></script>
 		<script>
 		
   $('.button-collapse').sideNav({
