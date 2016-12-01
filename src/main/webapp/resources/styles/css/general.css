@@ -122,6 +122,11 @@ h4{
 	overflow: hidden;
 }
 
+h7{
+	font-size: 15px;
+	
+}
+
 @media all and (min-width: 960px) {
 h4{
     font-size: 1.5vw;
@@ -241,4 +246,9 @@ FORM INPUT COLOR ENDS
 	padding: 2rem;
 }
 
+
+#nimi{
+	font-size: 20px;
+
+}
 
