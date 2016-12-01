@@ -37,10 +37,10 @@
       <a href="./" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
       <a href="./" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
-        <li><a href="./"><spring:message code="etusivu"/></a></li>
-        <li><a href="luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
-        <li><a href="tapahtumat"><spring:message code="etsitapahtuma"/></a></li>
-        <li><a href="yhteystiedot"><spring:message code="yhteystiedot"/></a></li>
+        <li><a href="/DoMore"><spring:message code="etusivu"/></a></li>
+        <li><a href="/DoMore/luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
+        <li><a href="/DoMore/tapahtumat"><spring:message code="etsitapahtuma"/></a></li>
+        <li><a href="DoMore/yhteystiedot"><spring:message code="yhteystiedot"/></a></li>
       </ul>
        <!-- Dropdown Trigger -->
       
@@ -48,10 +48,10 @@
 	  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">language</i></a></li>
 	  </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="./"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
-        <li><a href="luotapahtuma"><span class="material-icons" id="navicon">event_note</span><spring:message code="luotapahtuma"/></a></li>
-        <li><a href="tapahtumat"><span class="material-icons" id="navicon">search</span><spring:message code="etsitapahtuma"/></a></li>
-        <li><a href="yhteystiedot"><span class="material-icons" id="navicon">phone</span><spring:message code="yhteystiedot"/></a></li>
+        <li><a href="/DoMore"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
+        <li><a href="/DoMore/luotapahtuma"><span class="material-icons" id="navicon">event_note</span><spring:message code="luotapahtuma"/></a></li>
+        <li><a href="/DoMore/tapahtumat"><span class="material-icons" id="navicon">search</span><spring:message code="etsitapahtuma"/></a></li>
+        <li><a href="/DoMore/yhteystiedot"><span class="material-icons" id="navicon">phone</span><spring:message code="yhteystiedot"/></a></li>
       </ul>
     </div>
   </nav>
@@ -71,9 +71,9 @@
 
 	</div>
 	<div class="lapinakuvaharmaa center-align" >
-	<h3><span class="material-icons">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
-      <span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
-      <span class="material-icons">place</span>${tapahtuma.paikka}</h3>
+	<h3><span class="material-icons isoiconi">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
+      <span class="material-icons isoiconi">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
+      <span class="material-icons isoiconi">place</span>${tapahtuma.paikka}</h3>
 	</div>
 	<div id="ruutu2body">
 	
@@ -101,7 +101,7 @@
 	<p class="flow-text">${tapahtuma.kuvaus }</p>
 	</div>
 	
-	<form:form modelAttribute="kayttaja" action="../tapahtumatiedot/${tapahtuma.id}" method="post">
+	<form:form modelAttribute="kayttaja" action="../tapahtumatiedot/${tapahtuma.id}" method="post" class="col l12" style="padding-bottom:2%">
 		<fieldset>
 		
 			<blockquote class="error">

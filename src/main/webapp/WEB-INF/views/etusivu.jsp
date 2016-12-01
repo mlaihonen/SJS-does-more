@@ -57,9 +57,9 @@
   </nav>
 
 
-<div class="keskella">
-<a class="waves-effect waves-light btn" href="luotapahtuma"><i class="material-icons left">playlist_add</i><spring:message code="luo"/></a>
-<a class="waves-effect waves-light btn" href="tapahtumat"><i class="material-icons right">reorder</i><spring:message code="nayta"/></a>
+<div class="keskella center-align">
+<a class="waves-effect waves-light btn etusivunappi" href="luotapahtuma"><i class="material-icons left">playlist_add</i><spring:message code="luotapahtuma"/></a>
+<a class="waves-effect waves-light btn etusivunappi" href="tapahtumat"><i class="material-icons right">reorder</i><spring:message code="etsitapahtuma"/></a>
 </div>
 
 

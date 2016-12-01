@@ -73,7 +73,7 @@
 	  
         <div class="row">
           <div class="input-field col s12">
-            <form:input path="nimi" id="input_text" pattern="[a-zäöåA-ZÄÖÅ0-9]+" type="text" length="20" class="validate"/>
+            <form:input path="nimi" id="input_text" pattern="[a-zäöåA-ZÄÖÅ0-9-/ ]+[a-zäöåA-ZÄÖÅ0-9-/ ]+" type="text" length="20" class="validate"/>
             <form:label path="nimi" for="input_text" data-error="✖" data-success="✓"><spring:message code="tapahtuma.luo.nimi"/></form:label>
             <form:errors path="nimi"/>
           </div>
@@ -87,7 +87,7 @@
         </div>
         <div class="row">
           <div class="input-field col s6">
-	          <form:input path="pvm" type="date" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" class="datepicker validate" id="pvm"/>
+	          <form:input path="pvm" type="date" class="datepicker" id="pvm"/>
 	          <form:label path="pvm" class="active" for="pvm" data-error="✖" data-success="✓"><spring:message code="tapahtuma.luo.pvm" /></form:label>
 	          <form:errors path="pvm"/>
           </div>
@@ -99,7 +99,7 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <form:input path="paikka" id="tapahtumapaikka" pattern="[a-zäöåA-ZÄÖÅ0-9]+" type="text" length="20" class="validate"/>
+            <form:input path="paikka" id="tapahtumapaikka" pattern="[a-zäöåA-ZÄÖÅ0-9-/ ]+[a-zäöåA-ZÄÖÅ0-9-/ ]+" type="text" length="20" class="validate"/>
             <form:label path="paikka" for="tapahtumapaikka" data-error="✖" data-success="✓"><spring:message code="tapahtuma.luo.paikka" /></form:label>
             <form:errors path="paikka"/>
           </div>
