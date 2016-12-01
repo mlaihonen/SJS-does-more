@@ -58,8 +58,14 @@
           
 	<div>
 	<div class="row card-panel" id="ruutu2">
+	<c:if test="${not empty onnistui}">
+		<div style="text-align:center">
+		<h4><spring:message code="onnistui"/></h4>
+		</div>
+	</c:if>
 	
-	
+
+
 	<div  class="container center-align" id="ruutu2body">
 	<h2>${tapahtuma.nimi}</h2>
 
