@@ -20,9 +20,9 @@ public class KayttajaController {
 	@Qualifier("KayttajaDAOSpring")
 	private KayttajaDAO dao;
 	
-	@RequestMapping("jarjestajat.json")
+	/*@RequestMapping("jarjestajat.json")
 	public @ResponseBody List<Kayttaja> haeHenkilotJSON() {
 		List<Kayttaja> jarjestajat = dao.haeJarjestajat();
 		return jarjestajat;
-	}
+	}*/
 }		

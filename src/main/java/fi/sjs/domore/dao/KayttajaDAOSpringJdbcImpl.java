@@ -32,22 +32,23 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-	public void lisaaUusi(Kayttaja k, int tId) {
+	//Lisää osallistuja tapahtumaan
+	public boolean lisaaUusi(Kayttaja k, int tId) {
 		
 		final String sql = "insert into kayttaja (etunimi, sukunimi, sposti, puh) VALUES (?,?,?,?)";
-
-		// anonyymi sis�luokka tarvitsee vakioina v�litett�v�t arvot
+		final String sql2 = "insert into tapahtumaosallistuja (k_id, t_id) VALUES (?,?)";
+		
+		// anonyymi sisäluokka tarvitsee vakioina välitettävät arvot
 		final String etunimi = k.getEtunimi();
 		final String sukunimi = k.getSukunimi();
 		final String sposti = k.getSposti();
 		final String puh = k.getPuh();
 
-		// jdbc pist�� generoidun id:n talteen
+		// jdbc pistää generoidun id:n talteen
 		KeyHolder idHolder = new GeneratedKeyHolder();
 		
-
-		//p�ivitys PreparedStatementCreatorilla ja KeyHolderilla
-		jdbcTemplate.update(new PreparedStatementCreator() {
+		//ensimmäinen päivitys PreparedStatementCreatorilla ja KeyHolderilla
+		int lkm = jdbcTemplate.update(new PreparedStatementCreator() {
 			public PreparedStatement createPreparedStatement(
 					Connection connection) throws SQLException {
 				PreparedStatement ps = connection.prepareStatement(sql,
@@ -59,35 +60,41 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 				return ps;
 			}
 		}, idHolder);
+				
 		
+		if (lkm == 1) { 	//jos ensimmäinen update onnistui, tee toinen päivitys					
+			final int kaytId = idHolder.getKey().intValue();
+			final int tapId = tId;
+			
+			lkm = jdbcTemplate.update(new PreparedStatementCreator() {
+				public PreparedStatement createPreparedStatement(
+						Connection connection) throws SQLException {
+					PreparedStatement ps = connection.prepareStatement(sql2);
+					ps.setInt(1, kaytId);
+					ps.setInt(2, tapId);
+					return ps;
+				}
+			});
+		}
 		
-		// tallennetaan id takaisin beaniin
-		//mikko was here
-		k.setId(idHolder.getKey().intValue());
+		boolean ok;
+		if (lkm == 1) {
+			ok = true;
+		} else {
+			
+			ok = false;
+		}
+		System.out.println("*****************************KÄYTTÄJÄ DAO LISÄÄ OSALLISTUJA MENI OK: "+ok);
 		
-		final String sql2 = "insert into tapahtumaosallistuja (k_id, t_id) VALUES (?,?)";
-		
-		final int kaytId = k.getId();
-		final int tapId = tId;
-		
-		jdbcTemplate.update(new PreparedStatementCreator() {
-			public PreparedStatement createPreparedStatement(
-					Connection connection) throws SQLException {
-				PreparedStatement ps = connection.prepareStatement(sql2);
-				ps.setInt(1, kaytId);
-				ps.setInt(2, tapId);
-				return ps;
-			}
-		});
-		
+		return ok;
 	}
 	
-	public List<Kayttaja> haeJarjestajat() {
-		final String sql ="select t.jarjestaja_id, t.tapahtumaid, k.kayttajaid, k.etunimi, k.sukunimi, k.bio, k.sposti, k.puh, k.kuva_id  from kayttaja k join tapahtuma t on k.kayttajaid = t.jarjestaja_id";		
+	/*public List<Kayttaja> haeJarjestajat() {
+		final String sql ="select t.jarjestaja_id, t.tapahtumaid, k.kayttajaid, k.etunimi, k.sukunimi, k.bio, k.sposti, k.puh from kayttaja k join tapahtuma t on k.kayttajaid = t.jarjestaja_id";		
 		RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
 		
 		List<Kayttaja> jarjestajat = jdbcTemplate.query(sql,mapper);
 		return jarjestajat;
-	}
+	}*/
 	
 }
