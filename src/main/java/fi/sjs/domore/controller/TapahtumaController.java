@@ -77,17 +77,21 @@ public class TapahtumaController {
 			attr.addFlashAttribute("org.springframework.validation.BindingResult.kayttaja", result);
 			attr.addFlashAttribute("kayttaja", kayttaja);
 			return "redirect:../tapahtumatiedot/"+id;
-	
-		} else {						
-			dao.lisaaUusi(kayttaja, id);	
-			return "redirect:.././onnistui"; 
+		} else {								
+			return "redirect:../tapahtumatiedot/"+id+"/onnistui"; 
 		}
 	}
 	
-	@RequestMapping(value="/onnistui", method=RequestMethod.GET)
-	public String viewOnnistui() { 
-		
-		return "onnistui";
+	//Tapahtumaan ilmoittautuminen onnistui
+	@RequestMapping(value="tapahtumatiedot/{id}/onnistui", method=RequestMethod.GET)
+	public String viewOnnistui(@PathVariable Integer id, Model model) { 
+		Tapahtuma t = tDao.etsi(id);
+		model.addAttribute("tapahtuma", t);
+		model.addAttribute("onnistui", "onnistui");
+		if(!model.containsAttribute("kayttaja")){
+			model.addAttribute("kayttaja", new KayttajaImpl());
+		}			
+		return "tapahtumatiedot";
 	}
 	
 	@RequestMapping(value="luotapahtuma", method=RequestMethod.GET)

@@ -1,6 +1,5 @@
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@page pageEncoding="UTF-8"%>
-<%@ page session="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -58,7 +57,11 @@
 
 
 <div style="text-align:center">
-<h1><spring:message code="onnistui"/></h1>
+<h4><spring:message code="onnistui"/></h4>
+<h3><c:out value="${tapahtuma.nimi }"/></h3>
+<p><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/></p>
+<p><span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/></p>
+<p><span class="material-icons">place</span>${tapahtuma.paikka}</p>
 <a class="waves-effect waves-light btn" href="tapahtumat"><spring:message code="takaisintapahtumiin"/></a>
 </div>
 
