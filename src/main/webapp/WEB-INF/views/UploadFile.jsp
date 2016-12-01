@@ -60,10 +60,10 @@
 <div >
 <h1>Lisää kuva itsestäsi</h1>
  <div >
- <form:form modelAttribute="jarjestaja" method="post" enctype="multipart/form-data" action="uploadFile"  >
+ <form:form method="post" enctype="multipart/form-data" action="uploadFile/${jarjestaja}"  >
 		Upload File: <input type="file" name="file">
-		<form:input type="hidden" path="jarjestaja" />
-		
+		<%-- <form:input type="hidden" path="jarjestaja" />
+		<form:label type="hidden" path="jarjestaja" /> --%>
 		<br/><button type="submit" >Tallenna</button> 
 		
 	</form:form>

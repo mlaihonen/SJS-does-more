@@ -114,7 +114,7 @@ public class TapahtumaController {
 	}
 	
 	@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
-	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model, RedirectAttributes attr) { 
+	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model) { 
 		
 		if (result.hasErrors()) {
 			model.addAttribute(tapahtuma);
