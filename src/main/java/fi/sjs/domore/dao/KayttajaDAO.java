@@ -6,8 +6,8 @@ import fi.sjs.domore.bean.Kayttaja;
 
 public interface KayttajaDAO {
 	
-	public abstract void lisaaUusi(Kayttaja k, int t_id);
+	public abstract boolean lisaaUusi(Kayttaja k, int t_id);
 	 
-	 public abstract List<Kayttaja> haeJarjestajat();
+	// public abstract List<Kayttaja> haeJarjestajat();
 
 } 

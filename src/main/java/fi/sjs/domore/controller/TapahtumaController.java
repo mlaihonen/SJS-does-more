@@ -77,8 +77,10 @@ public class TapahtumaController {
 			attr.addFlashAttribute("org.springframework.validation.BindingResult.kayttaja", result);
 			attr.addFlashAttribute("kayttaja", kayttaja);
 			return "redirect:../tapahtumatiedot/"+id;
-		} else {								
-			return "redirect:../tapahtumatiedot/"+id+"/onnistui"; 
+		} else {
+			boolean ok = dao.lisaaUusi(kayttaja, id);
+			
+			return "redirect:../tapahtumatiedot/"+id+"?onnistui="+ok; 
 		}
 	}
 	
