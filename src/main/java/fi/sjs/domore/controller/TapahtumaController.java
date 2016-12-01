@@ -49,8 +49,8 @@ public class TapahtumaController {
 	public String getList(Model model) {
 		List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(tDao.haeKaikki());
 		for (int i = 1; i < tapahtumat.size(); i++) {
-			List<Kayttaja> o = tDao.haeOsallistujat(tapahtumat.get(i).getId());
-			tapahtumat.get(i).setOsallistujat(o);
+			List<Kayttaja> osallistujat = tDao.haeOsallistujat(tapahtumat.get(i).getId());
+			tapahtumat.get(i).setOsallistujat(osallistujat);
 		}
 		model.addAttribute("tapahtumat", tapahtumat);
 		return "tapahtumat";
@@ -64,8 +64,7 @@ public class TapahtumaController {
 		
 		if(!model.containsAttribute("kayttaja")){
 			model.addAttribute("kayttaja", new KayttajaImpl());
-		}
-					
+		}					
 		return "tapahtumatiedot";
 	}	
 

@@ -5,7 +5,6 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -111,18 +110,13 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 							+ " LEFT JOIN kayttaja k" 
 							+ " ON k.kayttajaid = t.jarjestaja_id;";
 		
-		RowMapper<Tapahtuma> mapper = new TapahtumaRowMapper();
-		
-		List<Tapahtuma> tapahtumat = jdbcTemplate.query(sql,mapper);
-
-		
+		List<Tapahtuma> tapahtumat = jdbcTemplate.query(sql, new TapahtumaRowMapper());	
 		return tapahtumat;	
 	}
 	
 	
 	public List<Kayttaja> haeOsallistujat( int tId) {
-		
-	
+			
 		final String sql = "select k.kayttajaid, k.etunimi, k.sukunimi, k.bio, k.sposti, k.puh"
 							+ " FROM kayttaja k"
 							+ " JOIN tapahtumaosallistuja o"
@@ -140,8 +134,16 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 	}
 	
 	public Tapahtuma etsi(int id){
-		return null;
-		
+		final String sql = "SELECT t.tapahtumaid, t.nimi, t.kuvaus, t.pvm, t.aika, t.paikka, t.maxosallistujalkm, t.jarjestaja_id, k.kayttajaid, k.etunimi, k.sukunimi, k.bio, k.sposti, k.puh" 
+						+ " FROM tapahtuma t" 
+						+ " LEFT JOIN kayttaja k" 
+						+ " ON k.kayttajaid = t.jarjestaja_id"
+						+ " WHERE t.tapahtumaid = ?;";
+		Object[] parametrit = new Object[] { id };
+		RowMapper<Tapahtuma> mapper = new TapahtumaRowMapper();
+		Tapahtuma tapahtuma = jdbcTemplate.queryForObject(sql , parametrit, mapper);
+	
+		return tapahtuma;	
 	}
 
 }
