@@ -133,7 +133,7 @@ rikkoo jostain syystä sivun responsiivisuuden. voi liittyä siihen että liikaa
             </div>
             <div class="col s12 center">
               <span class="flow-text">
-                Mindi Laihonen
+                <h5>Heidi Baruti</h5>
               </span>
             </div>
           </div>
@@ -149,7 +149,7 @@ rikkoo jostain syystä sivun responsiivisuuden. voi liittyä siihen että liikaa
             </div>
             <div class="col s12 center">
               <span class="flow-text">
-                Mari Perasto
+                <h5>Mindi Laihonen</h5>
               </span>
             </div>
           </div>
@@ -165,7 +165,7 @@ rikkoo jostain syystä sivun responsiivisuuden. voi liittyä siihen että liikaa
             </div>
             <div class="col s12 center">
               <span class="flow-text">
-                Suvi Laukkanen
+                <h5>Suvi Laukkanen</h5>
               </span>
             </div>
           </div>
@@ -174,7 +174,10 @@ rikkoo jostain syystä sivun responsiivisuuden. voi liittyä siihen että liikaa
 
 <div class="divider"></div>
 
-<div class="col l4">
+
+<div class="col s12 m6 l2"></div>
+
+<div class="col s12 m6 l4">
   <div class="card-panel grey lighten-5" id="jasen">
           <div class="row">
             <div class="col s12">
@@ -182,7 +185,7 @@ rikkoo jostain syystä sivun responsiivisuuden. voi liittyä siihen että liikaa
             </div>
             <div class="col s12 center">
               <span class="flow-text">
-                Heidi Baruti
+                <h5>Mikko Lerto</h5>
               </span>
             </div>
           </div>
@@ -191,7 +194,7 @@ rikkoo jostain syystä sivun responsiivisuuden. voi liittyä siihen että liikaa
 
 
 
-<div class="col l4">
+<div class="col s12 m6 l4">
   <div class="card-panel grey lighten-5" id="jasen">
           <div class="row">
             <div class="col s12">
@@ -199,12 +202,14 @@ rikkoo jostain syystä sivun responsiivisuuden. voi liittyä siihen että liikaa
             </div>
             <div class="col s12 center">
               <span class="flow-text">
-                Mikko Lerto
+                <h5>Mari Perasto</h5>
               </span>
             </div>
           </div>
         </div>
 </div>
+<div class="col s12 m6 l2"></div>
+
 </div>
 
 </div>
