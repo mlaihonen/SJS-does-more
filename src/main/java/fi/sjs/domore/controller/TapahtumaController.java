@@ -121,8 +121,6 @@ public class TapahtumaController {
 			return "luotapahtuma"; 
 		} else {						
 			int jarjestajaId = tDao.lisaaUusi(tapahtuma);
-			//attr.addFlashAttribute("org.springframework.validation.BindingResult.tapahtuma", result);
-			//attr.addFlashAttribute("jarjestaja", jarjestajaId);
 			return "redirect:/uploadFile?jarjestaja="+jarjestajaId; 
 		}		
 		

@@ -60,7 +60,7 @@
 <div >
 <h1>Lisää kuva itsestäsi</h1>
  <div >
- <form:form method="post" enctype="multipart/form-data" action="uploadFile/${jarjestaja}"  >
+ <form:form method="post" enctype="multipart/form-data" action="uploadFile"  >
 		Upload File: <input type="file" name="file">
 		<%-- <form:input type="hidden" path="jarjestaja" />
 		<form:label type="hidden" path="jarjestaja" /> --%>
