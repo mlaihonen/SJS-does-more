@@ -71,9 +71,9 @@
 
 	</div>
 	<div class="lapinakuvaharmaa center-align" >
-	<h3><span class="material-icons">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
-      <span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
-      <span class="material-icons">place</span>${tapahtuma.paikka}</h3>
+	<h3><span class="material-icons isoiconi">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
+      <span class="material-icons isoiconi">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
+      <span class="material-icons isoiconi">place</span>${tapahtuma.paikka}</h3>
 	</div>
 	<div id="ruutu2body">
 	
@@ -101,7 +101,7 @@
 	<p class="flow-text">${tapahtuma.kuvaus }</p>
 	</div>
 	
-	<form:form modelAttribute="kayttaja" action="../tapahtumatiedot/${tapahtuma.id}" method="post">
+	<form:form modelAttribute="kayttaja" action="../tapahtumatiedot/${tapahtuma.id}" method="post" class="col l12" style="padding-bottom:2%">
 		<fieldset>
 		
 			<blockquote class="error">
