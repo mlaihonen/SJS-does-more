@@ -73,8 +73,8 @@
 	  
         <div class="row">
           <div class="input-field col s12">
-            <form:input path="nimi" id="input_text" type="text" length="20"/>
-            <form:label path="nimi" for="input_text"><spring:message code="tapahtuma.luo.nimi" /></form:label>
+            <form:input path="nimi" id="input_text" pattern="[a-zäöåA-ZÄÖÅ0-9]+" type="text" length="20" class="validate"/>
+            <form:label path="nimi" for="input_text" data-error="✖" data-success="✓"><spring:message code="tapahtuma.luo.nimi"/></form:label>
             <form:errors path="nimi"/>
           </div>
         </div>
@@ -87,20 +87,20 @@
         </div>
         <div class="row">
           <div class="input-field col s6">
-	          <form:input path="pvm" type="date" class="datepicker validate" id="pvm"/>
-	          <form:label path="pvm" class="active" for="pvm"><spring:message code="tapahtuma.luo.pvm" /></form:label>
+	          <form:input path="pvm" type="date" pattern="(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}" class="datepicker validate" id="pvm"/>
+	          <form:label path="pvm" class="active" for="pvm" data-error="✖" data-success="✓"><spring:message code="tapahtuma.luo.pvm" /></form:label>
 	          <form:errors path="pvm"/>
           </div>
           <div class="input-field col s6">
-		      <form:input path="aika" id="tapahtuma-aika" type="text" value="12:00" class="validate" length="5"/>
-		      <form:label path="aika" class="active" for="tapahtuma-aika" style="width:auto"><spring:message code="tapahtuma.luo.aika" /></form:label>
+		      <form:input path="aika" id="tapahtuma-aika" type="text" pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]" value="12:00" class="validate" length="5"/>
+		      <form:label path="aika" class="active" for="tapahtuma-aika" style="width:auto" data-error="✖" data-success="✓"><spring:message code="tapahtuma.luo.aika" /></form:label>
 		      <form:errors path="aika"/>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <form:input path="paikka" id="tapahtumapaikka" type="text" length="20"/>
-            <form:label path="paikka" for="tapahtumapaikka"><spring:message code="tapahtuma.luo.paikka" /></form:label>
+            <form:input path="paikka" id="tapahtumapaikka" pattern="[a-zäöåA-ZÄÖÅ0-9]+" type="text" length="20" class="validate"/>
+            <form:label path="paikka" for="tapahtumapaikka" data-error="✖" data-success="✓"><spring:message code="tapahtuma.luo.paikka" /></form:label>
             <form:errors path="paikka"/>
           </div>
          </div>
@@ -139,23 +139,23 @@
 	  <div class="row">
         <div class="input-field col m6">
           <i class="material-icons prefix">account_circle</i>
-          <form:input path="kayttaja.etunimi" id="jarjestaja_etunimi" type="text" class="validate"/><form:errors path="kayttaja.etunimi"/>
-          <form:label path="kayttaja.etunimi" for="jarjestaja_etunimi">Etunimi</form:label>
+          <form:input path="kayttaja.etunimi" id="jarjestaja_etunimi" type="text" pattern="[a-zäöåA-ZÄÖÅ0-9]+" class="validate"/><form:errors path="kayttaja.etunimi"/>
+          <form:label path="kayttaja.etunimi" for="jarjestaja_etunimi" data-error="✖" data-success="✓">Etunimi</form:label>
         </div>
                 <div class="input-field col m6">
           <i class="material-icons prefix">account_circle</i>
-          <form:input path="kayttaja.sukunimi" id="jarjestaja_sukunimi" type="text" class="validate"/><form:errors path="kayttaja.sukunimi"/>
-          <form:label path="kayttaja.sukunimi" for="jarjestaja_sukunimi">Sukunimi</form:label>
+          <form:input path="kayttaja.sukunimi" id="jarjestaja_sukunimi" type="text" pattern="[a-zäöåA-ZÄÖÅ0-9]+" class="validate"/><form:errors path="kayttaja.sukunimi"/>
+          <form:label path="kayttaja.sukunimi" for="jarjestaja_sukunimi" data-error="✖" data-success="✓">Sukunimi</form:label>
         </div>
         <div class="input-field col m6">
           <i class="material-icons prefix">phone</i>
           <form:input path="kayttaja.puh" id="jarjestaja_puhelin" type="tel" class="validate" pattern="\+?[0-9 () \-]+"/><form:errors path="kayttaja.puh"/>
-          <form:label path="kayttaja.puh"  for="jarjestaja_puhelin">Puhelin</form:label>
+          <form:label path="kayttaja.puh"  for="jarjestaja_puhelin" data-error="✖" data-success="✓">Puhelin</form:label>
         </div>
         <div class="input-field col m6">
           <i class="material-icons prefix">email</i>
           <form:input path="kayttaja.sposti" id="jarjestaja_email" type="email" class="validate"/><form:errors path="kayttaja.sposti"/>
-          <form:label path="kayttaja.sposti" for="jarjestaja_email" data-error="wrong" data-success="right">Sähköposti</form:label>
+          <form:label path="kayttaja.sposti" for="jarjestaja_email" data-error="✖" data-success="✓">Sähköposti</form:label>
         </div>
           <div class="input-field col m12">
             <form:textarea path="kayttaja.kuvaus" id="jarjestaja_kuvaus" class="materialize-textarea" length="500"></form:textarea><form:errors path="kayttaja.kuvaus"/>

@@ -11,11 +11,8 @@ import fi.sjs.domore.bean.TapahtumaImpl;
 
 public class TapahtumaRowMapper implements RowMapper<Tapahtuma> {
 
-	public Tapahtuma mapRow(ResultSet rs, int rowNum) throws SQLException {
-		int nykyinenTid = 0;
-		int edellinenTid = 0;		
+	public Tapahtuma mapRow(ResultSet rs, int rowNum) throws SQLException {	
 		TapahtumaImpl t = new TapahtumaImpl();
-
 		t.setId(rs.getInt("tapahtumaid"));
 		t.setNimi(rs.getString("nimi"));
 		t.setKuvaus(rs.getString("kuvaus"));
@@ -23,22 +20,21 @@ public class TapahtumaRowMapper implements RowMapper<Tapahtuma> {
 		t.setAika(rs.getTime("aika"));
 		t.setPaikka(rs.getString("paikka"));
 		t.setMaxOsallistujaLkm(rs.getInt("maxosallistujalkm"));
-		edellinenTid = nykyinenTid;
-							
 		int jId = rs.getInt("jarjestaja_id");
-		int kId = rs.getInt("kayttajaid");
 		
-		if (jId == kId) {
+		if (rs != null) {	
 			KayttajaImpl k = new KayttajaImpl();
-			k.setId(kId);
-			k.setEtunimi(rs.getString("etunimi"));
-			k.setSukunimi(rs.getString("sukunimi"));
-			k.setKuvaus(rs.getString("bio"));
-			k.setPuh(rs.getString("puh"));
-			k.setSposti(rs.getString("sposti"));
-			t.setKayttaja(k);
+			int kId = rs.getInt("kayttajaid");				
+			if (jId == kId) {
+				k.setId(kId);
+				k.setEtunimi(rs.getString("etunimi"));
+				k.setSukunimi(rs.getString("sukunimi"));
+				k.setKuvaus(rs.getString("bio"));
+				k.setPuh(rs.getString("puh"));
+				k.setSposti(rs.getString("sposti"));
+				t.setKayttaja(k);
+			}
 		}
-		
 		return t;
 	}
 }
