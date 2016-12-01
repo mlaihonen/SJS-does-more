@@ -49,8 +49,8 @@ public class TapahtumaController {
 	public String getList(Model model) {
 		List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(tDao.haeKaikki());
 		for (int i = 1; i < tapahtumat.size(); i++) {
-			List<Kayttaja> osallistujat = tDao.haeOsallistujat(tapahtumat.get(i).getId());
-			tapahtumat.get(i).setOsallistujat(osallistujat);
+			List<Kayttaja> o = tDao.haeOsallistujat(tapahtumat.get(i).getId());
+			tapahtumat.get(i).setOsallistujat(o);
 		}
 		model.addAttribute("tapahtumat", tapahtumat);
 		return "tapahtumat";
@@ -64,7 +64,8 @@ public class TapahtumaController {
 		
 		if(!model.containsAttribute("kayttaja")){
 			model.addAttribute("kayttaja", new KayttajaImpl());
-		}					
+		}
+					
 		return "tapahtumatiedot";
 	}	
 
@@ -93,11 +94,11 @@ public class TapahtumaController {
 	public String createTapahtuma(Model model) { 
 		Tapahtuma tapahtuma = new TapahtumaImpl();
 		Kayttaja kayttaja = new KayttajaImpl();
-		File file = new File("kuva");
+		//File file = new File("kuva");
 		tapahtuma.setKayttaja(kayttaja);
 		
 		model.addAttribute("tapahtuma", tapahtuma);
-		model.addAttribute("file", file);
+		//model.addAttribute("file", file);
 		
 		return "luotapahtuma";
 	}
@@ -109,14 +110,16 @@ public class TapahtumaController {
 	}
 	
 	@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
-	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model) { 
+	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model, RedirectAttributes attr) { 
 		
 		if (result.hasErrors()) {
 			model.addAttribute(tapahtuma);
 			return "luotapahtuma"; 
 		} else {						
-			tDao.lisaaUusi(tapahtuma);
-			return "redirect:/uploadFile"; 
+			int jarjestajaId = tDao.lisaaUusi(tapahtuma);
+			//attr.addFlashAttribute("org.springframework.validation.BindingResult.tapahtuma", result);
+			//attr.addFlashAttribute("jarjestaja", jarjestajaId);
+			return "redirect:/uploadFile?jarjestaja="+jarjestajaId; 
 		}		
 		
 	}	

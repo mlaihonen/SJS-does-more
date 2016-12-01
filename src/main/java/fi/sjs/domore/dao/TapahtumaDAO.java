@@ -8,7 +8,7 @@ import fi.sjs.domore.bean.Tapahtuma;
 
 public interface TapahtumaDAO {
 	
-	public abstract void lisaaUusi(Tapahtuma tap);
+	public abstract int lisaaUusi(Tapahtuma tap);
 	
 	public abstract List<Tapahtuma> haeKaikki();
 	

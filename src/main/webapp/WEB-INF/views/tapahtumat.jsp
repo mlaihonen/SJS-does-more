@@ -87,7 +87,7 @@
 	<div class="col m2 card small right">
 	<div><spring:message code="tapahtuma.jarjestaja"/></div>
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
+      <img class="activator" src="<c:url value="C:/install/apache-tomcat-8.0.21/userImages/" />">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-3" id="nimi"><c:out value="${tapahtuma.kayttaja.etunimi }"/> <c:out value="${tapahtuma.kayttaja.sukunimi }"/></span>    
