@@ -35,7 +35,7 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
-	public void lisaaUusi(Tapahtuma tap) {
+	public int lisaaUusi(Tapahtuma tap) {
 		
 		final String sql = "INSERT INTO kayttaja(etunimi, sukunimi, bio, sposti, puh) VALUES (?,?,?,?,?)";
 		
@@ -101,6 +101,8 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 		}, idHolder2);
 		
 		tap.setId(idHolder2.getKey().intValue());	
+		
+		return tap.getKayttaja().getId();
 	
 	}
 	

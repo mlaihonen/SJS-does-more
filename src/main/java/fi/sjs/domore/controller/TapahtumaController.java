@@ -49,8 +49,8 @@ public class TapahtumaController {
 	public String getList(Model model) {
 		List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(tDao.haeKaikki());
 		for (int i = 1; i < tapahtumat.size(); i++) {
-			List<Kayttaja> osallistujat = tDao.haeOsallistujat(tapahtumat.get(i).getId());
-			tapahtumat.get(i).setOsallistujat(osallistujat);
+			List<Kayttaja> o = tDao.haeOsallistujat(tapahtumat.get(i).getId());
+			tapahtumat.get(i).setOsallistujat(o);
 		}
 		model.addAttribute("tapahtumat", tapahtumat);
 		return "tapahtumat";
@@ -64,7 +64,8 @@ public class TapahtumaController {
 		
 		if(!model.containsAttribute("kayttaja")){
 			model.addAttribute("kayttaja", new KayttajaImpl());
-		}					
+		}
+					
 		return "tapahtumatiedot";
 	}	
 
@@ -115,11 +116,10 @@ public class TapahtumaController {
 			model.addAttribute(tapahtuma);
 			return "luotapahtuma"; 
 		} else {						
-			tDao.lisaaUusi(tapahtuma);
-			attr.addFlashAttribute("org.springframework.validation.BindingResult.tapahtuma", result);
-			int jarjestajaId = tapahtuma.getKayttaja().getId();
-			attr.addFlashAttribute("jarjestaja", jarjestajaId);
-			return "redirect:/uploadFile"; 
+			int jarjestajaId = tDao.lisaaUusi(tapahtuma);
+			//attr.addFlashAttribute("org.springframework.validation.BindingResult.tapahtuma", result);
+			//attr.addFlashAttribute("jarjestaja", jarjestajaId);
+			return "redirect:/uploadFile?jarjestaja="+jarjestajaId; 
 		}		
 		
 	}	

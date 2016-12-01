@@ -62,6 +62,7 @@
  <div >
  <form:form modelAttribute="jarjestaja" method="post" enctype="multipart/form-data" action="uploadFile"  >
 		Upload File: <input type="file" name="file">
+		<form:input type="hidden" path="jarjestaja" />
 		
 		<br/><button type="submit" >Tallenna</button> 
 		
