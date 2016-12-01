@@ -101,8 +101,8 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 		}, idHolder2);
 		
 		tap.setId(idHolder2.getKey().intValue());	
-		
-		return tap.getKayttaja().getId();
+		int id = tap.getKayttaja().getId();
+		return id;
 	
 	}
 	
