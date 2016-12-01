@@ -72,17 +72,16 @@
 	<div id="ruutu2body">
 	
 	
-	   <div class="col m2 card small right">
+	<div class="col m2 card small right">
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-3">Ei-Ella Esiintyjä</span>
+      <span class="card-title activator grey-text text-darken-3" id="nimi"><c:out value="${tapahtuma.kayttaja.etunimi }"/> <c:out value="${tapahtuma.kayttaja.sukunimi }"/></span>    
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"><spring:message code="tapahtuma.tietoaminusta"/><i class="material-icons right">close</i></span>
-      <p>Hei! Olen Ella ja opiskelen Teatterikorkeakoulussa esiintymistä. 
-      Minulla on 15 vuoden kokemus näyttelijänä ja ensimmäinen esitykseni oli 6-vuotiaana.</p>
+      <p><c:out value="${tapahtuma.kayttaja.kuvaus }"/></p>
     </div>
   </div>
 	
