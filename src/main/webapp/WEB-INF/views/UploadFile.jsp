@@ -60,12 +60,12 @@
 <div >
 <h1>Lisää kuva itsestäsi</h1>
  <div >
- <form method="post" enctype="multipart/form-data" action="uploadFile">
+ <form:form modelAttribute="jarjestaja" method="post" enctype="multipart/form-data" action="uploadFile"  >
 		Upload File: <input type="file" name="file">
 		
 		<br/><button type="submit" >Tallenna</button> 
 		
-	</form>
+	</form:form>
  
       
 </div>

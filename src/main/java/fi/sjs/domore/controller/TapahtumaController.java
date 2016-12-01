@@ -94,11 +94,11 @@ public class TapahtumaController {
 	public String createTapahtuma(Model model) { 
 		Tapahtuma tapahtuma = new TapahtumaImpl();
 		Kayttaja kayttaja = new KayttajaImpl();
-		File file = new File("kuva");
+		//File file = new File("kuva");
 		tapahtuma.setKayttaja(kayttaja);
 		
 		model.addAttribute("tapahtuma", tapahtuma);
-		model.addAttribute("file", file);
+		//model.addAttribute("file", file);
 		
 		return "luotapahtuma";
 	}
@@ -110,13 +110,16 @@ public class TapahtumaController {
 	}
 	
 	@RequestMapping(value="tallennatapahtuma", method=RequestMethod.POST)
-	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model) { 
+	public String saveTapahtuma(@ModelAttribute(value="tapahtuma")  @Valid TapahtumaImpl tapahtuma, BindingResult result, Model model, RedirectAttributes attr) { 
 		
 		if (result.hasErrors()) {
 			model.addAttribute(tapahtuma);
 			return "luotapahtuma"; 
 		} else {						
 			tDao.lisaaUusi(tapahtuma);
+			attr.addFlashAttribute("org.springframework.validation.BindingResult.tapahtuma", result);
+			int jarjestajaId = tapahtuma.getKayttaja().getId();
+			attr.addFlashAttribute("jarjestaja", jarjestajaId);
 			return "redirect:/uploadFile"; 
 		}		
 		
