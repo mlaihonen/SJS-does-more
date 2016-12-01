@@ -85,6 +85,7 @@
 	  </div>
 	  
 	<div class="col m2 card small right">
+	<div><spring:message code="tapahtuma.jarjestaja"/></div>
     <div class="card-image waves-effect waves-block waves-light">
       <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
     </div>
