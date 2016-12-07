@@ -58,9 +58,11 @@
           
 	<div>
 	<div class="row card-panel" id="ruutu2">
-	<c:if test="${not empty onnistui}">
+	
+	<!-- osallistuminen onnistui -viesti -->
+	<c:if test="${onnistui == true}">
 		<div style="text-align:center">
-		<h4><spring:message code="onnistui"/></h4>
+			<h4><spring:message code="onnistui"/></h4>
 		</div>
 	</c:if>
 	

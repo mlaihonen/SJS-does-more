@@ -129,9 +129,9 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 
 		RowMapper<Kayttaja> mapper = new KayttajaRowMapper();
 		Object[] id = new Object[] { tId };
-		List<Kayttaja> osallistujat  = getJdbcTemplate().query(sql,
+		List<Kayttaja> osallistujat  = jdbcTemplate.query(sql,
 				id, mapper);
-		
+		System.out.println(osallistujat);
 		return osallistujat;
 	}
 	

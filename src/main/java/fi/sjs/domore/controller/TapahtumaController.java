@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import fi.sjs.domore.bean.Kayttaja;
@@ -58,14 +59,16 @@ public class TapahtumaController {
 	
 	//näytä yhden tapahtuman tiedot ja osallistumisformi
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.GET)
-	public String viewTapahtuma(@PathVariable Integer id, Model model) { 
+	public String viewTapahtuma(@PathVariable Integer id, Model model, @RequestParam(required = false) boolean onnistui) { 
 		Tapahtuma tapahtuma = tDao.etsi(id);
 		model.addAttribute("tapahtuma", tapahtuma);
 		
 		if(!model.containsAttribute("kayttaja")){
 			model.addAttribute("kayttaja", new KayttajaImpl());
 		}
-					
+		if(onnistui == true){
+			model.addAttribute("onnistui", onnistui);	
+		}
 		return "tapahtumatiedot";
 	}	
 
@@ -78,18 +81,17 @@ public class TapahtumaController {
 			attr.addFlashAttribute("kayttaja", kayttaja);
 			return "redirect:../tapahtumatiedot/"+id;
 		} else {
-			boolean ok = dao.lisaaUusi(kayttaja, id);
-			
-			return "redirect:../tapahtumatiedot/"+id+"?onnistui="+ok; 
+			boolean onnistui = dao.lisaaUusi(kayttaja, id);
+			return "redirect:../tapahtumatiedot/"+id+"?onnistui="+onnistui; 
 		}
 	}
 	
+	//Ei käytössä !
 	//Tapahtumaan ilmoittautuminen onnistui
-	@RequestMapping(value="tapahtumatiedot/{id}/onnistui", method=RequestMethod.GET)
+	@RequestMapping(value="/onnistui", method=RequestMethod.GET)
 	public String viewOnnistui(@PathVariable Integer id, Model model) { 
 		Tapahtuma t = tDao.etsi(id);
 		model.addAttribute("tapahtuma", t);
-		model.addAttribute("onnistui", "onnistui");
 		if(!model.containsAttribute("kayttaja")){
 			model.addAttribute("kayttaja", new KayttajaImpl());
 		}			

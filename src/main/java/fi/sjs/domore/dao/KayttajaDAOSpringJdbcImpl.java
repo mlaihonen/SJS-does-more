@@ -34,7 +34,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	
 	//Lisää osallistuja tapahtumaan
 	public boolean lisaaUusi(Kayttaja k, int tId) {
-		
+		boolean ok = false;
 		final String sql = "insert into kayttaja (etunimi, sukunimi, sposti, puh) VALUES (?,?,?,?)";
 		final String sql2 = "insert into tapahtumaosallistuja (k_id, t_id) VALUES (?,?)";
 		
@@ -62,7 +62,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		}, idHolder);
 				
 		
-		if (lkm == 1) { 	//jos ensimmäinen update onnistui, tee toinen päivitys					
+		if (lkm == 1) { 	//jos ensimmäinen päivitys onnistui, tee toinen päivitys					
 			final int kaytId = idHolder.getKey().intValue();
 			final int tapId = tId;
 			
@@ -75,17 +75,15 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 					return ps;
 				}
 			});
-		}
-		
-		boolean ok;
-		if (lkm == 1) {
-			ok = true;
-		} else {
 			
+			if (lkm == 1) { //onnistuiko toinen päivitys?
+				ok = true;
+			} else {	
+				ok = false;
+			}
+		} else { 	
 			ok = false;
 		}
-		System.out.println("*****************************KÄYTTÄJÄ DAO LISÄÄ OSALLISTUJA MENI OK: "+ok);
-		
 		return ok;
 	}
 	
