@@ -109,8 +109,25 @@
 	  	<div class="col m5">
 	  	<p><c:out value="${tapahtuma.kuvaus }" /> </p>
 	  	<form:form action="tapahtumatiedot/${tapahtuma.id}" method="get">
-	  	<div id="lisatietojanappi">
-	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="tapahtuma.lisatieto"/>
+	  	<div id="lisatietojanappi" onload="nappifunktio()">
+	  	<button id="nappula" class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="tapahtuma.lisatieto"/>	
+	  	
+	  	
+	  	
+	  	<!-- Tässä mikon tekemä javascript jonka pitäisi laittaa disabled nappi kun div lisatietonappi latautuu mikäli osallistujia enemmän kuin pitää. ei toimi  -->
+	  	<script>
+	  	function nappifunktio() {
+	  	    var x = document.getElementById("nykyinen");
+	  	    var y = document.getElementById("maximi");
+	  	    
+	  	  if (x <= y) {
+	  		document.getElementById("lisatietojanappi").innerHTML = "<button id="nappula" class="btn disabled waves-effect indigo darken-4 waves-light"/>"
+	      }
+	  	    
+	  	}
+	  	</script>
+	  	
+	  	
 	  	</div>
 	  	</form:form>
 		</div>
