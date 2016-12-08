@@ -110,7 +110,9 @@ public class TapahtumaDAOSpringJdbcImpl implements TapahtumaDAO{
 		final String sql = "SELECT t.tapahtumaid, t.nimi, t.kuvaus, t.pvm, t.aika, t.paikka, t.maxosallistujalkm, t.jarjestaja_id, k.kayttajaid, k.etunimi, k.sukunimi, k.bio, k.sposti, k.puh" 
 							+ " FROM tapahtuma t" 
 							+ " LEFT JOIN kayttaja k" 
-							+ " ON k.kayttajaid = t.jarjestaja_id;";
+							+ " ON k.kayttajaid = t.jarjestaja_id"
+							+ " WHERE t.pvm >= CURDATE()"
+							+ " ORDER BY t.pvm ASC, t.aika ASC";
 		
 		List<Tapahtuma> tapahtumat = jdbcTemplate.query(sql, new TapahtumaRowMapper());	
 		return tapahtumat;	
