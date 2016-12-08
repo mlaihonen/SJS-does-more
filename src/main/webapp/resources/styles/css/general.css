@@ -188,6 +188,14 @@ border-radius: 5px;
 	/*max-width:200px;  pitää olla alle 300px, jotta ei rikkoudu mobiililla...update: korjattu image-responsive classilla */
 }
 
+#osallistuit{
+	background-color: LightGreen;
+}
+
+#osallistuit h4{
+	color: DarkGreen;
+}
+
 
 /*================================================================================================================
 Tapahtumatiedot end

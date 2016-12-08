@@ -117,12 +117,12 @@
           <div class="col m12">
           <ul class="collapsible" data-collapsible="expandable">
           <li>
-      <div class="collapsible-header"><i class="material-icons">assignment_ind</i>Omat tietosi</div>
+      <div class="collapsible-header"><i class="material-icons">assignment_ind</i><spring:message code="kayttaja.omattietosi" /></div>
       <div class="collapsible-body">
       <div class="container">
       <div class="row">    
       <div class="center-align col m12">
-      <img class="responsive-img" id="myImg" src="#" alt="*Kuvasi tulee tähän*"/>
+      <img class="responsive-img" id="myImg" src="#" alt="<spring:message code="kayttaja.kuva" />"/>
       </div>
        <div class="file-field input-field col m12">
       <div class="btn">
@@ -140,26 +140,26 @@
         <div class="input-field col m6">
           <i class="material-icons prefix">account_circle</i>
           <form:input path="kayttaja.etunimi" id="jarjestaja_etunimi" type="text" pattern="[a-zäöåA-ZÄÖÅ0-9]+" class="validate"/><form:errors path="kayttaja.etunimi"/>
-          <form:label path="kayttaja.etunimi" for="jarjestaja_etunimi" data-error="✖" data-success="✓">Etunimi</form:label>
+          <form:label path="kayttaja.etunimi" for="jarjestaja_etunimi" data-error="✖" data-success="✓"><spring:message code="kayttaja.etunimi" /></form:label>
         </div>
                 <div class="input-field col m6">
           <i class="material-icons prefix">account_circle</i>
           <form:input path="kayttaja.sukunimi" id="jarjestaja_sukunimi" type="text" pattern="[a-zäöåA-ZÄÖÅ0-9]+" class="validate"/><form:errors path="kayttaja.sukunimi"/>
-          <form:label path="kayttaja.sukunimi" for="jarjestaja_sukunimi" data-error="✖" data-success="✓">Sukunimi</form:label>
+          <form:label path="kayttaja.sukunimi" for="jarjestaja_sukunimi" data-error="✖" data-success="✓"><spring:message code="kayttaja.sukunimi" /></form:label>
         </div>
         <div class="input-field col m6">
           <i class="material-icons prefix">phone</i>
           <form:input path="kayttaja.puh" id="jarjestaja_puhelin" type="tel" class="validate" pattern="\+?[0-9 () \-]+"/><form:errors path="kayttaja.puh"/>
-          <form:label path="kayttaja.puh"  for="jarjestaja_puhelin" data-error="✖" data-success="✓">Puhelin</form:label>
+          <form:label path="kayttaja.puh"  for="jarjestaja_puhelin" data-error="✖" data-success="✓"><spring:message code="kayttaja.puh" /></form:label>
         </div>
         <div class="input-field col m6">
           <i class="material-icons prefix">email</i>
           <form:input path="kayttaja.sposti" id="jarjestaja_email" type="email" class="validate"/><form:errors path="kayttaja.sposti"/>
-          <form:label path="kayttaja.sposti" for="jarjestaja_email" data-error="✖" data-success="✓">Sähköposti</form:label>
+          <form:label path="kayttaja.sposti" for="jarjestaja_email" data-error="✖" data-success="✓"><spring:message code="kayttaja.email" /></form:label>
         </div>
           <div class="input-field col m12">
             <form:textarea path="kayttaja.kuvaus" id="jarjestaja_kuvaus" class="materialize-textarea" length="500"></form:textarea><form:errors path="kayttaja.kuvaus"/>
-            <form:label path="kayttaja.kuvaus" for="jarjestaja_kuvaus">Kirjoita kuvaus itsestäsi</form:label>
+            <form:label path="kayttaja.kuvaus" for="jarjestaja_kuvaus"><spring:message code="kayttaja.kayttajakuvaus" /></form:label>
           </div>
 		</div>
       </div>
@@ -170,7 +170,7 @@
           </div>
           </div>       
 		  <div class="input-field center-align">
-			<button class="btn waves-effect indigo darken-4 waves-light" type="submit" onclick="submitForms()">Luo
+			<button class="btn waves-effect indigo darken-4 waves-light" type="submit" onclick="submitForms()"><spring:message code="luotapahtuma" />
 				<i class="material-icons right">send</i>
 			</button>
 		  </div>

@@ -20,8 +20,6 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"> <!-- saa IE sivut rokkaamaan -->
-	  
-		  
     </head>
 
     <body>
@@ -61,8 +59,8 @@
 	
 	<!-- osallistuminen onnistui -viesti -->
 	<c:if test="${onnistui == true}">
-		<div style="text-align:center">
-			<h4><spring:message code="onnistui"/></h4>
+		<div style="text-align:center" id="osallistuit">
+			<h4><i class="small material-icons">info_outline</i> <spring:message code="onnistui"/></h4>
 		</div>
 	</c:if>
 	
@@ -139,7 +137,7 @@
 		        </div>
 		        
 				<div class="input-field col md3">
-				<button class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/>
+				<button  id="osallistunappi"class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/>
 				<i class="material-icons right">send</i>
 				</button>
 				</div>
