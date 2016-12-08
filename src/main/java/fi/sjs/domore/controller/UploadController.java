@@ -41,7 +41,7 @@ public class UploadController<MultipartConfigFactory> {
 			 return "redirect:/tapahtumat";
 		 } else {
 			 
-			 return "";
+			 return "redirect:/tapahtumat";
 		 }
 	            
 		 
