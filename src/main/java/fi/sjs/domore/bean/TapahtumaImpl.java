@@ -160,8 +160,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 		}
 		
 		public int getOsallistujaLkm() {
-			//int osallistujaLkm = osallistujat.size();
-			return 0;
+			int osallistujaLkm = this.osallistujat.size();
+			return osallistujaLkm;
 		}
 	
 		//@ManyToOne(cascade=CascadeType.ALL, targetEntity = fi.sjs.domore.bean.KayttajaImpl.class) 
