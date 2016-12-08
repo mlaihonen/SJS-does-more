@@ -58,17 +58,17 @@
 
 <div class="row" >
 	
-<h2 class="center">Yhteystiedot</h2>
+<h2 class="center"><spring:message code="yhteystiedot" /></h2>
 
 <div class="row card-panel" id="ruutu">
 <div class="container center">
 <div class="col l12">
-<h3>Tietoa</h3>
+<h3><spring:message code="yhteystiedot.tietoa" /></h3>
 <p class="flow-text">
-Do more. on Haaga-Helian IT-Tradenomiopiskelijoiden luoma harrastuksien hakupalvelu. Do more. on luotu osana ohjelmistokehitysprojektia. Palvelun on luonut ohjelmistokehitystiimi Silver Java Slayers.
+<spring:message code="yhteystiedot.sjs" />
 </p>
 
-   <h4>Yhteystiedot</h4>
+   <h4><spring:message code="yhteystiedot" /></h4>
 </div>
 
    <div class="row">
@@ -76,21 +76,21 @@ Do more. on Haaga-Helian IT-Tradenomiopiskelijoiden luoma harrastuksien hakupalv
             <div class="col m4">
               <div class="center">
                 <i class="material-icons">call</i>
-                <p class="promo-caption">Puhelin</p>
+                <p class="promo-caption"><spring:message code="yhteystiedot.puh" /></p>
                 <p class="light center">040123123</p>
               </div>
             </div>
             <div class="col m4">
               <div class="center">
                 <i class="material-icons">location_on</i>
-                <p class="promo-caption">Osoite</p>
+                <p class="promo-caption"><spring:message code="yhteystiedot.osoite" /></p>
                 <p class="light center">Ratapihantie 13</p>
               </div>
             </div>
             <div class="col m4">
               <div class="center">
                 <i class="material-icons">email</i>
-                <p class="promo-caption">Sähköposti</p>
+                <p class="promo-caption"><spring:message code="yhteystiedot.sposti" /></p>
                 <p class="light center">silverjavaslayers@gmail.com</p>
               </div>
             </div>
@@ -120,7 +120,7 @@ rikkoo jostain syystä sivun responsiivisuuden. voi liittyä siihen että liikaa
 
 <img class="responsive-img" src="<c:url value="/resources/images/logo_varjolla.png" />" alt="SJS" style="max-height:400px" />
 <blockquote class="grey lighten-4">
-<i>Silver Java Slayers - Vuosien kokemuksella</i>
+<i><spring:message code="yhteystiedot.vuosienkokemuksella" /></i>
 </blockquote>
 
 <div class="col l12">
