@@ -84,6 +84,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		} else { 	
 			ok = false;
 		}
+		System.out.println("KÄYTTÄJÄ DAO ONNISTUI: "+ok);
 		return ok;
 	}
 	
