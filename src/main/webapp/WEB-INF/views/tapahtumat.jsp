@@ -87,8 +87,9 @@
 	<div class="col m2 card small right">
 		
     <div class="card-image waves-effect waves-block waves-light">   
-    
-     <img class="activator" src="<c:out value="${kuva}/${tapahtuma.kayttaja.id}/${tapahtuma.kayttaja.id}.jpg" />">
+    	
+    	<img class="activator" src="<c:out value="${kuva}/${tapahtuma.kayttaja.id}/${tapahtuma.kayttaja.id}.jpg" />">
+     <%-- <img class="activator" src="<c:out value="${kuva}" />"> --%>
      <%-- <img class="activator" src="<c:url value="/resources/images/profile.jpg" />"> --%>
     </div>
     <div class="card-content">

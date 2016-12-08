@@ -121,19 +121,19 @@
       <div class="collapsible-body">
       <div class="container">
       <div class="row">    
-      <div class="center-align col m12">
+      <%-- <div class="center-align col m12">
       <img class="responsive-img" id="myImg" src="#" alt="<spring:message code="kayttaja.kuva" />"/>
       </div>
        <div class="file-field input-field col m12">
       <div class="btn">
-      	<%-- <form:form modelAttribute="file" method="POST" action="uploadFile" enctype="multipart/form-data" id="kuva">
+      	<form:form modelAttribute="file" method="POST" action="uploadFile" enctype="multipart/form-data" id="kuva">
         <span><i class="material-icons">add_a_photo</i> Lisää kuva itsestäsi</span>
         <form:input path="file" type="file"/>
-        </form:form> --%>
-      </div>
+        </form:form>
+      </div> 
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
-      </div>
+      </div>--%>
     </div>
 	  </div>
 	  <div class="row">
