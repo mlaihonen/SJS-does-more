@@ -49,7 +49,7 @@ public class TapahtumaController {
 	@RequestMapping(value="tapahtumat", method=RequestMethod.GET)
 	public String getList(Model model) {
 		List<Tapahtuma> tapahtumat = new ArrayList<Tapahtuma>(tDao.haeKaikki());
-		for (int i = 1; i < tapahtumat.size(); i++) {
+		for (int i = 0; i < tapahtumat.size(); i++) {
 			List<Kayttaja> o = tDao.haeOsallistujat(tapahtumat.get(i).getId());
 			tapahtumat.get(i).setOsallistujat(o);
 		}
