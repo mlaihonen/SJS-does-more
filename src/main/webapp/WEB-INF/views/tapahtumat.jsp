@@ -76,7 +76,8 @@
       <p><span class="material-icons">query_builder</span><fmt:formatDate pattern="HH:mm" value="${tapahtuma.aika}"/> 
       <span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
       <span class="material-icons">place</span><c:out value="${tapahtuma.paikka}" />
-      <span class="material-icons">people</span><c:out value="${tapahtuma.osallistujaLkm}"/> / <c:out value="${tapahtuma.maxOsallistujaLkm}" /></p>
+      <span class="material-icons">people</span>
+      <span id="nykyinen"><c:out value="${tapahtuma.osallistujaLkm}"/></span> / <span id="maximi"><c:out value="${tapahtuma.maxOsallistujaLkm}" /></span></p>
 	  </div>
 	  <div class="collapsible-body">
 	  
