@@ -76,7 +76,8 @@
       <p><span class="material-icons">query_builder</span><fmt:formatDate pattern="HH:mm" value="${tapahtuma.aika}"/> 
       <span class="material-icons">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
       <span class="material-icons">place</span><c:out value="${tapahtuma.paikka}" />
-      <span class="material-icons">people</span><c:out value="${tapahtuma.osallistujaLkm}"/> / <c:out value="${tapahtuma.maxOsallistujaLkm}" /></p>
+      <span class="material-icons">people</span>
+      <span id="nykyinen"><c:out value="${tapahtuma.osallistujaLkm}"/></span> / <span id="maximi"><c:out value="${tapahtuma.maxOsallistujaLkm}" /></span></p>
 	  </div>
 	  <div class="collapsible-body">
 	  
@@ -109,8 +110,25 @@
 	  	<div class="col m5">
 	  	<p><c:out value="${tapahtuma.kuvaus }" /> </p>
 	  	<form:form action="tapahtumatiedot/${tapahtuma.id}" method="get">
-	  	<div id="lisatietojanappi">
-	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="tapahtuma.lisatieto"/>
+	  	<div id="lisatietojanappi" onload="nappifunktio()">
+	  	<button id="nappula" class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="tapahtuma.lisatieto"/>	
+	  	
+	  	
+	  	
+	  	<!-- Tässä mikon tekemä javascript jonka pitäisi laittaa disabled nappi kun div lisatietonappi latautuu mikäli osallistujia enemmän kuin pitää. ei toimi  -->
+	  	<script>
+	  	function nappifunktio() {
+	  	    var x = document.getElementById("nykyinen");
+	  	    var y = document.getElementById("maximi");
+	  	    
+	  	  if (x <= y) {
+	  		document.getElementById("lisatietojanappi").innerHTML = "<button id="nappula" class="btn disabled waves-effect indigo darken-4 waves-light"/>"
+	      }
+	  	    
+	  	}
+	  	</script>
+	  	
+	  	
 	  	</div>
 	  	</form:form>
 		</div>
