@@ -72,9 +72,6 @@
 			<h4><i class="small material-icons">info_outline</i> <spring:message code="virhe"/></h4>
 		</div>
 	</c:when>
-	<c:otherwise>
-		
-  	</c:otherwise>
   	</c:choose>
 		
 	
