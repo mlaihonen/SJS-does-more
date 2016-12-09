@@ -21,6 +21,8 @@
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9"> <!-- saa IE sivut rokkaamaan -->
+
+      
     </head>
 
     <body>
@@ -74,9 +76,8 @@
 	<div class="lapinakuvaharmaa center-align" >
 	<h3><span class="material-icons isoiconi">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
       <span class="material-icons isoiconi">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
-      <span class="material-icons isoiconi">place</span>${tapahtuma.paikka}</h3>
-       <span class="material-icons">people</span>
-      <span id="nykyinen"><c:out value="${tapahtuma.osallistujaLkm}"/></span> / <span id="maximi"><c:out value="${tapahtuma.maxOsallistujaLkm}" /></span></p>
+      <span class="material-icons isoiconi">place</span>${tapahtuma.paikka}
+      <span class="material-icons isoiconi">people</span><span id="nykyinen"><c:out value="${tapahtuma.osallistujaLkm}"/></span> / <span id="maximi"><c:out value="${tapahtuma.maxOsallistujaLkm}" /></span></h3>
 
 	</div>
 	<div id="ruutu2body">
@@ -172,10 +173,13 @@
 		          <form:label path="puh" for="Puhelin"><spring:message code="kayttaja.puh"/></form:label>
 		        </div>
 		        
-				<div class="input-field col md3">
+				<div class="input-field col md3" id=osallistunappidiv">
 				<button  id="osallistunappi"class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/>
 				<i class="material-icons right">send</i>
 				</button>
+				
+
+				
 				</div>
 			
 			</fieldset>
@@ -201,6 +205,19 @@
   //$('.collapsible').collapsible();
 	</script>
 	
+	
+			<!-- Tässä mikon tekemä javascript jonka pitäisi laittaa disabled nappi kun div lisatietonappi latautuu mikäli osallistujia enemmän kuin pitää. ei toimi  -->
+	  	<script>
+	  	function nappifunktio() {
+	  	    var x = document.getElementById("nykyinen");
+	  	    var y = document.getElementById("maximi");
+	  	    
+	  	  if (x <= y) {
+	  		document.getElementById("osallistunappidiv").innerHTML = '<button  id="osallistunappi"class="btn disabled waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/><i class="material-icons right">send</i></button>'
+	      }
+	  	    
+	  	}
+	  	</script>
 	
     </body>
   </html>
