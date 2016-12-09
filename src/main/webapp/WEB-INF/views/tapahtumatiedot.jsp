@@ -85,7 +85,7 @@
 	
 	<div class="col m2 card small right">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
+      <img class="activator" src="<c:url value="../../userImages/${tapahtuma.kayttaja.id}/${tapahtuma.kayttaja.id}.jpg" />">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-3" id="nimi"><c:out value="${tapahtuma.kayttaja.etunimi }"/> <c:out value="${tapahtuma.kayttaja.sukunimi }"/></span>    

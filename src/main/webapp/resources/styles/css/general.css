@@ -54,7 +54,7 @@ i.material-icons {
   filter: blur(5px);*/
 	
 	min-height:100vh;
-	background-image: url('/DoMore/resources/images/mountain-lake.jpg');
+	background-image: url('/SJS-does-more/resources/images/mountain-lake.jpg');
  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -177,7 +177,7 @@ border-radius: 5px;
 
 #taustakuva {
 	min-height:100vh;
-	background-image: url('/DoMore/resources/images/mountain.jpg');
+	background-image: url('/SJS-does-more/resources/images/mountain.jpg');
 	background-size: 100%;
     background-repeat: no-repeat;
   
