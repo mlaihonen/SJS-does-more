@@ -17,9 +17,10 @@ import org.springframework.web.multipart.MultipartFile;
 public class UploadDAO {	
 	
 	private static final String imgFolder = "userImages";
+	private static final String webapps = "webapps";
 	private static final String tomcatPath = System.getProperty("catalina.home");
 	//private static final String tomcatPath = "/var/lib/tomcat8/webapps";
-	private static final String imagesPath = tomcatPath + File.separator + imgFolder + File.separator;
+	private static final String imagesPath = tomcatPath + File.separator + webapps + File.separator + imgFolder + File.separator;
 	//private static final String imagesPath = "C:/install/apache-tomcat-8.0.21/userImages/";
 	private static final File imagesDir = new File(imagesPath);
 	
