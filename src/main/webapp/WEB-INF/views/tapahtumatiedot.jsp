@@ -61,11 +61,22 @@
 	<div class="row card-panel" id="ruutu2">
 	
 	<!-- osallistuminen onnistui -viesti -->
-	<c:if test="${onnistui == true}">
+	<c:choose>
+ 	<c:when test="${onnistui == 1}">
 		<div style="text-align:center" id="osallistuit">
 			<h4><i class="small material-icons">info_outline</i> <spring:message code="onnistui"/></h4>
 		</div>
-	</c:if>
+	</c:when>
+	<c:when test="${onnistui == 0}">
+		<div style="text-align:center" id="osallistuit">
+			<h4><i class="small material-icons">info_outline</i> <spring:message code="virhe"/></h4>
+		</div>
+	</c:when>
+	<c:otherwise>
+		
+  	</c:otherwise>
+  	</c:choose>
+		
 	
 
 
