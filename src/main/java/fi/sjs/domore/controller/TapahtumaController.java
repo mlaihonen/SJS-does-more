@@ -61,6 +61,7 @@ public class TapahtumaController {
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.GET)
 	public String viewTapahtuma(@PathVariable Integer id, Model model, @RequestParam(required = false) boolean onnistui) { 
 		Tapahtuma tapahtuma = tDao.etsi(id);
+		tapahtuma.setOsallistujat(tDao.haeOsallistujat(id));
 		model.addAttribute("tapahtuma", tapahtuma);
 		String kuva = "/userImages";
 		//String kuva = "/var/lib/tomcat8/webapps/userImages";
