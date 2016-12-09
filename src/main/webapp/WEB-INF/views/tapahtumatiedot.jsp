@@ -61,11 +61,22 @@
 	<div class="row card-panel" id="ruutu2">
 	
 	<!-- osallistuminen onnistui -viesti -->
-	<c:if test="${onnistui == true}">
+	<c:choose>
+ 	<c:when test="${onnistui == 1}">
 		<div style="text-align:center" id="osallistuit">
 			<h4><i class="small material-icons">info_outline</i> <spring:message code="onnistui"/></h4>
 		</div>
-	</c:if>
+	</c:when>
+	<c:when test="${onnistui == 0}">
+		<div style="text-align:center" id="osallistuit">
+			<h4><i class="small material-icons">info_outline</i> <spring:message code="virhe"/></h4>
+		</div>
+	</c:when>
+	<c:otherwise>
+		
+  	</c:otherwise>
+  	</c:choose>
+		
 	
 
 
@@ -85,7 +96,7 @@
 	
 	<div class="col m2 card small right">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="<c:url value="/resources/images/profile.jpg" />">
+      <img class="activator" src="<c:url value="../../userImages/${tapahtuma.kayttaja.id}/${tapahtuma.kayttaja.id}.jpg" />">
     </div>
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-3" id="nimi"><c:out value="${tapahtuma.kayttaja.etunimi }"/> <c:out value="${tapahtuma.kayttaja.sukunimi }"/></span>    

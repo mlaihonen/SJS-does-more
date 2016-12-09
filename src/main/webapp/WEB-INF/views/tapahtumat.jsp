@@ -89,7 +89,7 @@
 		
     <div class="card-image waves-effect waves-block waves-light">   
     	
-    	<img class="activator" src="<c:out value="../userImages/${tapahtuma.kayttaja.id}/${tapahtuma.kayttaja.id}.jpg" />">
+    	<img class="activator" src="<c:out value="../userImages/${tapahtuma.kayttaja.id}/${tapahtuma.kayttaja.id}.jpg" />" onerror="ImgError(this);">
      <%-- <img class="activator" src="<c:out value="${kuva}" />"> --%>
      <%-- <img class="activator" src="<c:url value="/resources/images/profile.jpg" />"> --%>
     </div>
@@ -198,6 +198,13 @@
   //$('.collapsible').collapsible();
 	</script>
 	
+	<script>
+		function ImgError(source){
+	        source.src = "/resources/images/noimage.png";
+	        source.onerror = "";
+	        return true;
+	    }
+	</script>
 	<!-- <script>
 		
 		$(document).ready(function(){

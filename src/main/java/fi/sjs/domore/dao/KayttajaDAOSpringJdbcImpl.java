@@ -34,8 +34,8 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	}
 	
 	//Lisää osallistuja tapahtumaan
-	public boolean lisaaUusi(Kayttaja k, int tId) {
-		boolean ok = false;
+	public int lisaaUusi(Kayttaja k, int tId) {
+		int lkm = 0;
 		final String sql = "SELECT (SELECT maxosallistujalkm FROM tapahtuma WHERE tapahtumaid = ?) -"
 						+ " (SELECT COUNT(*) FROM tapahtumaosallistuja WHERE t_id = ?) AS osallistujaLkm;";
 		final String sql1 = "INSERT INTO kayttaja (etunimi, sukunimi, sposti, puh) VALUES (?,?,?,?)";
@@ -57,7 +57,7 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 		if (tyhjatPaikat > 0) {
 		
 		//ensimmäinen päivitys PreparedStatementCreatorilla ja KeyHolderilla
-		int lkm = jdbcTemplate.update(new PreparedStatementCreator() {
+		lkm = jdbcTemplate.update(new PreparedStatementCreator() {
 			public PreparedStatement createPreparedStatement(
 					Connection connection) throws SQLException {
 				PreparedStatement ps = connection.prepareStatement(sql1,
@@ -84,19 +84,11 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 					return ps;
 				}
 			});
+		}
 			
-			if (lkm == 1) {
-				ok = true;
-			} else {	
-				ok = false; // toinen päivitys epäonnistui
-			}
-		} else { 
-			ok = false; // ensimmäinen päivitys epäonnistui
-		}
-		} else { 
-			ok = false; // tapahtumaan ei mahdu enempää osallistujia
-		}
-		return ok;
+		
+	}		
+		return lkm;
 	}
 	
 	/*public List<Kayttaja> haeJarjestajat() {
