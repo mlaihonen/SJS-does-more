@@ -5,7 +5,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://www.springframework.org/tags"  prefix="spring"%>
-
+<!-- jstl funktiot. käytetään osallistujalistan pituuden saamiseen -->
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
   <html>
@@ -74,6 +75,9 @@
 	<h3><span class="material-icons isoiconi">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
       <span class="material-icons isoiconi">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
       <span class="material-icons isoiconi">place</span>${tapahtuma.paikka}</h3>
+       <span class="material-icons">people</span>
+      <span id="nykyinen"><c:out value="${tapahtuma.osallistujaLkm}"/></span> / <span id="maximi"><c:out value="${tapahtuma.maxOsallistujaLkm}" /></span></p>
+
 	</div>
 	<div id="ruutu2body">
 	
@@ -99,6 +103,38 @@
 	<div class="container">
 	<h4><spring:message code="tapahtuma.lisatieto"/></h4>
 	<p class="flow-text">${tapahtuma.kuvaus }</p>
+	</div>
+	
+	
+	 <div class="col m5">
+		
+		<table class="highlight centered responsive">
+		<thead>
+          <tr>
+              <th data-field="osallistujat"><spring:message code="tapahtuma.osallistujat"/></th>
+          </tr>
+        </thead>
+
+        <tbody>
+       
+       
+      	<!-- jos osallistujalistan pituus on suurempi kuin 0, näytä lista. jos ei, näytä viesti -->
+       	 <c:choose>     		
+       		<c:when test="${fn:length(tapahtuma.osallistujat) gt 0}">
+		         <c:forEach items="${tapahtuma.osallistujat}" var="kayttaja">     	 
+			          <tr>
+			            <td><c:out value="${kayttaja.etunimi}"/> <c:out value="${kayttaja.sukunimi }"/></td>
+			          </tr>
+			     </c:forEach>
+        	 </c:when>
+	         <c:otherwise>
+	         	 <td><spring:message code="eiosallistujiaviesti"/></td>
+	         </c:otherwise>        
+          </c:choose>
+        </tbody>
+		</table>
+		
+		</div>
 	</div>
 	
 	<form:form modelAttribute="kayttaja" action="../tapahtumatiedot/${tapahtuma.id}" method="post" class="col l12" style="padding-bottom:2%">

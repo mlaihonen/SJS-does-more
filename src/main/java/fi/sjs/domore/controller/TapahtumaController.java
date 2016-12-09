@@ -63,7 +63,7 @@ public class TapahtumaController {
 		Tapahtuma tapahtuma = tDao.etsi(id);
 		tapahtuma.setOsallistujat(tDao.haeOsallistujat(id));
 		model.addAttribute("tapahtuma", tapahtuma);
-		String kuva = "/var/lib/tomcat8/userImages";
+		String kuva = "/userImages";
 		//String kuva = "/var/lib/tomcat8/webapps/userImages";
 		model.addAttribute("kuva", kuva);
 		
