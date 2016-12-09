@@ -62,7 +62,7 @@ public class TapahtumaController {
 	public String viewTapahtuma(@PathVariable Integer id, Model model, @RequestParam(required = false) boolean onnistui) { 
 		Tapahtuma tapahtuma = tDao.etsi(id);
 		model.addAttribute("tapahtuma", tapahtuma);
-		String kuva = "/var/lib/tomcat8/userImages";
+		String kuva = "/userImages";
 		//String kuva = "/var/lib/tomcat8/webapps/userImages";
 		model.addAttribute("kuva", kuva);
 		
