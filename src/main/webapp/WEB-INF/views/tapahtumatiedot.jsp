@@ -173,13 +173,11 @@
 		          <form:label path="puh" for="Puhelin"><spring:message code="kayttaja.puh"/></form:label>
 		        </div>
 		        
-				<div class="input-field col md3" id=osallistunappidiv">
-				<button  id="osallistunappi"class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/>
+				<div class="input-field col md3">
+				<button  id="myBtn"class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/>
 				<i class="material-icons right">send</i>
 				</button>
-				
 
-				
 				</div>
 			
 			</fieldset>
@@ -205,19 +203,27 @@
   //$('.collapsible').collapsible();
 	</script>
 	
-	
-			<!-- Tässä mikon tekemä javascript jonka pitäisi laittaa disabled nappi kun div lisatietonappi latautuu mikäli osallistujia enemmän kuin pitää. ei toimi  -->
-	  	<script>
-	  	function nappifunktio() {
-	  	    var x = document.getElementById("nykyinen");
-	  	    var y = document.getElementById("maximi");
-	  	    
-	  	  if (x <= y) {
-	  		document.getElementById("osallistunappidiv").innerHTML = '<button  id="osallistunappi"class="btn disabled waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/><i class="material-icons right">send</i></button>'
-	      }
-	  	    
-	  	}
-	  	</script>
-	
+	<script>
+
+	$( document ).ready(function myFunction() {
+		
+		 var xtext = $('#nykyinen').text();
+		 var x = parseInt(xtext, 10);
+		 var ytext = $('#maximi').text();
+		 var y = parseInt(ytext, 10);
+	  	  	window.alert(x);
+	  		window.alert(y);
+	  	  if (x >= y) {
+			document.getElementById("myBtn").disabled = true;
+	  	  }
+	  	  else {
+	  		document.getElementById("myBtn").disabled = false;
+	  	  }
+	  	  
+	});
+  	  
+
+</script>
+
     </body>
   </html>
