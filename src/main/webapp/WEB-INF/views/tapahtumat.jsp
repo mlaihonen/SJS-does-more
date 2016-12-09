@@ -111,7 +111,7 @@
 	  	<p><c:out value="${tapahtuma.kuvaus }" /> </p>
 	  	<form:form action="tapahtumatiedot/${tapahtuma.id}" method="get">
 	  	<div id="lisatietojanappi" onload="nappifunktio()">
-	  	<button id="nappula" class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="tapahtuma.osallistu"/>	
+	  	<button id="nappula" class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/>	
 	  	<i class="material-icons right">send</i></button>
 	  	
 	  	
