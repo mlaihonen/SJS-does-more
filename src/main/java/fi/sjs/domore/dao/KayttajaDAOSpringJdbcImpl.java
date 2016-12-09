@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.inject.Inject;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
@@ -35,23 +36,31 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 	//Lisää osallistuja tapahtumaan
 	public boolean lisaaUusi(Kayttaja k, int tId) {
 		boolean ok = false;
-		final String sql = "insert into kayttaja (etunimi, sukunimi, sposti, puh) VALUES (?,?,?,?)";
-		final String sql2 = "insert into tapahtumaosallistuja (k_id, t_id) VALUES (?,?)";
+		final String sql = "SELECT (SELECT maxosallistujalkm FROM tapahtuma WHERE tapahtumaid = ?) -"
+						+ " (SELECT COUNT(*) FROM tapahtumaosallistuja WHERE t_id = ?) AS osallistujaLkm;";
+		final String sql1 = "INSERT INTO kayttaja (etunimi, sukunimi, sposti, puh) VALUES (?,?,?,?)";
+		final String sql2 = "INSERT INTO tapahtumaosallistuja (k_id, t_id) VALUES (?,?)";
 		
 		// anonyymi sisäluokka tarvitsee vakioina välitettävät arvot
+		final int tapahtumaid = tId;
 		final String etunimi = k.getEtunimi();
 		final String sukunimi = k.getSukunimi();
 		final String sposti = k.getSposti();
 		final String puh = k.getPuh();
 
-		// jdbc pistää generoidun id:n talteen
+		// jdbc pistää generoidun käyttäjä-id:n talteen
 		KeyHolder idHolder = new GeneratedKeyHolder();
+		
+		Object[] parametrit = new Object[] { tId, tId };
+		int tyhjatPaikat = jdbcTemplate.queryForObject(sql, parametrit, Integer.class);
+		System.out.println("TYHJÄT PAIKAT: "+tyhjatPaikat);
+		if (tyhjatPaikat > 0) {
 		
 		//ensimmäinen päivitys PreparedStatementCreatorilla ja KeyHolderilla
 		int lkm = jdbcTemplate.update(new PreparedStatementCreator() {
 			public PreparedStatement createPreparedStatement(
 					Connection connection) throws SQLException {
-				PreparedStatement ps = connection.prepareStatement(sql,
+				PreparedStatement ps = connection.prepareStatement(sql1,
 						new String[] { "id" });
 				ps.setString(1, etunimi);
 				ps.setString(2, sukunimi);
@@ -63,28 +72,30 @@ public class KayttajaDAOSpringJdbcImpl implements KayttajaDAO {
 				
 		
 		if (lkm == 1) { 	//jos ensimmäinen päivitys onnistui, tee toinen päivitys					
-			final int kaytId = idHolder.getKey().intValue();
-			final int tapId = tId;
+			final int kayttajaid = idHolder.getKey().intValue();
+			
 			
 			lkm = jdbcTemplate.update(new PreparedStatementCreator() {
 				public PreparedStatement createPreparedStatement(
 						Connection connection) throws SQLException {
 					PreparedStatement ps = connection.prepareStatement(sql2);
-					ps.setInt(1, kaytId);
-					ps.setInt(2, tapId);
+					ps.setInt(1, kayttajaid);
+					ps.setInt(2, tapahtumaid);
 					return ps;
 				}
 			});
 			
-			if (lkm == 1) { //onnistuiko toinen päivitys?
+			if (lkm == 1) {
 				ok = true;
 			} else {	
-				ok = false;
+				ok = false; // toinen päivitys epäonnistui
 			}
-		} else { 	
-			ok = false;
+		} else { 
+			ok = false; // ensimmäinen päivitys epäonnistui
 		}
-		System.out.println("KÄYTTÄJÄ DAO ONNISTUI: "+ok);
+		} else { 
+			ok = false; // tapahtumaan ei mahdu enempää osallistujia
+		}
 		return ok;
 	}
 	
