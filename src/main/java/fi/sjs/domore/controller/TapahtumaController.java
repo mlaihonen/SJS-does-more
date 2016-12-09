@@ -59,7 +59,7 @@ public class TapahtumaController {
 	
 	//näytä yhden tapahtuman tiedot ja osallistumisformi
 	@RequestMapping(value="tapahtumatiedot/{id}", method=RequestMethod.GET)
-	public String viewTapahtuma(@PathVariable Integer id, Model model, @RequestParam(required = false) boolean onnistui) { 
+	public String viewTapahtuma(@PathVariable Integer id, Model model, @RequestParam(required = false) Integer onnistui) { 
 		Tapahtuma tapahtuma = tDao.etsi(id);
 		tapahtuma.setOsallistujat(tDao.haeOsallistujat(id));
 		model.addAttribute("tapahtuma", tapahtuma);
@@ -70,7 +70,7 @@ public class TapahtumaController {
 		if(!model.containsAttribute("kayttaja")){
 			model.addAttribute("kayttaja", new KayttajaImpl());
 		}
-		if(onnistui == true){
+		if(onnistui != null && (onnistui == 1 || onnistui == 0)){
 			model.addAttribute("onnistui", onnistui);	
 		}
 		return "tapahtumatiedot";
@@ -85,7 +85,7 @@ public class TapahtumaController {
 			attr.addFlashAttribute("kayttaja", kayttaja);
 			return "redirect:../tapahtumatiedot/"+id;
 		} else {
-			boolean onnistui = dao.lisaaUusi(kayttaja, id);
+			int onnistui = dao.lisaaUusi(kayttaja, id);
 			return "redirect:../tapahtumatiedot/"+id+"?onnistui="+onnistui; 
 		}
 	}
