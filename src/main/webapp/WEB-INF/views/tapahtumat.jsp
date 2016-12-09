@@ -111,8 +111,8 @@
 	  	<p><c:out value="${tapahtuma.kuvaus }" /> </p>
 	  	<form:form action="tapahtumatiedot/${tapahtuma.id}" method="get">
 	  	<div id="lisatietojanappi" onload="nappifunktio()">
-	  	<button id="nappula" class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="tapahtuma.lisatieto"/>	
-	  	
+	  	<button id="nappula" class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="tapahtuma.osallistu"/>	
+	  	<i class="material-icons right">send</i></button>
 	  	
 	  	
 	  	<!-- Tässä mikon tekemä javascript jonka pitäisi laittaa disabled nappi kun div lisatietonappi latautuu mikäli osallistujia enemmän kuin pitää. ei toimi  -->
