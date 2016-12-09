@@ -211,8 +211,8 @@
 		 var x = parseInt(xtext, 10);
 		 var ytext = $('#maximi').text();
 		 var y = parseInt(ytext, 10);
-	  	  	window.alert(x);
-	  		window.alert(y);
+	  	  	//window.alert(x);
+	  		//window.alert(y);
 	  	  if (x >= y) {
 			document.getElementById("myBtn").disabled = true;
 	  	  }
