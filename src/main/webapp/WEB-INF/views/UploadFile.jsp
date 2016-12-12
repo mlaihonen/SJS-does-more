@@ -64,7 +64,7 @@
 
   <div class="center-align col l10">
   
-  <h2>Lisää itsestäsi kuva!</h2>
+  <h2><spring:message code="kuva.itsestasi"/></h2>
   </div>
   	<div class="row card-panel" id="ruutu2">
   	<div class="container center">
@@ -73,7 +73,7 @@
    				<div class="imagePreview"></div>
 				<input type="file" name="file" onchange="previewImage(this,[256],4);" />
 				<!--  onchange="previewImage(this,[sizes],limit);" * limit is number of Mb  -->
-				<br/><button  class="btn waves-effect waves-light" type="submit" ><span><i class="material-icons">add_a_photo</i> Lisää kuva itsestäsi</span></button>
+				<br/><button  class="btn waves-effect waves-light" type="submit" ><span><i class="material-icons">add_a_photo</i> <spring:message code="kuva.itsestasi"/></span></button>
 				</form:form>
  
       
