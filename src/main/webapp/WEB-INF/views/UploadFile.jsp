@@ -71,7 +71,7 @@
   	<div>
    				<form:form method="post" enctype="multipart/form-data" action="uploadFile/${jarjestaja}"  >
    				<div class="imagePreview"></div>
-				<input type="file" name="file" onchange="previewImage(this,[256],4);" />
+				<input type="file" name="file" onchange="previewImage(this,[256],1);" />
 				<!--  onchange="previewImage(this,[sizes],limit);" * limit is number of Mb  -->
 				<br/><button  id="myBtn" class="btn waves-effect waves-light" type="submit" ><span><i class="material-icons">add_a_photo</i> <spring:message code="kuva.itsestasi"/></span></button>
 				</form:form>
