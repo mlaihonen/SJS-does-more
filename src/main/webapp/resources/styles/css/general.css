@@ -81,58 +81,57 @@ Mikon responsiiviset otsikot alkaa
 
 
 h1{
-	font-size: 7.5vw;
+	font-size: 8vw;
 	overflow: hidden;
 }
 
 @media all and (min-width: 960px) {
 h1{
-    font-size: 6vw;
+    font-size: 5.5vw;
     overflow: hidden;
   }
 }
 
 
 h2{
-	font-size: 6.5vw;
+	font-size: 7vw;
 	overflow: hidden;
 }
 
 @media all and (min-width: 960px) {
 h2{
-    font-size: 5vw;
+    font-size: 4.5vw;
     overflow: hidden;
   }
 }
 
 h3{
-	font-size: 4.5vw;
+	font-size: 5vw;
 	overflow: hidden;
 }
 
 @media all and (min-width: 960px) {
 h3{
-    font-size: 3vw;
+    font-size: 2.5vw;
     overflow: hidden;
   }
 }
 
 h4{
-	font-size: 3.5vw;
+	font-size: 4vw;
 	overflow: hidden;
 }
 
-
-
-@media all and (min-width: 960px) {
-h4{
-    font-size: 2vw;
-    overflow: hidden;
-  }
-}
 h7{
 	font-size: 15px;
 	
+}
+
+@media all and (min-width: 960px) {
+h4{
+    font-size: 1.5vw;
+    overflow: hidden;
+  }
 }
 
 /* Jos käytät esim h4, h5, h5... niin responsiivinen teksti ei toimi. /*
