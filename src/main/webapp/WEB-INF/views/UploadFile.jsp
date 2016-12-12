@@ -62,12 +62,12 @@
 
 <div>
 
-  <div class="center-align col l10">
+  <div class="center-align col l10 container">
   
-  <h2><spring:message code="kuva.itsestasi"/></h2>
+  <h3><spring:message code="kuva.itsestasi"/></h3>
   </div>
   	<div class="row card-panel" id="ruutu2">
-  	<div class="container center">
+  	<div class="container center" style="padding:1%; min-height:33vh">
   	<div>
    				<form:form method="post" enctype="multipart/form-data" action="uploadFile/${jarjestaja}"  >
    				<div class="imagePreview"></div>
