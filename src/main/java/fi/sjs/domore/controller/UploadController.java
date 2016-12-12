@@ -16,7 +16,7 @@ import fi.sjs.domore.dao.UploadDAO;
 
 @Controller
 @RequestMapping(value="/")
-public class UploadController<MultipartConfigFactory> {
+public class UploadController<MultipartConfigFactory> extends VirheController {
 	
 	@Inject
 	@Qualifier("UploadDao")
