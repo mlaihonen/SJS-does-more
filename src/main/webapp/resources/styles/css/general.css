@@ -197,7 +197,8 @@ border-radius: 5px;
 }
 
 #virheosallistuminen h4{
-	color: #ff893f;
+	background-color: lightblue;
+	color:midnightblue;
 }
 
 /*================================================================================================================
