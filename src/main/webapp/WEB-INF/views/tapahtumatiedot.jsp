@@ -38,10 +38,10 @@
       <a href="./" class="brand-logo center"><img class="responsive-img" src="<c:url value="/resources/images/logo2_s.png" />" alt="Do" id="navlogo" /></a>
       <a href="./" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
       <ul class="left hide-on-med-and-down">
-        <li><a href="/DoMore"><spring:message code="etusivu"/></a></li>
-        <li><a href="/DoMore/luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
-        <li><a href="/DoMore/tapahtumat"><spring:message code="etsitapahtuma"/></a></li>
-        <li><a href="DoMore/yhteystiedot"><spring:message code="yhteystiedot"/></a></li>
+        <li><a href="/SJS-does-more"><spring:message code="etusivu"/></a></li>
+        <li><a href="/SJS-does-more/luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
+        <li><a href="/SJS-does-more/tapahtumat"><spring:message code="etsitapahtuma"/></a></li>
+        <li><a href="SJS-does-more/yhteystiedot"><spring:message code="yhteystiedot"/></a></li>
       </ul>
        <!-- Dropdown Trigger -->
       
@@ -49,10 +49,10 @@
 	  <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">language</i></a></li>
 	  </ul>
       <ul class="side-nav" id="mobile-demo">
-        <li><a href="/DoMore"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
-        <li><a href="/DoMore/luotapahtuma"><span class="material-icons" id="navicon">event_note</span><spring:message code="luotapahtuma"/></a></li>
-        <li><a href="/DoMore/tapahtumat"><span class="material-icons" id="navicon">search</span><spring:message code="etsitapahtuma"/></a></li>
-        <li><a href="/DoMore/yhteystiedot"><span class="material-icons" id="navicon">phone</span><spring:message code="yhteystiedot"/></a></li>
+        <li><a href="/SJS-does-more"><span class="material-icons" id="navicon">home</span><spring:message code="etusivu"/></a></li>
+        <li><a href="/SJS-does-more/luotapahtuma"><span class="material-icons" id="navicon">event_note</span><spring:message code="luotapahtuma"/></a></li>
+        <li><a href="/SJS-does-more/tapahtumat"><span class="material-icons" id="navicon">search</span><spring:message code="etsitapahtuma"/></a></li>
+        <li><a href="/SJS-does-more/yhteystiedot"><span class="material-icons" id="navicon">phone</span><spring:message code="yhteystiedot"/></a></li>
       </ul>
     </div>
   </nav>
@@ -68,7 +68,7 @@
 		</div>
 	</c:when>
 	<c:when test="${onnistui == 0}">
-		<div style="text-align:center" id="osallistuit">
+		<div style="text-align:center" id="virheosallistuminen">
 			<h4><i class="small material-icons">info_outline</i> <spring:message code="virhe"/></h4>
 		</div>
 	</c:when>
