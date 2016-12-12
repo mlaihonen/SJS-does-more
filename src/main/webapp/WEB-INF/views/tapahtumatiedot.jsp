@@ -64,12 +64,12 @@
 	<c:choose>
  	<c:when test="${onnistui == 1}">
 		<div style="text-align:center" id="osallistuit">
-			<h4><i class="small material-icons">info_outline</i> <spring:message code="onnistui"/></h4>
+			<h4><i class="small material-icons">info_outline</i> <spring:message code="tapahtuma.onnistui"/></h4>
 		</div>
 	</c:when>
 	<c:when test="${onnistui == 0}">
 		<div style="text-align:center" id="virheosallistuminen">
-			<h4><i class="small material-icons">info_outline</i> <spring:message code="virhe"/></h4>
+			<h4><i class="small material-icons">info_outline</i> <spring:message code="tapahtuma.virhe"/></h4>
 		</div>
 	</c:when>
   	</c:choose>

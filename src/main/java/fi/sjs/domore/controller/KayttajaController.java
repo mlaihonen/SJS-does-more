@@ -14,7 +14,7 @@ import fi.sjs.domore.dao.KayttajaDAO;
 
 @Controller
 @RequestMapping (value="/")
-public class KayttajaController {
+public class KayttajaController extends VirheController{
 	
 	@Inject
 	@Qualifier("KayttajaDAOSpring")

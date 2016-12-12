@@ -29,7 +29,7 @@ import fi.sjs.domore.dao.TapahtumaDAO;
 
 @Controller
 @RequestMapping (value="/")
-public class TapahtumaController {
+public class TapahtumaController extends VirheController{
 	
 	@Inject
 	@Qualifier("KayttajaDAOSpring")
