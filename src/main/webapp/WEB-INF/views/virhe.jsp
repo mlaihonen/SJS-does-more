@@ -56,8 +56,8 @@
 
 
 <div class="keskella center-align">
-<p><spring:message code="virhe"/></p>
-<h1><i class="material-icons="error></i></h1>
+<h5><br><i class="material-icons">error</i><br><br><spring:message code="virhe"/></h5>
+
 </div>
 
 
