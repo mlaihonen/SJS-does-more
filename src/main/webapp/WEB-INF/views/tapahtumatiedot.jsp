@@ -85,7 +85,7 @@
 	<h3><span class="material-icons isoiconi">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
       <span class="material-icons isoiconi">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
       <span class="material-icons isoiconi">place</span>${tapahtuma.paikka}
-      <span class="material-icons isoiconi">people</span><span id="nykyinen"><c:out value="${tapahtuma.osallistujaLkm}"/></span> / <span id="maximi"><c:out value="${tapahtuma.maxOsallistujaLkm}" /></span></h3>
+      <span class="material-icons isoiconi">people</span><span id="osallistujamaara"><span id="nykyinen"><c:out value="${tapahtuma.osallistujaLkm}"/></span> / <span id="maximi"><c:out value="${tapahtuma.maxOsallistujaLkm}" /></span></span></h3>
 
 	</div>
 	<div id="ruutu2body">
@@ -109,7 +109,7 @@
 	
 	
 	
-	<div class="container">
+	<div class="container col m5">
 	<h4><spring:message code="tapahtuma.lisatieto"/></h4>
 	<p class="flow-text">${tapahtuma.kuvaus }</p>
 	</div>
@@ -144,7 +144,7 @@
 		</table>
 		
 		</div>
-	</div>
+	
 	
 	<form:form modelAttribute="kayttaja" action="../tapahtumatiedot/${tapahtuma.id}" method="post" class="col l12" style="padding-bottom:2%">
 		<fieldset>
@@ -190,7 +190,8 @@
 			
 			</fieldset>
 		</form:form>
-	</div>
+		</div> <!-- ruutu2body loppuu -->
+	</div> <!-- ruutu2 loppuu -->
 	</div>
 	</div>
 
@@ -223,6 +224,7 @@
 	  		//window.alert(y);
 	  	  if (x >= y) {
 			document.getElementById("myBtn").disabled = true;
+			document.getElementById("osallistujamaara").style.color = "red";
 	  	  }
 	  	  else {
 	  		document.getElementById("myBtn").disabled = false;
