@@ -87,7 +87,7 @@ h1{
 
 @media all and (min-width: 960px) {
 h1{
-    font-size: 5.5vw;
+    font-size: 6vw;
     overflow: hidden;
   }
 }
@@ -100,7 +100,7 @@ h2{
 
 @media all and (min-width: 960px) {
 h2{
-    font-size: 4.5vw;
+    font-size: 5vw;
     overflow: hidden;
   }
 }
@@ -112,7 +112,7 @@ h3{
 
 @media all and (min-width: 960px) {
 h3{
-    font-size: 2.5vw;
+    font-size: 3vw;
     overflow: hidden;
   }
 }
@@ -122,16 +122,17 @@ h4{
 	overflow: hidden;
 }
 
-h7{
-	font-size: 15px;
-	
-}
+
 
 @media all and (min-width: 960px) {
 h4{
-    font-size: 1.5vw;
+    font-size: 2vw;
     overflow: hidden;
   }
+}
+h7{
+	font-size: 15px;
+	
 }
 
 /* Jos käytät esim h4, h5, h5... niin responsiivinen teksti ei toimi. /*
