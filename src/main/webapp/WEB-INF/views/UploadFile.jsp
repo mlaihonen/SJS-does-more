@@ -73,7 +73,7 @@
    				<div class="imagePreview"></div>
 				<input type="file" name="file" onchange="previewImage(this,[256],4);" />
 				<!--  onchange="previewImage(this,[sizes],limit);" * limit is number of Mb  -->
-				<br/><button  class="btn waves-effect waves-light" type="submit" ><span><i class="material-icons">add_a_photo</i> <spring:message code="kuva.itsestasi"/></span></button>
+				<br/><button  id="myBtn" class="btn waves-effect waves-light" type="submit" ><span><i class="material-icons">add_a_photo</i> <spring:message code="kuva.itsestasi"/></span></button>
 				</form:form>
  
       
