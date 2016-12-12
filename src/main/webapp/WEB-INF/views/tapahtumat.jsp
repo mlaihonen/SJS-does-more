@@ -89,7 +89,7 @@
 		
     <div class="card-image waves-effect waves-block waves-light">   
     	
-    	<img id="jarjestaja" class="activator" src="<c:out value="../userImages/${tapahtuma.kayttaja.id}/${tapahtuma.kayttaja.id}.jpg" />" >
+    	<img id="jarjestaja" class="activator" src="<c:out value="../userImages/${tapahtuma.kayttaja.id}/${tapahtuma.kayttaja.id}.jpg" />" onError="this.onerror=null;this.src='http://proto389.haaga-helia.fi:8080/SJS-does-more/resources/images/noimage.png';" />
      <%-- <img class="activator" src="<c:out value="${kuva}" />"> --%>
      <%-- <img class="activator" src="<c:url value="/resources/images/profile.jpg" />"> --%>
     </div>
@@ -111,23 +111,10 @@
 	  	<p><c:out value="${tapahtuma.kuvaus }" /> </p>
 	  	<form:form action="tapahtumatiedot/${tapahtuma.id}" method="get">
 	  	<div id="lisatietojanappi" onload="nappifunktio()">
-	  	<button id="nappula" class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/>	
+	  	<button class="btn waves-effect indigo darken-4 waves-light" type="submit"><spring:message code="osallistu"/>	
 	  	<i class="material-icons right">send</i></button>
 	  	
-	  	
-	  	<!-- Tässä mikon tekemä javascript jonka pitäisi laittaa disabled nappi kun div lisatietonappi latautuu mikäli osallistujia enemmän kuin pitää. ei toimi  -->
-	  	<script>
-	  	function nappifunktio() {
-	  	    var x = document.getElementById("nykyinen");
-	  	    var y = document.getElementById("maximi");
-	  	    
-	  	  if (x <= y) {
-	  		document.getElementById("lisatietojanappi").innerHTML = "<button id="nappula" class="btn disabled waves-effect indigo darken-4 waves-light"/>"
-	      }
-	  	    
-	  	}
-	  	</script>
-	  	
+
 	  	
 	  	</div>
 	  	</form:form>
@@ -198,7 +185,7 @@
   //$('.collapsible').collapsible();
 	</script>
 	
-	<script type="text/javascript">
+	<!--   <script type="text/javascript">
 	document.getElementById("jarjestaja").onerror = function() {myFunction()};
 
 	function myFunction() {
@@ -206,51 +193,10 @@
 		elem.setAttribute("src", "/resources/images/noimage.png");
 		document.getElementById("jarjestaja").appendChild(elem);
 	}
-	</script>
-	
-	
-	<!-- <script>
-		
-		$(document).ready(function(){
-				
-				$.getJSON( "jarjestajat.json", function( data ) {
-					$.each( data, function( key, val ) {
-						var j = $("<section class='Olio'/>").appendTo("#nimi" +val.tapahtuma.kayttaja.id);
-						$("<p/>").text(val.etunimi).appendTo(j);						
-						var j = $("<section class='Olio'/>").appendTo("#kuvaus"+val.tapahtuma.kayttaja.id);
-						$("<p/>").text(val.kuvaus).appendTo(j);
-						
-					});
-				}).error(function() { //palvelinyhteys aiheutti virheen
-					$("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa. Tarkista tietokantayhteys.</p>").appendTo("#lista");
-				});
-				
-// 				for(var i = 0; i < results.length; i += 1){
-// 				    var result = results[i];
-// 				    if(result.id === id){
-// 				        return result;
-// 				    }
-// 				}
-				
-			});
-	</script>
-	
-	
-	<script>
-	
-	$.getJSON( "jarjestajat.json", function( data ) {
-		$.each( data, function( key, val ) {
-			var j = $("<section class='Olio'/>").appendTo("#nimi");
-			$("<p/>").text(val.etunimi).appendTo(j);						
-			var j = $("<section class='Olio'/>").appendTo("#kuvaus");
-			$("<p/>").text(val.kuvaus).appendTo(j);
-			
-		});
-	}).error(function() { //palvelinyhteys aiheutti virheen
-		$("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa. Tarkista tietokantayhteys.</p>").appendTo("#lista");
-	});
-	
 	</script> -->
+	
+	
+
 
     </body>
   </html>
