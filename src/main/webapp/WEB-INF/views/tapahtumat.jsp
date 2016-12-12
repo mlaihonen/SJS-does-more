@@ -89,7 +89,7 @@
 		
     <div class="card-image waves-effect waves-block waves-light">   
     	
-    	<img id="jarjestaja" class="activator" src="<c:out value="../userImages/${tapahtuma.kayttaja.id}/${tapahtuma.kayttaja.id}.jpg" />" onError="this.onerror=null;this.src='http://proto389.haaga-helia.fi:8080/SJS-does-more/resources/images/noimage.png';" />
+    	<img id="jarjestaja" class="activator" src="<c:out value="../userImages/${tapahtuma.kayttaja.id}/${tapahtuma.kayttaja.id}.jpg" />" onError="this.onerror=null;this.src='/SJS-does-more/resources/images/noimage.png';" />
      <%-- <img class="activator" src="<c:out value="${kuva}" />"> --%>
      <%-- <img class="activator" src="<c:url value="/resources/images/profile.jpg" />"> --%>
     </div>
