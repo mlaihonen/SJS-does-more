@@ -99,7 +99,7 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <form:input path="paikka" id="tapahtumapaikka" pattern="[a-zäöåA-ZÄÖÅ0-9-/ ]+[ a-zäöåA-ZÄÖÅ0-9-/ ]+" type="text" length="20" class="validate"/>
+            <form:input path="paikka" id="tapahtumapaikka" pattern="[a-zäöåA-ZÄÖÅ0-9-/ ]+[ a-zäöåA-ZÄÖÅ0-9-/ ]+" type="text" length="50" class="validate"/>
             <form:label path="paikka" for="tapahtumapaikka" data-error="✖" data-success="✓"><spring:message code="tapahtuma.luo.paikka" /></form:label>
             <form:errors path="paikka"/>
           </div>
