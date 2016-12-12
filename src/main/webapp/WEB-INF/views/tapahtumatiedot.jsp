@@ -41,7 +41,7 @@
         <li><a href="/SJS-does-more"><spring:message code="etusivu"/></a></li>
         <li><a href="/SJS-does-more/luotapahtuma"><spring:message code="luotapahtuma"/></a></li>
         <li><a href="/SJS-does-more/tapahtumat"><spring:message code="etsitapahtuma"/></a></li>
-        <li><a href="SJS-does-more/yhteystiedot"><spring:message code="yhteystiedot"/></a></li>
+        <li><a href="/SJS-does-more/yhteystiedot"><spring:message code="yhteystiedot"/></a></li>
       </ul>
        <!-- Dropdown Trigger -->
       
