@@ -82,7 +82,7 @@
 
 	</div>
 	<div class="lapinakuvaharmaa center-align" >
-	<h3><span class="material-icons isoiconi">query_builder</span><fmt:formatDate pattern="hh:mm" value="${tapahtuma.aika}"/> 
+	<h3><span class="material-icons isoiconi">query_builder</span><fmt:formatDate pattern="HH:mm" value="${tapahtuma.aika}"/> 
       <span class="material-icons isoiconi">today</span><fmt:formatDate pattern="dd.MM.yyyy" value="${tapahtuma.pvm}"/>
       <span class="material-icons isoiconi">place</span>${tapahtuma.paikka}
       <span class="material-icons isoiconi">people</span><span id="osallistujamaara"><span id="nykyinen"><c:out value="${tapahtuma.osallistujaLkm}"/></span> / <span id="maximi"><c:out value="${tapahtuma.maxOsallistujaLkm}" /></span></span></h3>
