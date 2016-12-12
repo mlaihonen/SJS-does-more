@@ -95,7 +95,7 @@
     </div>
     <div class="card-content">
       <span class="card-title" id="nimi">
-      <b><c:out value="${tapahtuma.kayttaja.etunimi}"/> <c:out value="${tapahtuma.kayttaja.sukunimi }"/></b></span>
+      <b class="truncate"><c:out value="${tapahtuma.kayttaja.etunimi}"/> <c:out value="${tapahtuma.kayttaja.sukunimi }"/></b></span>
       <span><h7><spring:message code="tapahtuma.jarjestaja"/></h7></span><br>    
     </div>
     <div class="card-reveal">
